@@ -1,0 +1,2 @@
+# SophIA
+A simple generator
