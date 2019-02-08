@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
-    <title>Sophia</title>
+    <title>SophIA</title>
     
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -18,50 +18,54 @@
                 <div class="row">
                         <div class="col-1 bg-white">
           
-                          </div>
+                        </div>
                         <div class="col-10 bg-warning rounded text-center text-info">
-                          <h1>Générateur CAZ/PI SophI.A <small>v1.01</small>
-                            <img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophia"/>
-                          </h1>
-                          </div>
-                          <div class="col-1 bg-white">
+                            <h1>Générateur CAZ/PI SophI.A <small>v1.0</small>
+                                <img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophia"/>
+                            </h1>
+                        </div>
+                        <div class="col-1 bg-white">
           
-                            </div>
+                        </div>
                     </div>
-            <div class="row">
-                <div class="col-1">
+                <div class="row">
+                    <div class="col-1">
 
-                </div>
-                <div class="col-4 p-3 mt-3 border border-primary rounded">
+                    </div>
+                    <div class="col-4 p-3 mt-3 border border-primary rounded">
                         <form>
                         <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">Nom</span>
-                                </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Nom</span>
+                            </div>
                                 <input type="text" id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
+
                         <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">Prénom</span>
-                                </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Prénom</span>
+                            </div>
                                 <input type="text" id="surname" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
+
                         <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">Date de naissance</span>
-                                </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Date de naissance</span>
+                            </div>
                                 <input type="date" id="dtNaiss" min="1950-01-01" max="2000-01-01" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
+
                         <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">Numéro PI</span>
-                                </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Numéro PI</span>
+                            </div>
                                 <input type="text" id="numPi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
+                        
                         <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">Date délivrance</span>
-                                </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Date délivrance</span>
+                            </div>
                                 <input type="date" id="dtDelivr" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
                     <!--<form>
@@ -93,25 +97,25 @@
                             <button class="btn btn-danger btn-sm mb-1" type="reset ">Effacer</button>
                         </div> 
                         
-                    </form>
+                        </form>
                     
-                </div> 
+                    </div> 
                  
                 <div class="col-1 align-self-center no-gutters">
-                        <button class="btn btn-success p-2"  type="submit" onclick="myCaz()">Générer</button>
-                    
+                    <button class="btn btn-success p-2" type="submit" onclick="myCaz()">Générer</button>
                 </div>
             
-                   
                 <div class="col-5 p-3 align-self-center border border-primary rounded">  
                     <div class="form-group">
                         <label for="outCaz" class="text-primary">Nom de fichier CAZ</label>
                         <p id="outCaz" class="text-success text-center border border-success rounded"></p>
                     </div>
+
                     <div class="form-group">
                         <label for="outCaz0" class="text-primary">Nom de fichier CAZ-0</label>
                         <p id="outCaz0" class="text-success text-center border border-success rounded"></p>
                     </div>
+
                     <div class="form-group">
                         <label for="outPi" class="text-primary">Nom de fichier pièce d'identité</label>
                         <p id="outPi" class="text-success text-center border border-success rounded"></p>
@@ -125,29 +129,33 @@
 
                     <!-- Recherche d'un fichier (fonctionnalité à développer)-->
                     <!--<button type="submit" onclick="changeFileName()">Rechercher</button>-->
-            </div>    
+                </div>    
         </div>
         <div class="row">
-            <div class="col-1"></div>
+            <div class="col-1">
+
+            </div>
             <div class="col-10 m-5">
                 <h6>Conformément à la RGPD aucune donnée personnelle n'est récupérée pendant le processus de génération
                 </h6>
             </div>
-            <div class="col-1"></div>
-            
+            <div class="col-1">
+
+            </div>
         </div>
 
 <!-- SCRIPTS -->
     <script src="myCaz.js"></script> 
 
     <!-- Bootstrap -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <!-- Online -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
         <!-- Offline -->
-    <script src="./bootstrap-4.2.1-dist/js/bootstrap.min.js" ></script>
+    <script src="./bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
