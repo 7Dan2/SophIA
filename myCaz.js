@@ -51,22 +51,40 @@ function myCaz(){
         //Date de naissance
     //Déclaration d'un tableau destiné à recevoir la date
     let dtnaiss = [];
-    //Récupération de la date saisie dans l'input (format AAAAMMJJ séparé par des tirets)
+    /*Récupération de la date saisie dans l'input (format AAAA-MM-JJ (séparé par des tirets), si le navigateur
+    a proposé un calendrier ou au format JJ-MM-AAAA (séparé par des tirets), si la date est entrée à la main)*/
     let dtnais = document.getElementById("dtNaiss").value;
-    /*remplissage du tableau en séparant la date en prenant comme parametre le tiret
-    puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA)*/
-    dtnaiss = dtnais.split("-").reverse(" ");
+
+    /*Pour palier à la régionalisation des navigateurs ou à leur incompatibilité avec l'input de type date,
+    on va vérifier la valeur du premier élément du tableau. L'idée étant d'obtenir en sortie
+    un format constant JJMMAAAA (sans tiret)*/
+    dtnaiss = dtnais.split("-");
+    
+    /*Si cette valeur est supérieure à 31 (format AAAA-MM-JJ), 
+    on va inverser tout le tableau avant de le renvoyer*/
+    if (dtnaiss[0] > 31){
+        dtnaiss.reverse(" ");
+    }
+    
     //Vérification de la mécanique dans la console
     console.log(dtNaiss, dtnais, dtnaiss);
 
-        //Date de délivrance PI
+        //Date de délivrance PI (on applique la même logique que pour la date de naissance)
     //Déclaration d'un tableau destiné à recevoir la date
     let dtdelivr = [];
-    //Récupération de la date saisie dans l'input (format AAAAMMJJ séparé par des tirets)
+
+    //Récupération de la date saisie dans l'input (format AAAA-MM-JJ)
     let dtpi = document.getElementById("dtDelivr").value;
+
     /*Remplissage du tableau en séparant la date en prenant comme parametre le tiret
     puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA)*/
-    dtdelivr = dtpi.split("-").reverse(" ");
+    
+    dtdelivr = dtpi.split("-");
+
+    if (dtdelivr[0] > 31){
+        dtdelivr.reverse(" ");
+    }
+
     //Vérification de la mécanique dans la console
     console.log(dtDelivr, dtpi, dtdelivr);
 
