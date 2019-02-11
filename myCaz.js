@@ -42,8 +42,9 @@ function myCaz(){
     //Vérification de la mécanique dans la console
     console.log(g, fr, trt, abr, abc);
 
-    // Récupération des info des pièces d'identité
+        // Récupération des info des pièces d'identité
     let numPi = document.getElementById("numPi").value;
+    //Vérification de la mécanique dans la console
     console.log(numPi);
 
     //Gestion des formats de date
@@ -54,7 +55,7 @@ function myCaz(){
     //Récupération de la date saisie dans l'input (format AAAAMMJJ séparé par des tirets)
     let dtnais = document.getElementById("dtNaiss").value;
     /*remplissage du tableau en séparant la date en prenant comme parametre le tiret
-    puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA)*/
+    puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA*/
     dtnaiss = dtnais.split("-").reverse(" ");
     //Vérification de la mécanique dans la console
     console.log(dtNaiss, dtnais, dtnaiss);
@@ -65,23 +66,17 @@ function myCaz(){
     //Récupération de la date saisie dans l'input (format AAAAMMJJ séparé par des tirets)
     let dtpi = document.getElementById("dtDelivr").value;
     /*Remplissage du tableau en séparant la date en prenant comme parametre le tiret
-    puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA)*/
+    puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA*/
     dtdelivr = dtpi.split("-").reverse(" ");
     //Vérification de la mécanique dans la console
     console.log(dtDelivr, dtpi, dtdelivr);
 
-
-
-    //Récupération du nom de fichier pour renommage
-    /*let chFile = document.getElementById("chooseFile").value;
-    console.log(chFile);*/
-
-    //Génération des sorties CAZ
+        //Génération des sorties CAZ
     // Bricolage en attente de mieux pour coller les éléments du tableau dtnaiss
     document.getElementById("outCaz").innerHTML = "CAZ" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + ".pdf";
     document.getElementById("outCaz0").innerHTML = "CAZ-0" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + ".pdf";
 
-    //Génération de la sortie PI
+        //Génération de la sortie PI
     // Bricolage en attente de mieux pour coller les éléments du tableau dtdelivr
     document.getElementById("outPi").innerHTML = "PI" + "_" + v + "_" + abr + abc + "_" + numPi + "_" + dtdelivr[0] + dtdelivr[1] + dtdelivr[2] + ".pdf";
     }
