@@ -1,13 +1,26 @@
 function myCaz(){
     //Récupération du nom, mise en majuscule
-    v = document.getElementById("name").value.toUpperCase();
+    let v = document.getElementById("name").value.toUpperCase();
     //Si aucune valeur n'est entrée, affichage d'un message d'alerte
         //S'orienter vers mécanisme de validation plus propre 
     if (v==""){
         alert("Vous devez entrer votre nom");
     }
+    //Gestion des noms composés (détection des espaces des ( - ) et ( _ ) 
+        //Ajout ou modification par ( - )
+    //On génére un tableau des lettres du nom à partir de la valeur lue dans 'v'
+    let vtab = [];
+    vtab = v.split("");
+    //On cherche la présence d'un espace ou d'un ( - ) ou d'un ( _ )  dans ce tableau (renvoie true ou false)
+    let vtir = vtab.includes("");
+    /*var regex = /""/gi;
+    let vmod ;
+    vmod = v.replace(regex, '-');*/
+
+
+
     //Vérification de la mécanique dans la console
-    console.log(v);
+    console.log(v, vtab, vtir);
 
     //Récupération du prénom, mise en majuscule
     w = document.getElementById("surname").value.toUpperCase();
@@ -21,7 +34,7 @@ function myCaz(){
     //On génére un tableau des lettres du prénom à partir de la valeur lue dans 'w'
     let g = [];
     g = w.split("");
-    //On cherchge la présence du tiret dans ce tableau (renvoie true ou false)
+    //On cherche la présence du tiret dans ce tableau (renvoie true ou false)
     let fr = g.includes("-");
     //Si true, on renvoie la position du tiret dans le tableau
     let trt;
