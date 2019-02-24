@@ -16,6 +16,8 @@ tant que les champs de génération des noms ne seront pas remplis.
 
 7. Revoir la sortie PI, il ne doit pas y avoir la date de délivrance (à vérifier sur doc fice).
 
-8. Traiter les espaces et les ( _ ) dans les prénoms composés (ajouter automatiquement ( - )
+8. Traiter les espaces et les ( _ ) dans les prénoms composés (ajouter automatiquement ( - ). 
+branche 'underScoreAndSpaces'
 
 9. Traiter les noms composés. 
+branche 'underScoreAndSpaces'
