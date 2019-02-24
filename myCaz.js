@@ -18,7 +18,7 @@ function myCaz(){
     }
 
     //Gestion des prénoms composés
-    //On génére un tableau des lettres du prénom
+    //On génére un tableau des lettres du prénom à partir de la valeur lue dans 'w'
     let g = [];
     g = w.split("");
     //On cherchge la présence du tiret dans ce tableau (renvoie true ou false)

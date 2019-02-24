@@ -1,7 +1,7 @@
 Ces Todo sont numérotés mais ne représentent pas une liste à réaliser dans l'ordre.
 
 1. Ajouter une verification de version du navigateur => Préviens si certaines fonctionnalité ne seront
-pas disponible (i.e : les champs date).
+pas disponible (i.e : les champs date). branche 'checkVersion'
 
 2. Dans la fonctionnalité de renommage des fichiers, le bouton d'action sera inactif (grisé ..) 
 tant que les champs de génération des noms ne seront pas remplis.
@@ -12,4 +12,10 @@ tant que les champs de génération des noms ne seront pas remplis.
 
 5. Vérification des noms de fichiers en entrée du renommage (doivent être dejà en .pdf).
 
-6. Faire la documentation (accessible en ligne et en pdf)
+6. Faire la documentation (accessible en ligne et en pdf).
+
+7. Revoir la sortie PI, il ne doit pas y avoir la date de délivrance (à vérifier sur doc fice).
+
+8. Traiter les espaces et les ( _ ) dans les prénoms composés (ajouter automatiquement ( - )
+
+9. Traiter les noms composés. 
