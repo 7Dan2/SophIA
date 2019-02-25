@@ -83,7 +83,7 @@ function myCaz(){
 
     //Génération de la sortie PI
     // Bricolage en attente de mieux pour coller les éléments du tableau dtdelivr
-    document.getElementById("outPi").innerHTML = "PI" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + numPi + ".pdf";
+    document.getElementById("outPi").innerHTML = "PI" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + "_" + numPi + ".pdf";
     }
 
 
