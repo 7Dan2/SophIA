@@ -35,7 +35,7 @@ window.onload = function() {
 
     fileInput.addEventListener('change', function(e) {
         var file = fileInput.files[0];
-        var textType = /text.*/;
+        var textType = /application.*/;
 
         if (file.type.match(textType)) {
             var reader = new FileReader();
@@ -46,7 +46,7 @@ window.onload = function() {
 
             reader.readAsText(file);	
         } else {
-            fileDisplayArea.innerText = "File not supported!"
+            fileDisplayArea.innerText = "Choisissez un fichier texte"
         }
     });
 }
