@@ -70,8 +70,6 @@ function myCaz(){
     //Vérification de la mécanique dans la console
     console.log(dtDelivr, dtpi, dtdelivr);
 
-
-
     //Récupération du nom de fichier pour renommage
     /*let chFile = document.getElementById("chooseFile").value;
     console.log(chFile);*/
@@ -85,6 +83,8 @@ function myCaz(){
     // Bricolage en attente de mieux pour coller les éléments du tableau dtdelivr
     document.getElementById("outPi").innerHTML = "PI" + "_" + v + "_" + abr + abc + "_" + numPi + "_" + dtdelivr[0] + dtdelivr[1] + dtdelivr[2] + ".pdf";
     }
+
+    
 
 
 
