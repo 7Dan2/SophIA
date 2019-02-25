@@ -79,11 +79,11 @@ function myCaz(){
     //Génération des sorties CAZ
     // Bricolage en attente de mieux pour coller les éléments du tableau dtnaiss
     document.getElementById("outCaz").innerHTML = "CAZ" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + ".pdf";
-    document.getElementById("outCaz0").innerHTML = "CAZ-0" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + ".pdf";
+    document.getElementById("outCaz0").innerHTML = "CAZ-O" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + ".pdf";
 
     //Génération de la sortie PI
     // Bricolage en attente de mieux pour coller les éléments du tableau dtdelivr
-    document.getElementById("outPi").innerHTML = "PI" + "_" + v + "_" + abr + abc + "_" + numPi + "_" + dtdelivr[0] + dtdelivr[1] + dtdelivr[2] + ".pdf";
+    document.getElementById("outPi").innerHTML = "PI" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + numPi + ".pdf";
     }
 
 
