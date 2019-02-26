@@ -70,7 +70,21 @@ function myCaz(){
     //Vérification de la mécanique dans la console
     console.log(dtDelivr, dtpi, dtdelivr);
 
+        //KBIS
+    //Récupération du nom de l'entreprise du numéro de SIREN
+    let nomEntr = document.getElementById("nomEntr").value.toUpperCase();
+    let numSIR = document.getElementById("numSIR").value;
 
+    //Date KBIS
+        //Déclaration d'un tableau destiné à recevoir la date
+    let dtKBISt = [];
+    //Récupération de la date saisie dans l'input (format AAAAMMJJ séparé par des tirets)
+    let dtKBIS = document.getElementById("dtKBIS").value;
+    /*Remplissage du tableau en séparant la date en prenant comme parametre le tiret
+    puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA)*/
+    dtKBISt = dtKBIS.split("-").reverse(" ");
+    //Vérification de la mécanique dans la console
+    console.log(nomEntr, numSIR, dtKBIS, dtKBISt);
 
     //Récupération du nom de fichier pour renommage
     /*let chFile = document.getElementById("chooseFile").value;
@@ -84,7 +98,14 @@ function myCaz(){
     //Génération de la sortie PI
     // Bricolage en attente de mieux pour coller les éléments du tableau dtdelivr
     document.getElementById("outPi").innerHTML = "PI" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + "_" + numPi + ".pdf";
-    }
+    
+    //Génération de la sortie DUE
+    document.getElementById("outDUE").innerHTML = "DUE" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + ".pdf";
+    
+    //Génération de la sortie KBIS
+    document.getElementById("outKBIS").innerHTML = "KBIS" + "_" + nomEntr + "_" + numSIR + "_" + dtKBISt[0] + dtKBISt[1] + dtKBISt [2] + ".pdf";
+    
+}
 
 
 
