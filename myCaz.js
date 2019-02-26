@@ -86,10 +86,7 @@ function myCaz(){
     //Vérification de la mécanique dans la console
     console.log(nomEntr, numSIR, dtKBIS, dtKBISt);
 
-    //Récupération du nom de fichier pour renommage
-    /*let chFile = document.getElementById("chooseFile").value;
-    console.log(chFile);*/
-
+    
     //Génération des sorties CAZ
     // Bricolage en attente de mieux pour coller les éléments du tableau dtnaiss
     document.getElementById("outCaz").innerHTML = "CAZ" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + ".pdf";
@@ -106,6 +103,8 @@ function myCaz(){
     document.getElementById("outKBIS").innerHTML = "KBIS" + "_" + nomEntr + "_" + numSIR + "_" + dtKBISt[0] + dtKBISt[1] + dtKBISt [2] + ".pdf";
     
 }
+
+    
 
 
 
