@@ -1,3 +1,4 @@
+
 function myCaz(){
     //Récupération du nom, mise en majuscule
     v = document.getElementById("name").value.toUpperCase();
@@ -73,7 +74,7 @@ function myCaz(){
         //KBIS
     //Récupération du nom de l'entreprise du numéro de SIREN
     let nomEntr = document.getElementById("nomEntr").value.toUpperCase();
-    let numSIR = document.getElementById("numSIR").value;
+    let numSIR = document.getElementById("numSir").value;
 
     //Date KBIS
         //Déclaration d'un tableau destiné à recevoir la date
@@ -86,7 +87,41 @@ function myCaz(){
     //Vérification de la mécanique dans la console
     console.log(nomEntr, numSIR, dtKBIS, dtKBISt);
 
-    
+    // Gestion du choix SIREN(9chiffres) et SIRET(14 chiffres)
+    let sirenChk = '';
+    let sirenVal ;
+    let siretChk = '';
+    let siretVal ;
+        //On vérifie si l'un des deux boutons est coché
+        sirenChk = document.getElementById("siren").checked
+        siretChk = document.getElementById("siret").checked
+
+        //Si siren est true, on va vérifier que le nombre de chiffre est bien de 9
+        if (sirenChk === true){
+            sirenVal = document.getElementById("numSir").value.split("");
+            if (sirenVal.length < 9 ){
+                alert("Le numéro SIREN doit contenir au moins 9 chiffres");
+            }
+            else if (sirenVal.length > 9){
+                alert("le numéro SIREN ne peut pas contenir plus de 9 chiffres");
+            }
+        }
+
+         //Si siret est true, on va vérifier que le nombre de chiffre est bien de 14
+         if (siretChk === true){
+            siretVal = document.getElementById("numSir").value.split("");
+            if (siretVal.length < 14 ){
+                alert("Le numéro SIRET doit contenir au moins 14 chiffres");
+            }
+            else if (siretVal.length > 14){
+                alert("le numéro SIRET ne peut pas contenir plus de 14 chiffres");
+            }
+        }
+           
+        //Vérification de la mécanique dans la console
+        console.log(sirenVal, siretVal);
+
+
     //Génération des sorties CAZ
     // Bricolage en attente de mieux pour coller les éléments du tableau dtnaiss
     document.getElementById("outCaz").innerHTML = "CAZ" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + ".pdf";
