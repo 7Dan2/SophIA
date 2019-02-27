@@ -73,8 +73,8 @@ function myCaz(){
 
         //KBIS
     //Récupération du nom de l'entreprise du numéro de SIREN
-    let nomEntr = document.getElementById("nomEntr").value.toUpperCase();
-    let numSIR = document.getElementById("numSir").value;
+    let nomEntrv = document.getElementById("nomEntr").value.toUpperCase();
+    let numSIRv = document.getElementById("numSir").value;
 
     //Date KBIS
         //Déclaration d'un tableau destiné à recevoir la date
@@ -85,7 +85,7 @@ function myCaz(){
     puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA)*/
     dtKBISt = dtKBIS.split("-").reverse(" ");
     //Vérification de la mécanique dans la console
-    console.log(nomEntr, numSIR, dtKBIS, dtKBISt);
+    console.log(nomEntrv, numSIRv, dtKBIS, dtKBISt);
 
     // Gestion du choix SIREN(9chiffres) et SIRET(14 chiffres)
     let sirenChk = '';
@@ -135,7 +135,7 @@ function myCaz(){
     document.getElementById("outDUE").innerHTML = "DUE" + "_" + v + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + ".pdf";
     
     //Génération de la sortie KBIS
-    document.getElementById("outKBIS").innerHTML = "KBIS" + "_" + nomEntr + "_" + numSIR + "_" + dtKBISt[0] + dtKBISt[1] + dtKBISt [2] + ".pdf";
+    document.getElementById("outKBIS").innerHTML = "KBIS" + "_" + nomEntrv + "_" + numSIRv + "_" + dtKBISt[0] + dtKBISt[1] + dtKBISt [2] + ".pdf";
     
 }
 

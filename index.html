@@ -20,8 +20,8 @@
                 <div class="col-1 bg-white">
           
                 </div>
-                <div class="col-10 bg-warning rounded text-center text-info">
-                    <h1>Générateur CAZ/PI SophI.A <small>v1.04</small>
+                <div class="col-10 bg-warning rounded text-center text-white">
+                    <h1>Générateur CAZ/PI SophI.A <small>v1.05</small>
                         <img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophia"/>
                     </h1>
                 </div>
@@ -40,32 +40,51 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">Nom</span>
                                 </div>
-                                <input type="text" id="name" class="form-control" aria-label="nom" aria-describedby="name">
+                                <input type="text" id="name" class="form-control" aria-label="nom" aria-describedby="nom" required>
                         </div>
                         <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">Prénom</span>
                                 </div>
-                                <input type="text" id="surname" class="form-control" aria-label="prénom" aria-describedby="surname">
+                                <input type="text" id="surname" class="form-control" aria-label="prénom" aria-describedby="prénom" placeholder="noms composés séparés par -" required>
                         </div>
                         <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">Date de naissance</span>
                                 </div>
-                                <input type="date" id="dtNaiss" min="1950-01-01" max="2000-01-01" class="form-control" aria-label="date de naissance" aria-describedby="date of birth">
+                                <input type="date" id="dtNaiss" min="1950-01-01" max="2000-01-01" class="form-control" aria-label="date de naissance" aria-describedby="date de naissance" required>
                         </div>
+
+                        <hr/>
+
                         <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">Numéro PI</span>
-                                </div>
-                                <input type="text" id="numPi" class="form-control" aria-label="numéro pièce d'identité" aria-describedby="identity card number">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="cartid" class="custom-control-input" name="customRadio"/>
+                                        <label class="custom-control-label" for="cartid">CI</label>
+                                    </div>
+                                            
+                                    &nbsp;
+                                            
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="passprt" class="custom-control-input" name="customRadio"/>
+                                        <label class="custom-control-label" for="passprt">Passeport</label>
+                                    </div>
+                                </span>
+                            </div>
+                                <input type="text" id="numPi" class="form-control" aria-label="numéro pièce d'identité" aria-describedby="numéro pièce d'identité" placeholder="numéro" required>
                         </div>
+
                         <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">Date délivrance</span>
                                 </div>
                                 <input type="date" id="dtDelivr" class="form-control" aria-label="date de délivrance de la pièce d'identité" aria-describedby="delivering date of identity card">
                         </div>
+
+                        <hr/>
+
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text">Nom de l'entreprise</span>
@@ -86,7 +105,7 @@
                                 </div>
                             </span>
                                 </div>
-                            <input type="number" id="numSir" class="form-control" min="9" max="14" aria-label="numéro d'identification au répertoire" aria-describedby="registration society number">
+                            <input type="number" id="numSir" class="form-control" min="9" max="14" aria-label="numéro d'identification au répertoire" aria-describedby="registration society number" placeholder="numéro">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -145,7 +164,8 @@
         </div>
 
 <!-- SCRIPTS -->
-    <script src="myCaz.js"></script> 
+    <script src="myCaz.js"></script>
+    <script src="dateForCaz.js"></script> 
 
     <!-- Bootstrap -->
     <!-- Optional JavaScript -->
