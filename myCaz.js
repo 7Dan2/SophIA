@@ -77,6 +77,7 @@ function myCaz(){
     let origin = Date.now();
     //Détermination des ms au 01-01-2014 (date de passage de la validité à 15 ans)
     var d = Date.parse("January 01, 2014");
+    //Détermination des ms à la valeur entrée comme date de délivrance de la CI
     const dtValidPi = Date.parse(dtpi);
     //Comparaison des deux valeurs et assignation true/false a dtValidPiStatut 
     //Cette comparaison ne s'opère que si le bouton CI est coché
