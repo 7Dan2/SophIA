@@ -72,18 +72,29 @@ function myCaz(){
 
 
     piChk = document.getElementById("cartid").checked;
+    passprtChk = document.getElementById("passprt").checked;
+
     //Détermination des ms depuis le 01-01-1970 au moment de l'entrée de la date de la CI
     let dtOrigin = new Date();
     let origin = Date.now();
-    //Détermination des ms au 01-01-2014 (date de passage de la validité à 15 ans)
+    //Détermination des ms au 01-01-2014 (date de passage de la validité de la CI à 15 ans)
     var d = Date.parse("January 01, 2014");
     //Détermination des ms à la valeur entrée comme date de délivrance de la CI
     const dtValidPi = Date.parse(dtpi);
     //Comparaison des deux valeurs et assignation true/false a dtValidPiStatut 
     //Cette comparaison ne s'opère que si le bouton CI est coché
-    let dtValidPiStatut ;
+    let dtValidPiStatut; 
+    let dtpiChk;
+    if (piChk == false && passprtChk == false){
+        alert("Vous devez sélectioner le bouton correspondant à votre document");
+    }
+    if (dtpi == ""){
+        dtpiChk = false
+    }
     if (piChk == true && dtValidPi < d) {
         alert("carte d'identité trop ancienne");
+        document.getElementById("dtDelivr").style.background="crimson";
+        document.getElementById("dtDelivr").style.color="white";
         dtValidPiStatut = true;
     }
     else {
@@ -192,16 +203,24 @@ console.log("nom d'entreprise:" + nomEntr, nomEntrV,numSirV);
     //On créé un tableau et l'on y insère les données de outCaz pour enuite chercher si un champ n'est pas rempli (date vide renvoie undefined)
     outCazArray = outCaz.split("  ");
     outCazContent = outCaz.includes("undefined");
-    //La vérification de la présence des champs vide nom prénom et date de naissance s'étend sur la génération de la PI
-    if (outCazContent == true || nameV =="" || surnameV == "") {
+    //La vérification de la présence des champs vides nom prénom et date de naissance s'étend sur la génération de la PI
+    if (outCazContent == true || nameV == "" || surnameV == "") {
         document.getElementById("outCaz").style.color='white';
         document.getElementById("outCaz").style.background='crimson';
 
         document.getElementById("pOutCaz").style.background='crimson';
+        document.getElementById("pOutCazO").style.background='crimson';
+        document.getElementById("pOutPi").style.background='crimson';
 
         document.getElementById("outCazO").style.color='white';
         document.getElementById("outCazO").style.background='crimson';
 
+        
+        //On désactive également le lien
+        document.getElementById("inputCazFile").disabled = true;
+
+    }
+    else if (outCazContent == true || nameV == "" || surnameV == "" && numPi == "") {
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='crimson';
     }
@@ -210,12 +229,17 @@ console.log("nom d'entreprise:" + nomEntr, nomEntrV,numSirV);
         document.getElementById("outCaz").style.background='forestgreen';
 
         document.getElementById("pOutCaz").style.background='forestgreen';
+        document.getElementById("pOutCazO").style.background='forestgreen';
+        document.getElementById("pOutPi").style.background='forestgreen';
 
         document.getElementById("outCazO").style.color='white';
         document.getElementById("outCazO").style.background='forestgreen';
 
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='forestgreen';
+
+        //et on active le lien
+        document.getElementById("inputCazFile").disabled = false;
     }
     if (nameV == ""){
         alert("Vous devez entrer votre nom");
@@ -232,7 +256,7 @@ console.log("nom d'entreprise:" + nomEntr, nomEntrV,numSirV);
     //Génération de la sortie PI
     // Bricolage en attente de mieux pour coller les éléments du tableau dtdelivr
     document.getElementById("outPi").innerHTML = "PI" + "_" + nameV + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + "_" + numPi + ".pdf";
-    if (numPi == "" || dtValidPiStatut == true){
+    if (numPi == "" || dtValidPiStatut == true || (piChk == false && passprtChk == false) || dtpiChk == false){
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='crimson';
     }

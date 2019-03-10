@@ -12,4 +12,6 @@ Version 1.08 07-03-2019
 	Calcul la date de validité des CI;
 	Coloration des sorties en fonction de différentes condition de validité:
 		Présence du nom du prénom et d’une date de naissance (CAZ et CAZ-O)
+		Présence d’une date pour la PI
 		Présence d’une date de CI valide (CAZ CAZ-O et PI)
+
