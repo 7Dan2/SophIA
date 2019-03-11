@@ -15,3 +15,9 @@ Version 1.08 07-03-2019
 		Présence d’une date pour la PI
 		Présence d’une date de CI valide (CAZ CAZ-O et PI)
 
+Version 1.09 09-03-2019
+	Travail sur l’accessibilité, début.
+
+Version 1.10 10-03-2019
+	Titre et icônes sur les parties renseignements et sortie
+

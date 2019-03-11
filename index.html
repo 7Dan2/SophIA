@@ -10,6 +10,8 @@
     <!-- Bootstrap CSS -->
     <!-- Online -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Offline -->
     <!--<link rel="stylesheet" href="./bootstrap-4.2.1-dist/css/bootstrap.min.css">-->
 </head>
@@ -21,9 +23,12 @@
           
                 </div>
                 <div class="col-10 bg-light rounded text-center text-secondary">
-                    <h1>Générateur CAZ/PI SophI.A <small>v1.08</small>
-                        <img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophia"/>
+                    <h1>Générateur CAZ/PI SophI.A <small>v1.10</small>
+                        <img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophI.A"/>
+                        <p><i class="fas fa-assistive-listening-systems"></i></p>
                     </h1>
+                    
+                    
                 </div>
                 <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
         
@@ -36,6 +41,7 @@
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 p-3 mt-3 border border-white bg-secondary rounded">
                     <form>
+                        <h4><i class="far fa-id-card"></i>&nbsp;Etat civil</h4>
                         <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">Nom</span>
@@ -84,7 +90,7 @@
                         </div>
 
                         <hr/>
-
+                        <h4><i class="far fa-building"></i>&nbsp;Informations entreprise</h4>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text">Nom de l'entreprise</span>
@@ -138,7 +144,7 @@
               </button>
             </div>
             <div class="modal-body">
-              Merci à Hélène, Xavier, Sébastien pour leur aide pour la partie UI/UX
+              Merci à Cindy, Hélène, Xavier, Sébastien pour leur aide pour la partie UI/UX
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
@@ -157,12 +163,13 @@
                 </div>
             
                 <div class="col-lg-5 col-md-12 col-sm-12 p-3 mt-3 border border-white bg-secondary text-light rounded">  
-                        
+                        <h4><i class="fas fa-file-export"></i>&nbsp;Noms de fichiers générés</h4>
+
                     <div class="form-group">
                         <label for="outCaz" class="text-light">Nom de fichier CAZ</label>
                         <!-- le lien doit permettre d'ouvrir le navigateur pour choisir un fichier à renommer (à développer)-->
                         <p class=" text-center border border-light rounded" id="pOutCaz">
-                            <a href="#" id="outCaz" class=" text-center"></a>
+                            <a href="#" id="outCaz" class=" text-center"><i class="fas fa-file-import"></i></a>
                         </p>
                         <div class="input-group-prepend" style="display:none">
                             <span class="input-group-text">
@@ -181,7 +188,7 @@
                     <div class="form-group">
                         <label for="outCaz0" class="text-light">Nom de fichier CAZ-O</label>
                         <p class=" text-center border border-light rounded" id="pOutCazO">
-                            <a href="#" id="outCazO" class=" text-center"></a>
+                            <a href="#" id="outCazO" class=" text-center"><i class="fas fa-file-import"></i></a>
                         </p>
                         <div class="input-group-prepend" style="display:none" >
                             <span class="input-group-text">
@@ -198,7 +205,7 @@
                     <div class="form-group">
                         <label for="outPi" class="text-light">Nom de fichier pièce d'identité</label>
                         <p class="text-center border border-white rounded" id="pOutPi">
-                            <a href="#" id="outPi" class=" text-center"></a>
+                            <a href="#" id="outPi" class=" text-center"><i class="fas fa-file-import"></i></a>
                         </p>
                         <div class="input-group-prepend" style="display:none">
                             <span class="input-group-text">
@@ -248,12 +255,22 @@
             </div>    
         </div>
         <div class="row bg-light">
-            <div class="col-lg-1 col-md-1 col-sm-1 bg-light"></div>
+            <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
+                
+            </div>
             <div class="col-lg-10 col-md-10 m-5 bg-light">
-                <h6><a href="https://www.cnil.fr/fr/reglement-europeen-sur-la-protection-des-donnees-ce-qui-change-pour-les-professionnels">Conformément à la RGPD aucune donnée personnelle n'est récupérée pendant le processus de génération</a>
+                <h6>
+                    <a href="https://www.cnil.fr/fr/reglement-europeen-sur-la-protection-des-donnees-ce-qui-change-pour-les-professionnels">
+                    Conformément à la RGPD aucune donnée personnelle n'est récupérée pendant l'utilisation de cet utilitaire
+                    </a>
                     <!-- la fonction est dans dateForCaz.js-->
                     <p id="connectStatus"></p>
-
+                </h6>
+                <h6>
+                        <a href="https://www.linkedin.com/in/yanisfoucher/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/7Dan2/SophIA"><i class="fab fa-github"></i></a>
+                        
+                        
                 </h6>
             </div>
             <div class="col-1"></div>

@@ -220,9 +220,9 @@ console.log("nom d'entreprise:" + nomEntr, nomEntrV,numSirV);
         document.getElementById("inputCazFile").disabled = true;
 
     }
-    else if (outCazContent == true || nameV == "" || surnameV == "" && numPi == "") {
+    else if ((outCazContent == true || nameV == "" || surnameV == "") && numPi == "") {
         document.getElementById("outPi").style.color='white';
-        document.getElementById("outPi").style.background='crimson';
+        document.getElementById("outPi").style.background='orange';
     }
     else {
         document.getElementById("outCaz").style.color='white';
@@ -240,6 +240,7 @@ console.log("nom d'entreprise:" + nomEntr, nomEntrV,numSirV);
 
         //et on active le lien
         document.getElementById("inputCazFile").disabled = false;
+        document.getElementById("inputCazOFile").disabled = false;
     }
     if (nameV == ""){
         alert("Vous devez entrer votre nom");
