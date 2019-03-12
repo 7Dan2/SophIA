@@ -68,7 +68,7 @@ console.log(a);
 /*if (calcDiff > 7776000000){
     alert("Votre extrait KBIS n'est plus valide");
 }*/
-}
+
     //Gestion de la validité des cartes d'identité
 //Récupérer la date de l'input 'dtDelivr' dès qu'elle est entrée
 //addEventListener(onchange);

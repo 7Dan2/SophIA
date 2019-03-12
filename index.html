@@ -23,7 +23,7 @@
           
                 </div>
                 <div class="col-10 bg-light rounded text-center text-secondary">
-                    <h1>Générateur CAZ/PI SophI.A <small>v1.11</small>
+                    <h1>Générateur CAZ/PI SophI.A <small>v1.12</small>
                         <img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophI.A"/>
                         <p><i class="fas fa-assistive-listening-systems"></i></p>
                     </h1>
@@ -39,7 +39,7 @@
                 <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
 
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 p-3 mt-3 border border-white bg-secondary rounded">
+                <div class="col-lg-4 col-md-12 col-sm-12 p-3 mt-3 text-light bg-secondary rounded">
                     <form>
                         <h4><i class="far fa-id-card"></i>&nbsp;Etat civil</h4>
                         <div class="input-group mb-3">
@@ -106,7 +106,7 @@
                         </div>
 
 <!-- caché par défaut si nom de l'entreprise n'est pas rempli (à développer)-->
-                        <div class="input-group mb-3" id="divHid1">
+                        <div class="input-group mb-3" id="divHid1" hidden="false">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <div class="custom-control custom-radio">
@@ -123,7 +123,7 @@
                             <input type="number" id="numSir" class="form-control" min="9" max="14" aria-label="numéro d'identification au répertoire" aria-describedby="registration society number" placeholder="numéro à 9 ou 14 chiffres">
                         </div>
 <!-- caché par défaut si nom de l'entreprise n'est pas rempli (à développer)-->
-                        <div class="input-group mb-3" id="divHid2">
+                        <div class="input-group mb-3" id="divHid2" hidden="false" >
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Date édition KBIS</span>
                             </div>
@@ -173,7 +173,7 @@
                     <button class="btn btn-success p-2"  type="submit" aria-label="lancer la génération" onclick="myCaz()">Générer</button>
                 </div>
             
-                <div class="col-lg-5 col-md-12 col-sm-12 p-3 mt-3 border border-white bg-secondary text-light rounded">  
+                <div class="col-lg-5 col-md-12 col-sm-12 p-3 mt-3 bg-secondary text-light rounded">  
                         <h4><i class="fas fa-file-export"></i>&nbsp;Noms de fichiers générés</h4>
 
                     <div class="form-group">
