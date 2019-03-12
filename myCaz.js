@@ -40,17 +40,61 @@ function myCaz(){
     console.log(surnameArray, fr, trt, abr, abc);
 
     // ######### Gestion des formats de date #########
-
+    /*Récupération de la date saisie dans l'input (format AAAAMMJJ séparé par des tirets)
+    Dans certains cas le champ de date n'offre pas de calendrier
+    Il faut traiter l'éventualité des séparateur "/" en entrée afin qu'ils soient traités et convertis en "-"
+    Il faut traiter l'éventualité de l'inversion des valeurs AAAA et JJ 
+    */
         //Date de naissance
     //Déclaration d'un tableau destiné à recevoir la date
     let dtnaiss = [];
-    //Récupération de la date saisie dans l'input (format AAAAMMJJ séparé par des tirets)
+    //On récupère la valeur du champ date quel que soit son formatage
     let dtnais = document.getElementById("dtNaiss").value;
-    /*remplissage du tableau en séparant la date en prenant comme parametre le tiret
-    puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA)*/
-    dtnaiss = dtnais.split("-").reverse(" ");
+    /*remplissage du tableau en séparant les éléménts de la date en prenant comme parametre le tiret qui est par 
+    présent par défaut dans les champs de type 'date'
+    puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA)
+    */
+
+    /* 
+    Sauf que des fois, le champ de type 'date' ne fonctionne pas sous certains navigateur,
+    il faut alors filtrer ce qui est entré par l'utilisateur et voir comment le champ se comporte.
+    */
+    //Si l'utilisateur entre la date en séparant les élément par " - " :
+    if (dtnais.includes("-")){
+    /*
+    On va quand même vérifier qu'il a bien commencé par le jour, si c'est un petit malin qui a mis
+    l'année en premier on inverse les éléments AAAA et JJ
+    */
+        dtnaiss = dtnais.split("-");
+        if (dtnaiss[0]>31){
+            dtnaiss.reverse();
+        }
+    }
+    /*
+    //Si l'utilisateur entre la date en séparant les élément par " / " , il faut les remplacer par des " - " 
+    */
+    if (dtnais.includes("/")){
+    //On entre les valeurs dans le tableau en gardant les " / "
+    //On vérifie aussi que ce n'est pas le même petit malin qui essaye de mettre l'année en premier
+        dtnaiss = dtnais.split("/");
+        if (dtnaiss[0]>31){
+            dtnaiss.reverse();
+        }
+    //On créé une boucle qui va permettre de parcourir le tableau
+        for (let i = 0 ; i < dtnaiss.length ; i++){
+        var dtnaissOut = [];
+        dtnaissOut = dtnaiss[i].replace("/", "-");
+        //var pos = dtnais.indexOf('/');
+       //var dtnaiss1 = dtnaiss.splice(pos, 2);
+        //var dtnaiss2 = dtnaiss.splice(pos, 5);
+        }
+    }
     //Vérification de la mécanique dans la console
-    console.log(dtNaiss, dtnais, dtnaiss);
+    console.log("tableau dtnaiss: " + dtnaiss + " " + dtnaissOut + "" + "variable dtnais:" + dtnais);
+
+    
+
+    
 
         // ######### Pièces d'identité #########
     // Récupération des info des pièces d'identité
@@ -86,7 +130,7 @@ function myCaz(){
     let dtValidPiStatut; 
     let dtpiChk;
     if (piChk == false && passprtChk == false){
-        alert("Vous devez sélectioner le bouton correspondant à votre document");
+        alert("Vous devez sélectioner le bouton correspondant à votre pièce d'identité");
     }
     if (dtpi == ""){
         dtpiChk = false

@@ -19,5 +19,8 @@ Version 1.09 09-03-2019
 	Travail sur l’accessibilité, début.
 
 Version 1.10 10-03-2019
-	Titre et icônes sur les parties renseignements et sortie
+	Titre et icônes sur les parties renseignements et sortie.
+
+Version 1.11 12-03-2019
+	Prise en compte des «/«  dans les champs de dates non gérés par le calendrier.
 

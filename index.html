@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Sophia</title>
+    <title>SophI.A</title>
     
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -23,7 +23,7 @@
           
                 </div>
                 <div class="col-10 bg-light rounded text-center text-secondary">
-                    <h1>Générateur CAZ/PI SophI.A <small>v1.10</small>
+                    <h1>Générateur CAZ/PI SophI.A <small>v1.11</small>
                         <img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophI.A"/>
                         <p><i class="fas fa-assistive-listening-systems"></i></p>
                     </h1>
@@ -52,13 +52,16 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">Prénom</span>
                                 </div>
-                                <input type="text" id="surname" class="form-control" aria-label="prénom" aria-describedby="prénom" placeholder="prénoms composés séparés par -" required>
+                                <input type="text" id="surname" class="form-control" aria-label="prénom" aria-describedby="prénom" placeholder="prénoms composés à séparer par -" required>
                         </div>
                         <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text">Date de naissance</span>
+                                    <span class="input-group-text">Date de naissance</span>
                                 </div>
                                 <input type="date" id="dtNaiss" min="1950-01-01" max="2000-01-01" class="form-control" aria-label="date de naissance" aria-describedby="date de naissance" required>
+                                <div class="input-group-append">
+                                        <button class="btn btn-outline-warning" type="button" id="inputGroupFileAddon03"><span><i class="fas fa-question-circle"></i></span></button>
+                                </div>
                         </div>
 
                         <hr/>
@@ -83,13 +86,17 @@
                         </div>
 
                         <div class="input-group mb-3">
-                                <div class="input-group-prepend" aria-label="Date de délivrance de la pièce d'identité">
-                                  <span class="input-group-text">Date délivrance</span>
-                                </div>
+                            <div class="input-group-prepend" aria-label="Date de délivrance de la pièce d'identité">
+                                <span class="input-group-text">Date délivrance</span>
+                            </div>
                                 <input type="date" id="dtDelivr" max="2019-01-01" class="form-control" aria-label="date de délivrance de la pièce d'identité" aria-describedby="delivering date of identity card">
+                            <div class="input-group-append">
+                                    <button class="btn btn-outline-warning" type="button" id="inputGroupFileAddon03"><span><i class="fas fa-question-circle"></i></span></button>
+                            </div>
                         </div>
 
                         <hr/>
+
                         <h4><i class="far fa-building"></i>&nbsp;Informations entreprise</h4>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -118,9 +125,13 @@
 <!-- caché par défaut si nom de l'entreprise n'est pas rempli (à développer)-->
                         <div class="input-group mb-3" id="divHid2">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">Date édition KBIS</span>
+                                <span class="input-group-text">Date édition KBIS</span>
                             </div>
-                            <input type="date" id="dtKbis" class="form-control" aria-label="date édition extrait KBIS" aria-describedby="date of registration">
+                                <input type="date" id="dtKbis" class="form-control" aria-label="date édition extrait KBIS" aria-describedby="date of registration">
+                            <div class="input-group-append">
+                                    <button class="btn btn-outline-warning" type="button" id="inputGroupFileAddon03" data-container="body" data-toggle="popover" data-placement="left" data-content="Si vous n'avez pas le calendrier : entrez la date sous la forme JJ-MM-AAAA"><span><i class="fas fa-question-circle"></i></span></button>
+                            
+                                </div>
                         </div>
                     
                         <div class="d-flex justify-content-center">
