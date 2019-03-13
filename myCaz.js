@@ -141,6 +141,9 @@ function myCaz(){
         alert ("Veuillez renseigner votre numéro de pièce d'identité");
         document.getElementById("numPi").style.background="#ffbf80";
     }
+    //else if (numPi != ""){
+    //    document.getElementById("numPi").style.background="blue";
+    //}
 
     //Date de délivrance PI
     //Déclaration d'un tableau destiné à recevoir la date de la PI
@@ -226,9 +229,14 @@ function myCaz(){
         alert("Vous devez sélectioner le bouton correspondant à votre pièce d'identité");
         document.getElementById("numPi").style.background="#ffbf80";
     }
+    else if (numPi != "" && (piChk == true || passprtChk == true)){
+        document.getElementById("numPi").style.background="seagreen";
+        document.getElementById("numPi").style.color="white";
+    }
+
     // Pour la validité de la CI
     if ((piChk == true && passprtChk == false) && dtValidPi < dCi) {
-        alert("carte d'identité trop ancienne");
+        alert("Carte d'identité trop ancienne");
         document.getElementById("dtDelivr").style.background="crimson";
         document.getElementById("dtDelivr").style.color="white";
         dtValidPiStatut = true;
@@ -240,7 +248,7 @@ function myCaz(){
     }
 
     //Vérification de la validité du passeport
-//La date de référence est prise dans la partie du dessus
+//La date de référence est prise dans la partie du dessus 'origin'
 
 //Détermination des ms au 01-01-2014 (validité des passeport à 10 ans pour ceux)
 var dPp = Date.parse("March 01, 2001");
@@ -411,36 +419,49 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
     let outCazContent;
     let outCaz = document.getElementById("outCaz").innerHTML = "CAZ" + "_" + nameV + "_" + abr + abc + "_" + dtnaiss[0] + dtnaiss[1] + dtnaiss[2] + ".pdf";
     //On créé un tableau et l'on y insère les données de outCaz pour enuite chercher si un champ n'est pas rempli (date vide renvoie undefined)
-    outCazArray = outCaz.split("  ");
-    outCazContent = outCaz.includes("undefined");
-    //La vérification de la présence des champs vides nom prénom et date de naissance s'étend sur la génération de la PI
-    if (outCazContent == true || nameV == "" || surnameV == "") {
+    //outCazArray = outCaz.split("  ");
+    //outCazContent = outCaz.includes("undefined");
+    //La vérification de la présence des champs vides nom prénom et date de naissance 
+    if (nameV == "" || surnameV == "" || dtnais == "") {
+    //if (outCazContent == true || nameV == "" || surnameV == "") {
         document.getElementById("outCaz").style.color='white';
         document.getElementById("outCaz").style.background='crimson';
-
-        document.getElementById("pOutCaz").style.background='crimson';
-        document.getElementById("pOutCazO").style.background='crimson';
-        document.getElementById("pOutPi").style.background='crimson';
 
         document.getElementById("outCazO").style.color='white';
         document.getElementById("outCazO").style.background='crimson';
 
-        
-        //On désactive également le lien
+        document.getElementById("pOutCaz").style.background='crimson';
+        document.getElementById("pOutCazO").style.background='crimson';
+        document.getElementById("pOutPi").style.background='crimson';
+    
+    //On désactive également les liens
         document.getElementById("inputCazFile").disabled = true;
+        document.getElementById("inputCazOFile").disabled = true;
+        document.getElementById("inputPiFile").disabled = true;
 
     }
-    else if ((outCazContent == true || nameV == "" || surnameV == "") && numPi == "") {
-        document.getElementById("outPi").style.color='white';
-        document.getElementById("outPi").style.background='#ffbf80';
-    }
-    else {
+    
+
+    else if (nameV != "" && surnameV != "" && dtnais != ""){
         document.getElementById("outCaz").style.color='white';
         document.getElementById("outCaz").style.background='seagreen';
 
+        document.getElementById("outCazO").style.color='white';
+        document.getElementById("outCazO").style.background='seagreen';
+
         document.getElementById("pOutCaz").style.background='seagreen';
         document.getElementById("pOutCazO").style.background='seagreen';
-        document.getElementById("pOutPi").style.background='seagreen';
+        
+    //et on active les liens
+        document.getElementById("inputCazFile").disabled = false;
+        document.getElementById("inputCazOFile").disabled = false;
+        //et on active le lien
+        //document.getElementById("inputPifile").disabled = false;
+    }
+    
+    /*else if(nameV != "" && surnameV != "" && dtnais != "" && numPi != ""){
+        document.getElementById("outCaz").style.color='white';
+        document.getElementById("outCaz").style.background='seagreen';
 
         document.getElementById("outCazO").style.color='white';
         document.getElementById("outCazO").style.background='seagreen';
@@ -448,10 +469,23 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='seagreen';
 
-        //et on active le lien
-        document.getElementById("inputCazFile").disabled = false;
-        document.getElementById("inputCazOFile").disabled = false;
-    }
+        document.getElementById("pOutCaz").style.background='seagreen';
+        document.getElementById("pOutCazO").style.background='seagreen';
+        document.getElementById("pOutPi").style.background='seagreen';
+    //et on active le lien
+        document.getElementById("inputPifile").disabled = false;
+}*/
+    
+
+        
+
+        
+    
+    
+    
+    
+    
+   
     
     
 
