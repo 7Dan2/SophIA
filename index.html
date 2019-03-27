@@ -23,7 +23,7 @@
           
                 </div>
                 <div class="col-10 bg-light rounded text-center text-secondary">
-                    <h1>Générateur CAZ/PI SophI.A <small>v1.12</small>
+                    <h1>Générateur CAZ/PI SophI.A <small>v1.15</small>
                         <img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophI.A"/>
                         <p><i class="fas fa-assistive-listening-systems"></i></p>
                     </h1>
@@ -41,32 +41,71 @@
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 p-3 mt-3 text-light bg-secondary rounded">
                     <form>
+                        <!--
+                            <div class="input-group mb-3">
+                            <div class="custom-control custom-radio" >
+                                <input type="radio" id="demInit" class="custom-control-input" name="customRadio" aria-label="Carte d'identité" aria-checked="false"/>
+                                    <label class="custom-control-label" for="cartid" >Demande initiale</label>
+                            </div>
+                                                    
+                                &nbsp;
+                                                    
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="demRenou" class="custom-control-input" name="customRadio" aria-labelledby="passeport"/>
+                                    <label class="custom-control-label" for="passprt" aria-checked="false">Renouvellement</label>
+                            </div>
+                        </div>
+                        -->   
+
                         <h4><i class="far fa-id-card"></i>&nbsp;Etat civil</h4>
+
                         <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">Nom</span>
                                 </div>
-                                <input type="text" id="name" class="form-control" aria-label="nom" aria-describedby="nom" required>
+                                <input type="text" id="name" class="form-control" aria-label="nom" aria-describedby="nom" required autofocus>
                         </div>
+
                         <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">Prénom</span>
                                 </div>
                                 <input type="text" id="surname" class="form-control" aria-label="prénom" aria-describedby="prénom" placeholder="prénoms composés à séparer par -" required>
                         </div>
+
                         <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Date de naissance</span>
                                 </div>
                                 <input type="date" id="dtNaiss" min="1950-01-01" max="2000-01-01" class="form-control" aria-label="date de naissance" aria-describedby="date de naissance" required>
                                 <div class="input-group-append">
-                                        <button class="btn btn-outline-warning" type="button" id="inputGroupFileAddon03"><span><i class="fas fa-question-circle"></i></span></button>
+                                    
                                 </div>
                         </div>
 
                         <hr/>
 
                         <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="originPi">Pièce identité</label>
+                            </div>
+                            <select class="custom-select" id="originPi">
+                                <option selected></option>
+                                <option value="1" id="cIF">Carte identité française</option>
+                                <option value="2" id="passPrtF">Passeport français</option>
+                                <option value="3" id="cIEu">Carte identité Européenne</option>
+                                <option value="4" id="titrSej">Titre de séjour</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Numéro pièce identité</span>
+                            </div>
+                            <input type="text" id="numPi" class="form-control" aria-label="Numéro de la pièce d'identité" aria-describedby="">
+                        </div>
+
+                        <!--<div class="input-group mb-3">
                             <div class="input-group-prepend" aria-labelledby="zone de choix de type de piece d'identité">
                                 <span class="input-group-text">
                                     <div class="custom-control custom-radio" >
@@ -83,21 +122,21 @@
                                 </span>
                             </div>
                                 <input type="text" id="numPi" class="form-control" aria-label="numéro pièce d'identité" aria-describedby="numéro pièce d'identité" placeholder="numéro" required>
-                        </div>
+                        -->
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend" aria-label="Date de délivrance de la pièce d'identité">
                                 <span class="input-group-text">Date délivrance</span>
                             </div>
-                                <input type="date" id="dtDelivr" max="2019-01-01" class="form-control" aria-label="date de délivrance de la pièce d'identité" aria-describedby="delivering date of identity card">
+                                <input type="date" id="dtDelivrPi" max="2019-01-01" class="form-control" aria-label="date de délivrance de la pièce d'identité" aria-describedby="delivering date of identity card" required>
                             <div class="input-group-append">
-                                    <button class="btn btn-outline-warning" type="button" id="inputGroupFileAddon03"><span><i class="fas fa-question-circle"></i></span></button>
                             </div>
                         </div>
 
                         <hr/>
 
                         <h4><i class="far fa-building"></i>&nbsp;Informations entreprise</h4>
+
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text">Nom de l'entreprise</span>
@@ -106,7 +145,7 @@
                         </div>
 
 <!-- caché par défaut si nom de l'entreprise n'est pas rempli (à développer)-->
-                        <div class="input-group mb-3" id="divHid1" hidden="false">
+                        <div class="input-group mb-3" id="divHid1" style="display:none ">
                             <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <div class="custom-control custom-radio">
@@ -123,15 +162,14 @@
                             <input type="number" id="numSir" class="form-control" min="9" max="14" aria-label="numéro d'identification au répertoire" aria-describedby="registration society number" placeholder="numéro à 9 ou 14 chiffres">
                         </div>
 <!-- caché par défaut si nom de l'entreprise n'est pas rempli (à développer)-->
-                        <div class="input-group mb-3" id="divHid2" hidden="false" >
+                        <div class="input-group mb-3" id="divHid2" style="display:none">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Date édition KBIS</span>
                             </div>
                                 <input type="date" id="dtKbis" class="form-control" aria-label="date édition extrait KBIS" aria-describedby="date of registration">
                             <div class="input-group-append">
-                                    <button class="btn btn-outline-warning" type="button" id="inputGroupFileAddon03" data-container="body" data-toggle="popover" data-placement="left" data-content="Si vous n'avez pas le calendrier : entrez la date sous la forme JJ-MM-AAAA"><span><i class="fas fa-question-circle"></i></span></button>
-                            
-                                </div>
+                                    
+                            </div>
                         </div>
                     
                         <div class="d-flex justify-content-center">
@@ -140,31 +178,30 @@
 
                         <!-- Button trigger modal -->
                         <div class="d-flex justify-content-center m-3">
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-        Besoin d'aide ?
-      </button>
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                                Besoin d'aide ?
+                            </button>
       
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Contributeurs</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Fermer cette fenêtre">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              Merci à Cindy, Hélène, Xavier, Sébastien pour leur aide pour la partie UI/UX
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Contributeurs</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fermer cette fenêtre">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    Merci à Cindy, Hélène, Elodie, Xavier, Hervé, Karine, Sébastien pour leur aide pour la partie UI/UX
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                         
                     </form>
                 </div> 
@@ -176,11 +213,15 @@
                 <div class="col-lg-5 col-md-12 col-sm-12 p-3 mt-3 bg-secondary text-light rounded">  
                         <h4><i class="fas fa-file-export"></i>&nbsp;Noms de fichiers générés</h4>
 
+                        
+                    
                     <div class="form-group">
                         <label for="outCaz" class="text-light">Nom de fichier CAZ</label>
+                        <p id="outCaz" class="text-white text-center border border-light rounded"></p>
+                        
                         <!-- le lien doit permettre d'ouvrir le navigateur pour choisir un fichier à renommer (à développer)-->
-                        <p class=" text-center border border-light rounded" id="pOutCaz">
-                            <a href="#" id="outCaz" class=" text-center"><i class="fas fa-file-import"></i></a>
+                        <p class=" text-center border border-light rounded" id="pOutCaz"></p>
+                            <!--<a href="#" id="outCaz" class=" text-center"><i class="fas fa-file-import"></i></a>-->
                         </p>
                         <div class="input-group-prepend" style="display:none">
                             <span class="input-group-text">
@@ -191,15 +232,17 @@
                                 </div>
                             </span>
                         </div>
-                        <p id="fileList"></p>
+                        
                     </div>
 
                     <hr/>
                     
                     <div class="form-group">
-                        <label for="outCaz0" class="text-light">Nom de fichier CAZ-O</label>
+                        <label for="outCazO" class="text-light">Nom de fichier CAZ-O</label>
+                        <p id="outCazO" class="text-white text-center border border-light rounded"></p>
+                        
                         <p class=" text-center border border-light rounded" id="pOutCazO">
-                            <a href="#" id="outCazO" class=" text-center"><i class="fas fa-file-import"></i></a>
+                            <!--<a href="#" id="outCazO" class=" text-center"><i class="fas fa-file-import"></i></a>-->
                         </p>
                         <div class="input-group-prepend" style="display:none" >
                             <span class="input-group-text">
@@ -215,39 +258,27 @@
 
                     <div class="form-group">
                         <label for="outPi" class="text-light">Nom de fichier pièce d'identité</label>
-                        <p class="text-center border border-white rounded" id="pOutPi">
-                            <a href="#" id="outPi" class=" text-center"><i class="fas fa-file-import"></i></a>
+                        <p id="outPi" class="text-white text-center border border-light rounded"></p>
+                        
+                        <p class="text-center border border-light rounded" id="pOutPi">
+                            <!--<a href="#" id="outPi" class=" text-center"><i class="fas fa-file-import"></i></a>-->
                         </p>
-                        <div class="input-group-prepend" style="display:none">
-                            <span class="input-group-text">
-                                <input type="file" id="inputPiFile" accept=".pdf" onchange="handleFiles(this.files)"/>
-                                <div class="input-group-append">
-                                    <!--<button class="btn btn-outline-secondary btn-sm" type="button" id="launchNamingPi" data-toggle="tooltip" data-placement="top" title="désactivé pour cette version" disabled>Nommer</button>-->
-                                </div>
-                            </span>
-                        </div>
+                        
                     </div>
 
                     <hr/>
 
                     <div class="form-group" style="display:none">
                         <label for="outDUE" class="text-primary">Nom de fichier DUE</label>
-                        <p id="outDUE" class="text-success text-center border border-success rounded"></p>
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <input type="file" id="inputDueFile" accept=".pdf"/>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary btn-sm" type="button" id="launchNamingDue" data-toggle="tooltip" data-placement="top" title="désactivé pour cette version" disabled>Nommer</button>
-                                    </div>
-                            </span>
-                        </div>
+                        <p id="outDUE" class="text-success text-center border border-light rounded"></p>
+                        
                         <!-- la séparation est placée avant la fin de la div pour ne pas apparaitre lorsque la div est masquée-->
                         <hr/>
                     </div>
 
                     <div class="form-group" style="display:none">
                         <label for="outKBIS" class="text-primary">Nom de fichier KBIS</label>
-                        <p id="outKBIS" class="text-success text-center border border-success rounded"></p>
+                        <p id="outKBIS" class="text-success text-center border border-light rounded"></p>
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <input type="file" id="inputKbisFile" accept=".pdf"/>
@@ -278,8 +309,8 @@
                     <p id="connectStatus"></p>
                 </h6>
                 <h6>
-                        <a href="https://www.linkedin.com/in/yanisfoucher/"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/7Dan2/SophIA"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/yanisfoucher/" target="_blank" ><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/7Dan2/SophIA" target="_blank"><i class="fab fa-github"></i></a>
                         
                         
                 </h6>
@@ -290,10 +321,12 @@
 
 <!-- SCRIPTS -->
     <script src="myCaz.js"></script>
-    <script src="dateForCaz.js"></script> 
-    <script src="openFile.js"></script>
-    <script src="blob.js"></script>
-
+    <script src="dateNaiss.js"></script>
+    <script src="datesPiChk.js"></script>
+    <script src="dateKbChk.js"></script> 
+    <!--<script src="openFile.js"></script>-->
+    <!--<script src="blob.js"></script>-->
+    <script src="valueEffect.js"></script>
     <!-- Bootstrap -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
