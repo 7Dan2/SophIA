@@ -168,10 +168,10 @@ function myCaz(){
         
         // ######### Pièces d'identité #########
 //Traitement de l'origine de la PI
-document.getElementById("cIF").selected;
-document.getElementById("passPrtF").selected;
-document.getElementById("cIEu").selected;
-document.getElementById("titrSej").selected;
+//document.getElementById("cIF").selected;
+//document.getElementById("passPrtF").selected;
+//document.getElementById("cIEu").selected;
+//document.getElementById("titrSej").selected;
 
 
 
@@ -180,6 +180,7 @@ document.getElementById("titrSej").selected;
     let numPi = document.getElementById("numPi").value;
     
     //Si le champ n'est pas rempli, on le rappele avec courtoisie à l'utilisateur
+    
     /*
     if (numPi == ""){
         alert ("Veuillez renseigner votre numéro de pièce d'identité");
@@ -189,12 +190,14 @@ document.getElementById("titrSej").selected;
         document.getElementById("numPi").style.background="blue";
     }
     */
+   //Si il s'obstine on bloque la sortie outPi avec un message
+
     //Dans le choix de l'origine du document :
         //Si c'est la carte d'identité française qui est choisie
-    if (cIF.selected == true && numPi !="")
+    if (cIF.selected == true)
+    
     {
-        document.getElementById("originPi").style.background="seagreen";
-        document.getElementById("originPi").style.color="white";
+        
         
     //Date de délivrance PI
     //Déclaration d'un tableau destiné à recevoir la date de la PI
@@ -281,39 +284,28 @@ document.getElementById("titrSej").selected;
     //if (dtpi == ""){
     //  dtpiChk = false;
     //}
-    //Alerte commune à l'absence de choix CI ou PP
-    /*if (numPi != "" && (piChk == false && passprtChk == false)){
-        alert("Vous devez sélectioner le bouton correspondant à votre pièce d'identité");
-        document.getElementById("numPi").style.background="#ffbf80";
-    }
-    else if (numPi != "" && (piChk == true || passprtChk == true)){
-        document.getElementById("numPi").style.background="seagreen";
-        document.getElementById("numPi").style.color="white";
-    }
-*/
+    
     // Pour la validité de la CI
+    let dtDelChk;
     if (dtValidPi < dCi)
     {
     document.getElementById("dtDelivrPi").style.background="crimson";
     document.getElementById("dtDelivrPi").style.color="white";
     alert("Carte d'identité périmée");
+    dtDelChk = false;
     }
     else if (dtValidPi > dCi)
     {
     document.getElementById("dtDelivrPi").style.background="seagreen";
     document.getElementById("dtDelivrPi").style.color="white";
+    dtDelChk = true;
     }
-// La carte d'identité est constituée de 14 caractères
-if (numPi.length < 14 || numPi.length > 14){
-    alert ("la carte d'identité comporte 14 caractères");
-    document.getElementById("numPi").style.background="#ffbf80";
-    document.getElementById("numPi").style.color="crimson";
-}
+
     //Vérification de la validité du passeport
 //La date de référence est prise dans la partie du dessus 'origin'
 
 //Détermination des ms au 01-01-2014 (validité des passeport à 10 ans pour ceux)
-var dPp = Date.parse("March 01, 2001");
+//var dPp = Date.parse("March 01, 2001");
 //Détermination des ms à la valeur entrée comme date de délivrance de la CI
         //la valeur est déjà stockée dans 'dtValidPi'
 // Pour la validité du PP
@@ -339,8 +331,9 @@ Sinon si la différence est inférieure à la valeur en ms de 18 ans :
 */
 
 //On vérifie la mécanique dans la console
-console.log(origin, dCi, dtValidPi)
+console.log(origin, dCi, "date de validité:" + dtValidPi);
 }
+
     //######### ENTREPRISE #########
     //Récupération du nom de l'entreprise du numéro de SIREN
     let nomEntrV = document.getElementById("nomEntr").value.toUpperCase();
@@ -518,8 +511,10 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
     //on stocke la sortie également dans une variable pour créer un copier/coller maison
     const cazoVar = "CAZ-O" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
     
-    if (numPi == "" ){
-        let txt = "votre document est périmé et ne sera pas accepté";
+
+    //Sortie PI
+    if (numPi == ""  || numPi.length != 12 || dtDelChk == false){
+        let txt = "vous ne pouvez pas obtenir de sortie sans numéro correct de PI";
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='crimson';
         //document.getElementById("pOutPi").style.background='crimson';
@@ -527,7 +522,7 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
         document.getElementById("outPi").innerHTML = txt;
     }
     
-    else if (numPi != "" ){
+    else if (numPi != "" && numPi.length == 12 && dtDelChk == true){
         
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='seagreen';

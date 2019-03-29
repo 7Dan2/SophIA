@@ -4,8 +4,10 @@ document.getElementById("name").addEventListener("blur", valueEffectN);
 document.getElementById("surname").addEventListener("focusout", valueEffectS);
 document.getElementById("dtNaiss").addEventListener("blur", valueEffectdTN);
 
+
+document.getElementById("originPi").addEventListener("mouseup", valueEffectOpi);
 document.getElementById("cIF").addEventListener("mouseup", valueEffectOpi);
-document.getElementById("passPrtF").addEventListener("mouseup", valueEffectOpi);
+//document.getElementById("passPrtF").addEventListener("mouseup", valueEffectOpi);
 
 document.getElementById("numPi").addEventListener("blur", valueEffectNumPi);
 document.getElementById("dtDelivrPi").addEventListener("change", valueEffectDtPi);
@@ -90,51 +92,55 @@ document.getElementById("outCazO").addEventListener("copy", valueEffectCopyCazO)
 // Traitement de la date de la PI
 function valueEffectDtPi(){
 }
+
 //Traitement de l'origine de la Pi
 function valueEffectOpi()
 {
-    if(cIF.selected == true)
-    /*{
-            document.getElementById("originPi").style.background="seagreen";
-            document.getElementById("originPi").style.color="white";
-    }*/
-    alert("oui ca marche");
-
-    
-        
-    
-
-
-
-    let Opi = document.getElementById("originPi").value;
-    if (Opi == ""){
+    let piChkStatus;
+    if(cIF.selected == true  || passPrtF.selected == true || cIEu.selected == true || titrSej.selected == true)
+    {
+        document.getElementById("originPi").style.background="seagreen";
+        document.getElementById("originPi").style.color="white";
+        piChkStatus = true;
+    }
+    else if (cIF.selected == false  || passPrtF.selected == false || cIEu.selected == false || titrSej.selected == false)
+    {
         document.getElementById("originPi").style.background="#ffbf80";
-        
-        alert('Choisissez un document')
-    
+        document.getElementById("originPi").style.color="white";
+        piChkStatus = false;
+
     }
-    if(Opi != ""){
-        document.getElementById("cIF").style.background="seagreen";
-        document.getElementById("cIF").style.color="white";
-        
     
-    }
 }
+
 //Traitement du numéro de Pi
-function valueEffectNumPi(){
-        
+function valueEffectNumPi()
+{
     let numPi = document.getElementById("numPi").value;
-    if (numPi == ""){
+
+    if (numPi == "")
+    {
         document.getElementById("numPi").style.background="#ffbf80";
+        let txt = "vous ne pouvez pas obtenir de sortie sans numéro correct de PI";
+        document.getElementById("outPi").style.color='white';
+        document.getElementById("outPi").style.background='crimson';
         
-        //alert('Votre numéro de document est requis')
-    
+        document.getElementById("outPi").innerHTML = txt;
     }
-    else if(numPi != ""){
+    else if (numPi.length < 12 || numPi.length > 12)
+    {   // La carte d'identité est constituée de 12 caractères
+        
+        
+    
+        alert ("la carte d'identité comporte 12 caractères");
+        document.getElementById("numPi").style.background="#ffbf80";
+        document.getElementById("numPi").style.color="crimson";
+        
+    }
+else
+    {
         document.getElementById("numPi").style.background="seagreen";
         document.getElementById("numPi").style.color="white";
-        
-    
     }
 }
 
