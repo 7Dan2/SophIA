@@ -1,4 +1,9 @@
 
+
+
+
+
+
 function myCaz(){
     //Récupération du nom, mise en majuscule
     let nameValue = document.getElementById("name").value.toUpperCase();
@@ -8,7 +13,7 @@ function myCaz(){
     //vérification de la présence du nom 
 
     
-        
+        /*
         if (nameValue == ""){
             //Si aucune valeur n'est entrée, affichage d'un message d'alerte
             alert("Vous devez renseigner votre nom");
@@ -24,7 +29,7 @@ function myCaz(){
             document.getElementById("name").style.background="white";
         }
         
-    
+    */
     
         //S'orienter vers mécanisme de validation plus propre 
         
@@ -38,6 +43,7 @@ function myCaz(){
     
     //Si aucune valeur n'est entrée, affichage d'un message d'alerte
         //S'orienter vers mécanisme de validation plus propre 
+        /*
         if (surnameValue == ""){
             alert("Vous devez entrer votre prénom");
             document.getElementById("surname").style.background="#ffbf80";
@@ -51,6 +57,7 @@ function myCaz(){
         else {
             document.getElementById("surname").style.background="white";
         }
+        */
 
     //Gestion des prénoms composés
     //On génére un tableau des lettres du prénom
@@ -95,7 +102,7 @@ function myCaz(){
        let dtnais = document.getElementById("dtNaiss").value;
    //Si la date de naissance n'est pas renseignée, le rappeler à l'utilsateur
    
-   
+   /*
    if (dtnais == ""){
        alert ("Vous devez renseigner votre date de naissance");
        document.getElementById("dtNaiss").style.background="#ffbf80";
@@ -107,7 +114,7 @@ function myCaz(){
    else {
        document.getElementById("dtNaiss").style.background="white";
    }
-   
+   */
    /*
    remplissage du tableau en séparant les éléments de la date en prenant comme parametre le tiret qui est par 
    présent par défaut dans les champs de type 'date'
@@ -119,28 +126,33 @@ function myCaz(){
    il faut alors filtrer ce qui est entré par l'utilisateur et voir comment le champ se comporte.
    */
    //Si l'utilisateur entre la date en séparant les élément par " - " :
-   if (dtnais.includes("-")){
+   if (dtnais.includes("-"))
+   {
    /*
    On va quand même vérifier qu'il a bien commencé par le jour, si c'est un petit malin qui a mis
    l'année en premier on inverse les éléments AAAA et JJ
    */
        dtNaissArray = dtnais.split("-");
-       if (dtNaissArray[0]>31){
+       if (dtNaissArray[0]>31)
+       {
            dtNaissArray.reverse();
        }
    }
    /*
    //Si l'utilisateur entre la date en séparant les élément par " / " , il faut les remplacer par des " - " 
    */
-   if (dtnais.includes("/")){
+   if (dtnais.includes("/"))
+   {
    //On entre les valeurs dans le tableau en gardant les " / "
    //On vérifie aussi que ce n'est pas le même petit malin qui essaie de mettre l'année en premier
        dtNaissArray = dtnais.split("/");
-       if (dtNaissArray [0] > 31){
+       if (dtNaissArray [0] > 31)
+       {
            dtNaissArray.reverse();
        }
    //On créé une boucle qui va permettre de parcourir le tableau
-       for (let i = 0 ; i < dtNaissArray.length ; i++){
+       for (let i = 0 ; i < dtNaissArray.length ; i++)
+       {
        var dtnaissOut = [];
        dtnaissOut = dtNaissArray[i].replace("/", "-");
        //var pos = dtnais.indexOf('/');
@@ -468,29 +480,34 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
     // Bricolage en attente de mieux pour assembler les éléments du tableau dtnaiss
     //let outCazArray= [];
     //let outCazContent;
-    if (nameValue == "" || surnameFirstLetter == "" || dtnais == "") {
+
+    if (nameValue == "" || surnameFirstLetter == "" || dtnais == "")
+    {
         document.getElementById("outCaz").style.color='white';
         document.getElementById("outCaz").style.background='crimson';
 
         document.getElementById("outCazO").style.color='white';
         document.getElementById("outCazO").style.background='crimson';
 
-        document.getElementById("pOutCaz").style.background='crimson';
-        document.getElementById("pOutCazO").style.background='crimson';
-        document.getElementById("pOutPi").style.background='crimson';
+        //document.getElementById("pOutCaz").style.background='crimson';
+        //document.getElementById("pOutCazO").style.background='crimson';
+        //document.getElementById("pOutPi").style.background='crimson';
     }
 
-    else if (nameValue != "" && surnameFirstLetter != "" && dtnais != ""){
+    else if (nameValue != "" && surnameFirstLetter != "" && dtnais != "")
+    {
             document.getElementById("outCaz").style.color='white';
             document.getElementById("outCaz").style.background='seagreen';
     
             document.getElementById("outCazO").style.color='white';
             document.getElementById("outCazO").style.background='seagreen';
     
-            document.getElementById("pOutCaz").style.background='seagreen';
-            document.getElementById("pOutCazO").style.background='seagreen';
+            //document.getElementById("pOutCaz").style.background='seagreen';
+            //document.getElementById("pOutCazO").style.background='seagreen';
     
     }
+    
+    
     //Sortie CAZ
     document.getElementById("outCaz").innerHTML = "CAZ" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
     //on stocke la sortie également dans une variable pour créer un copier/coller maison
@@ -505,7 +522,7 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
         let txt = "votre document est périmé et ne sera pas accepté";
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='crimson';
-        document.getElementById("pOutPi").style.background='crimson';
+        //document.getElementById("pOutPi").style.background='crimson';
 
         document.getElementById("outPi").innerHTML = txt;
     }
@@ -514,7 +531,7 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
         
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='seagreen';
-        document.getElementById("pOutPi").style.background='seagreen';
+        //document.getElementById("pOutPi").style.background='seagreen';
 
         document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
     

@@ -1,50 +1,82 @@
 
 
-//document.getElementById("name").addEventListener("change", valueEffectN);
-//document.getElementById("surname").addEventListener("change", valueEffectS);
+document.getElementById("name").addEventListener("blur", valueEffectN);
+document.getElementById("surname").addEventListener("focusout", valueEffectS);
+document.getElementById("dtNaiss").addEventListener("blur", valueEffectdTN);
 
-document.getElementById("cIF").addEventListener("change", valueEffectOpi);
-document.getElementById("passPrtF").addEventListener("click", valueEffectOpi);
+document.getElementById("cIF").addEventListener("mouseup", valueEffectOpi);
+document.getElementById("passPrtF").addEventListener("mouseup", valueEffectOpi);
 
-document.getElementById("numPi").addEventListener("change", valueEffectNumPi);
+document.getElementById("numPi").addEventListener("blur", valueEffectNumPi);
 document.getElementById("dtDelivrPi").addEventListener("change", valueEffectDtPi);
 
+document.getElementById("outCaz").addEventListener("copy", valueEffectCopyCaz);
+document.getElementById("outCazO").addEventListener("copy", valueEffectCopyCazO);
+
+
 //Traitement du nom
-    var nameEff = function valueEffectN(){}
-        /*
+    function valueEffectN()
+    {
+        
         let nameV = document.getElementById("name").value;
-        if (nameV == ""){
-            document.getElementById("name").style.background="#ffbf80";
+        
+        if (nameV == "")
+        {
             
-            alert('Votre nom de famille est requis')
+            document.getElementById("name").style.background="#ffbf80";
+            document.getElementById("name").style.color="white";
+           
+            
+            //alert('Votre nom de famille est requis');
         
         }
-        else if(nameV != ""){
+        else if (nameV != "")
+        {
             document.getElementById("name").style.background="seagreen";
             document.getElementById("name").style.color="white";
         }
     }
-*/
+
     
 //Traitement du prénom
-    var surnameEff = function valueEffectS(){}
- /*      
+    function valueEffectS()
+    {
+      
         let testValue = document.getElementById("surname").value;
-        if (testValue == ""){
+
+        let txt = "Votre prénom est requis"; 
+
+        if (testValue == "")
+        {
             document.getElementById("surname").style.background="#ffbf80";
-           
-            alert('Votre prénom est requis')
+            document.getElementById("surname").style.clor="white";
+            document.getElementById("name").innerHTML = txt;
+            //alert('Votre prénom est requis')
         
         }
-        else if(testValue != ""){
+        else if(testValue != "")
+        {
             document.getElementById("surname").style.background="seagreen";
             document.getElementById("surname").style.color="white";
             
         
         }
     }
-*/
 
+    function valueEffectdTN()
+    {
+        let testValue = document.getElementById("dtNaiss").value;
+
+        if (testValue == "")
+        {
+            document.getElementById("dtNaiss").style.background="#ffbf80";
+        }
+        else if(testValue != "")
+        {
+            document.getElementById("dtNaiss").style.background="seagreen";
+            document.getElementById("dtNaiss").style.color="white";
+        }
+    }
 /*
 ######### Pieces d'identités #########
     Si c'est la carte d'identité française qui est choisie
@@ -59,11 +91,14 @@ document.getElementById("dtDelivrPi").addEventListener("change", valueEffectDtPi
 function valueEffectDtPi(){
 }
 //Traitement de l'origine de la Pi
-function valueEffectOpi(){
-        if(cIF.selected == true){
+function valueEffectOpi()
+{
+    if(cIF.selected == true)
+    /*{
             document.getElementById("originPi").style.background="seagreen";
             document.getElementById("originPi").style.color="white";
-        }
+    }*/
+    alert("oui ca marche");
 
     
         
@@ -92,7 +127,7 @@ function valueEffectNumPi(){
     if (numPi == ""){
         document.getElementById("numPi").style.background="#ffbf80";
         
-        alert('Votre numéro de document est requis')
+        //alert('Votre numéro de document est requis')
     
     }
     else if(numPi != ""){
@@ -122,3 +157,12 @@ function valueEffectNumPi(){
     }
 }
 */
+function valueEffectCopyCaz()
+{
+    document.getElementById("outCpyCaz").innerHTML = "ce texte a été copié";
+    document.getElementById("outCpyCazO").innerHTML = "ce texte a été copié";
+}
+function valueEffectCopyCazO()
+{
+    document.getElementById("outCpyCazO").innerHTML = "ce texte a été copié";
+}

@@ -25,7 +25,7 @@
                 <div class="col-10 bg-light rounded text-center text-secondary">
                     <h1>Générateur CAZ/PI SophI.A <small>v1.15</small>
                         <img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophI.A"/>
-                        <p><i class="fas fa-assistive-listening-systems"></i></p>
+                        <p><i class="fas fa-assistive-listening-systems m-1"></i></p>
                     </h1>
                     
                     
@@ -67,27 +67,32 @@
                         </div>
 
                         <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">Prénom</span>
-                                </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                Prénom
+                                </span>
+                            </div>
                                 <input type="text" id="surname" class="form-control" aria-label="prénom" aria-describedby="prénom" placeholder="prénoms composés à séparer par -" required>
                         </div>
 
                         <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Date de naissance</span>
-                                </div>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    Date de naissance
+                                </span>
+                            </div>
                                 <input type="date" id="dtNaiss" min="1950-01-01" max="2000-01-01" class="form-control" aria-label="date de naissance" aria-describedby="date de naissance" required>
-                                <div class="input-group-append">
-                                    
-                                </div>
+                            <div class="input-group-append">
+                            </div>
                         </div>
 
                         <hr/>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="originPi">Pièce identité</label>
+                                <label class="input-group-text" for="originPi">
+                                    Pièce identité
+                                </label>
                             </div>
                             <select class="custom-select" id="originPi">
                                 <option selected></option>
@@ -100,9 +105,11 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Numéro pièce identité</span>
+                                <span class="input-group-text">
+                                    Numéro pièce identité
+                                </span>
                             </div>
-                            <input type="text" id="numPi" class="form-control" aria-label="Numéro de la pièce d'identité" aria-describedby="">
+                                <input type="text" id="numPi" class="form-control" aria-label="Numéro de la pièce d'identité" aria-describedby="">
                         </div>
 
                         <!--<div class="input-group mb-3">
@@ -126,7 +133,9 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend" aria-label="Date de délivrance de la pièce d'identité">
-                                <span class="input-group-text">Date délivrance</span>
+                                <span class="input-group-text">
+                                    Date délivrance
+                                </span>
                             </div>
                                 <input type="date" id="dtDelivrPi" max="2019-01-01" class="form-control" aria-label="date de délivrance de la pièce d'identité" aria-describedby="delivering date of identity card" required>
                             <div class="input-group-append">
@@ -135,17 +144,20 @@
 
                         <hr/>
 
-                        <h4><i class="far fa-building"></i>&nbsp;Informations entreprise</h4>
+                        <h4>
+                            <i class="far fa-building"></i>&nbsp;Informations entreprise
+                        </h4>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text">Nom de l'entreprise</span>
+                              <span class="input-group-text">
+                                Nom de l'entreprise</span>
                             </div>
-                            <input type="text" id="nomEntr" class="form-control" aria-label="Nom de l'entreprise" aria-describedby="">
+                                <input type="text" id="nomEntr" class="form-control" aria-label="Nom de l'entreprise" aria-describedby="">
                         </div>
 
 <!-- caché par défaut si nom de l'entreprise n'est pas rempli (à développer)-->
-                        <div class="input-group mb-3" id="divHid1" style="display:none ">
+                        <div class="input-group mb-3" id="divHid1"><!--style="display:none"-->
                             <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <div class="custom-control custom-radio">
@@ -158,11 +170,12 @@
                                     <label class="custom-control-label" for="siret">SIRET</label>
                                 </div>
                             </span>
-                                </div>
+                            </div>
                             <input type="number" id="numSir" class="form-control" min="9" max="14" aria-label="numéro d'identification au répertoire" aria-describedby="registration society number" placeholder="numéro à 9 ou 14 chiffres">
+                        
                         </div>
 <!-- caché par défaut si nom de l'entreprise n'est pas rempli (à développer)-->
-                        <div class="input-group mb-3" id="divHid2" style="display:none">
+                        <div class="input-group mb-3" id="divHid2"><!--style="display:none"-->
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Date édition KBIS</span>
                             </div>
@@ -217,12 +230,12 @@
                     
                     <div class="form-group">
                         <label for="outCaz" class="text-light">Nom de fichier CAZ</label>
-                        <p id="outCaz" class="text-white text-center border border-light rounded"></p>
-                        
+                        <p id="outCaz" class="text-white text-center border border-light rounded">En attente de données</p>
+                        <p id="outCpyCaz"></p>
                         <!-- le lien doit permettre d'ouvrir le navigateur pour choisir un fichier à renommer (à développer)-->
-                        <p class=" text-center border border-light rounded" id="pOutCaz"></p>
-                            <!--<a href="#" id="outCaz" class=" text-center"><i class="fas fa-file-import"></i></a>-->
-                        </p>
+                        <!--<p class=" text-center border border-light rounded" id="pOutCaz"></p>
+                            <a href="#" id="outCaz" class=" text-center"><i class="fas fa-file-import"></i></a>
+                        </p>-->
                         <div class="input-group-prepend" style="display:none">
                             <span class="input-group-text">
                                 <input type="file" id="inputCazFile" accept=".pdf" onchange="handleFiles(this.files)" />
@@ -239,11 +252,11 @@
                     
                     <div class="form-group">
                         <label for="outCazO" class="text-light">Nom de fichier CAZ-O</label>
-                        <p id="outCazO" class="text-white text-center border border-light rounded"></p>
-                        
-                        <p class=" text-center border border-light rounded" id="pOutCazO">
-                            <!--<a href="#" id="outCazO" class=" text-center"><i class="fas fa-file-import"></i></a>-->
-                        </p>
+                        <p id="outCazO" class="text-white text-center border border-light rounded">En attente de données</p>
+                        <p id="outCpyCazO"></p>
+                        <!--<p class=" text-center border border-light rounded" id="pOutCazO">
+                            <a href="#" id="outCazO" class=" text-center"><i class="fas fa-file-import"></i></a>
+                        </p>-->
                         <div class="input-group-prepend" style="display:none" >
                             <span class="input-group-text">
                                 <input type="file" id="inputCazOFile" accept=".pdf" onchange="handleFiles(this.files)"/>
@@ -258,28 +271,28 @@
 
                     <div class="form-group">
                         <label for="outPi" class="text-light">Nom de fichier pièce d'identité</label>
-                        <p id="outPi" class="text-white text-center border border-light rounded"></p>
+                        <p id="outPi" class="text-white text-center border border-light rounded">En attente de données</p>
                         
-                        <p class="text-center border border-light rounded" id="pOutPi">
-                            <!--<a href="#" id="outPi" class=" text-center"><i class="fas fa-file-import"></i></a>-->
-                        </p>
+                        <!--<p class="text-center border border-light rounded" id="pOutPi">
+                            <a href="#" id="outPi" class=" text-center"><i class="fas fa-file-import"></i></a>
+                        </p>-->
                         
                     </div>
 
                     <hr/>
 
-                    <div class="form-group" style="display:none">
-                        <label for="outDUE" class="text-primary">Nom de fichier DUE</label>
-                        <p id="outDUE" class="text-success text-center border border-light rounded"></p>
+                    <div class="form-group"><!--style="display:none"-->
+                        <label for="outDUE" class="text-light">Nom de fichier DUE</label>
+                        <p id="outDUE" class="text-white text-center border border-light rounded">En attente de données</p>
                         
                         <!-- la séparation est placée avant la fin de la div pour ne pas apparaitre lorsque la div est masquée-->
                         <hr/>
                     </div>
 
-                    <div class="form-group" style="display:none">
-                        <label for="outKBIS" class="text-primary">Nom de fichier KBIS</label>
-                        <p id="outKBIS" class="text-success text-center border border-light rounded"></p>
-                        <div class="input-group-prepend">
+                    <div class="form-group"><!--style="display:none"-->
+                        <label for="outKBIS" class="text-light">Nom de fichier KBIS</label>
+                        <p id="outKBIS" class="text-white text-center border border-light rounded">En attente de données</p>
+                        <!--<div class="input-group-prepend">
                             <span class="input-group-text">
                                 <input type="file" id="inputKbisFile" accept=".pdf"/>
                                     <div class="input-group-append">
@@ -287,7 +300,7 @@
                                                 id="launchNamingKbis" disabled>Nommer</button>
                                     </div>
                             </span>
-                        </div>
+                        </div>-->
                         <!-- la séparation est placée avant la fin de la div pour ne pas apparaitre lorsque la div est masquée-->
                         <hr/>
                     </div>
@@ -295,7 +308,7 @@
                 </div>
                 
             </div>    
-        </div>
+        
         <div class="row bg-light">
             <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
                 
@@ -308,16 +321,46 @@
                     <!-- la fonction est dans dateForCaz.js-->
                     <p id="connectStatus"></p>
                 </h6>
-                <h6>
-                        <a href="https://www.linkedin.com/in/yanisfoucher/" target="_blank" ><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/7Dan2/SophIA" target="_blank"><i class="fab fa-github"></i></a>
-                        
-                        
-                </h6>
+               
             </div>
-            <div class="col-1"></div>
+            <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
+
+            </div>
             
         </div>
+
+        <div class="row bg-light">
+            <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
+                
+            </div>
+
+            <div class="col-lg-10 col-md- m-1 bg-secondary rounded">
+                <div class="col bg-primary">
+                        <p>
+                                <a href="https://www.linkedin.com/in/yanisfoucher/" target="_blank" ><i class="fab fa-linkedin"></i></a>
+                            
+                            
+                                <a href="https://github.com/7Dan2/SophIA" target="_blank"><i class="fab fa-github"></i></a>
+                            </p>
+                </div>
+                <div class="col bg-success">
+                    <p>
+                        <a href="#">Ils l'ont utilisé</a>
+                    </p>
+                </div>
+                
+
+                    
+                
+
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
+                
+            </div>
+
+        </div>
+    </div>
 
 <!-- SCRIPTS -->
     <script src="myCaz.js"></script>
