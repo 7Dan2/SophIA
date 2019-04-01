@@ -221,7 +221,7 @@ function myCaz(){
      //   document.getElementById("dtDelivrPi").style.background="white";
     //}
 
-     /*remplissage du tableau en séparant les éléménts de la date en prenant comme parametre le tiret qui est par 
+     /*remplissage du tableau en séparant les éléments de la date en prenant comme parametre le tiret qui est par 
     présent par défaut dans les champs de type 'date'
     puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA)
     */
@@ -276,36 +276,44 @@ function myCaz(){
     //Détermination des ms au 01-01-2014 (date de passage de la validité de la CI à 15 ans)
     var dCi = Date.parse("January 01, 2014");
     //Détermination des ms à la valeur entrée comme date de délivrance de la PI OU du passport
-    const dtValidPi = Date.parse(dtpi);
+    let dtValidPi = Date.parse(dtpi);
     //Comparaison des deux valeurs et assignation true/false a dtValidPiStatut 
-    //Cette comparaison ne s'opère que si le bouton CI est coché
-    //let dtValidPiStatut; 
-    //let dtpiChk;
-    //if (dtpi == ""){
-    //  dtpiChk = false;
-    //}
     
+    //Si la date de delivr de la CI est posterieure a dCi sa validité est de 15ans
+    
+    //Sinon si elle est inférieure il faut ajouter 10ans et la comparer a la date du jour
+//Si la date est inférieure à la date du jour indiquer "perimé" 
+
     // Pour la validité de la CI
-    let dtDelChk;
+    //valeur en ms de 10 ans (10*12*30*24*60*60*1000)
+    let tenYears = 311040000000;
+    let calcDiffYear; 
+    //On prend la date de l'input : si elle est avant dCi
+    //on lui appliquera le calcul de validité 10  ans
     if (dtValidPi < dCi)
-    {
-    document.getElementById("dtDelivrPi").style.background="crimson";
-    document.getElementById("dtDelivrPi").style.color="white";
-    alert("Carte d'identité périmée");
-    dtDelChk = false;
+    { 
+        calcDiffYear = dtValidPi + tenYears;
+        //Et on la compare à la date courante
+        if (calcDiffYear < origin)
+        {
+            document.getElementById("dtDelivrPi").style.background="crimson";
+            document.getElementById("dtDelivrPi").style.color="white";
+            alert("la validité de votre carte est dépassée")
+        }
     }
+
     else if (dtValidPi > dCi)
     {
     document.getElementById("dtDelivrPi").style.background="seagreen";
     document.getElementById("dtDelivrPi").style.color="white";
-    dtDelChk = true;
+    
     }
 
     //Vérification de la validité du passeport
 //La date de référence est prise dans la partie du dessus 'origin'
 
 //Détermination des ms au 01-01-2014 (validité des passeport à 10 ans pour ceux)
-//var dPp = Date.parse("March 01, 2001");
+var dPp = Date.parse("March 01, 2001");
 //Détermination des ms à la valeur entrée comme date de délivrance de la CI
         //la valeur est déjà stockée dans 'dtValidPi'
 // Pour la validité du PP
@@ -342,60 +350,80 @@ console.log(origin, dCi, "date de validité:" + dtValidPi);
     On laisse par défaut visible le champ du nom de l'entreprise 
     Si il n'est pas renseigné, les autres champs n'apparraissent pas (à développer)
     */
-    let numSirV  = document.getElementById("numSir").value;
-    if (nomEntrV != ""){
-        //document.getElementById("divHid1").style.display=initi
+    /*$let numSirV  = document.getElementById("numSir").value;
+    if (nomEntrV != "")
+    {
+        //document.getElementById("divHid1").style.display=initial
         //document.getElementById("divHid2").hidden=true;
-        }
-console.log("nom d'entreprise:" + nomEntrV, numSirV);
+    }*/
+console.log("nom d'entreprise:" + nomEntrV);
 
 
     // Gestion du choix SIREN(9chiffres) et SIRET(14 chiffres)
-    let sirenChk = '', sirenVal = '' , siretChk = '', siretVal = '';
+    let sirenChk = '', siretChk = '';
+    let numSirV = document.getElementById("numSir").value;
     
         //On vérifie si l'un des deux boutons est coché
         sirenChk = document.getElementById("siren").checked;
         siretChk = document.getElementById("siret").checked;
 
         //On vérifie que le nom d'entreprise est rempli si l'on veut saisir un numéro
-        if((sirenChk || siretChk == true) && (sirenVal || siretVal == "")){
+        if(sirenChk == true || siretChk == true)
+        {
+            if(numSirV == "")
+            {
             alert("N'oubliez pas de saisir un nom d'entreprise");
-            document.getElementById("nomEntr").style.background = "crimson";
+            document.getElementById("nomEntr").style.color = 'white';
+            document.getElementById("nomEntr").style.background = "#ffbf80";
+            }
+            else
+            {
+            document.getElementById("nomEntr").style.color = 'white';
+            document.getElementById("nomEntr").style.background = "seagreen";
+            }
         }
-
+        
         //Si siren est true, on va vérifier qu'il s'agit bien de chiffres et ensuite que le nombre de chiffres est bien de 9
-        if (sirenChk == true && sirenVal !=NaN){
+        if (sirenChk == true)
+        {
             sirenVal = document.getElementById("numSir").value.split("");
-            if (sirenVal.length < 9 ){
-                alert("Le numéro <b>SIREN</b> doit contenir au moins 9 chiffres");
+            if (sirenVal.length < 9 )
+            {
+                alert("Le numéro SIREN doit contenir au moins 9 chiffres");
                 document.getElementById("numSir").style.color = 'white';
                 document.getElementById("numSir").style.background = 'crimson';
             }
-            else if (sirenVal.length > 9){
+            else if (sirenVal.length > 9)
+            {
                 alert("le numéro SIREN ne peut pas contenir plus de 9 chiffres");
                 document.getElementById("numSir").style.color = 'white';
                 document.getElementById("numSir").style.background = 'crimson';
             }
-            else {
+            else 
+            {
                 document.getElementById("numSir").style.color = 'white';
                 document.getElementById("numSir").style.background = 'seagreen';
             }
         }
 
          //Si siret est true, on va vérifier que le nombre de chiffre est bien de 14
-         if (siretChk == true){
+         if (siretChk == true)
+         {
             siretVal = document.getElementById("numSir").value.split("");
-            if (siretVal.length < 14 ){
-                alert("Le numéro <b>SIRET</b> doit contenir au moins 14 chiffres");
+            if (siretVal.length < 14 )
+            {
+                alert("Le numéro SIRET doit contenir au moins 14 chiffres");
                 document.getElementById("numSir").style.color = 'white';
                 document.getElementById("numSir").style.background = 'crimson';
             }
-            else if (siretVal.length > 14){
+            else if (siretVal.length > 14)
+            {
                 alert("le numéro SIRET ne peut pas contenir plus de 14 chiffres");
                 document.getElementById("numSir").style.color = 'white';
                 document.getElementById("numSir").style.background = 'crimson';
             }
-            else {
+            else
+            {
                 document.getElementById("numSir").style.color = 'white';
                 document.getElementById("numSir").style.background = 'seagreen';
             }
@@ -403,26 +431,55 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
         }
            
         //Vérification de la mécanique dans la console
-        console.log(sirenVal, siretVal);
+        console.log(numSirV);
       
     
         //Date KBIS
     //Déclaration d'un tableau destiné à recevoir la date
     let dtKBISt = [];
     //On récupère la valeur du champ date KBIS quel que soit son formatage
-    let dtKBIS = document.getElementById("dtKbis").value;
+    let dtKbisV = document.getElementById("dtKbis").value;
     //Si le nom d'entreprise est renseigné mais pas la date de KBIS, le rappeler à l'utilsateur
-    if (nomEntrV != "" && dtKBIS == ""){
+    if (nomEntrV != "" && dtKbisV == "")
+    {
         alert ("Vous devez renseigner la date d'édition du KBIS");
         document.getElementById("dtKbis").style.background="#ffbf80";
     }
-    else if (nomEntrV != "" && dtKBIS != ""){
-        document.getElementById("dtKbis").style.background="seagreen";
-        document.getElementById("dtKbis").style.color="white";
+    //Si le nom d'entreprise et la date du KBIS sont renseignés, on vérifie alors que la 
+    //date d'édition du KBIS n'est pas supérieure à 3 mois
+    else if (nomEntrV != "" && dtKbisV != "")
+    {
+        let origin = Date.now();
+        let threeMonths = 7776000000; // valeur en ms de 3 mois (3*30*24*60*60*1000)
+        let calcDiffMonth;
+        let dtValidKb = Date.parse(dtKbisV);
+    
+        if (dtValidKb + threeMonths > origin)
+        {
+        document.getElementById("dtKbis").style.color = 'white';
+        document.getElementById("dtKbis").style.background = "seagreen";
+        document.getElementById("outKBIS").style.color = "white";
+        document.getElementById("outKBIS").style.background = "seagreen";
+
+        
+        calcDiffMonth = true;
+        }
+        else if (dtValidKb + threeMonths < origin)
+        {
+            var txt = "Votre fiche KBIS est trop ancienne";
+            document.getElementById("dtKbis").style.background="crimson";
+            document.getElementById("dtKbis").style.color="white";
+            alert=("Votre fiche KBIS est trop ancienne");  
+            document.getElementById("outKBIS").style.color = "white";
+            document.getElementById("outKBIS").style.background = "crimson";
+            document.getElementById("outKBIS").innerHTML = txt;
+            calcDiffMonth = false;
+
+        }
+    console.log("date kbis reçue:" + dtValidKb, "date courante:" + origin, "la date KBIS est-elle bonne ?:" + calcDiffMonth);
+        
     }
-    else {
-        document.getElementById("dtKbis").style.background="white";
-    }
+   
     /*remplissage du tableau en séparant les éléménts de la date en prenant comme parametre le tiret qui est par 
     présent par défaut dans les champs de type 'date'
     puis inversion des valeurs du tableau pour revenir à un format JJMMAAAA)
@@ -433,28 +490,33 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
     il faut alors filtrer ce qui est entré par l'utilisateur et voir comment le champ se comporte.
     */
     //Si l'utilisateur entre la date en séparant les élément par " - " :
-    if (dtKBIS.includes("-")){
+    if (dtKbisV.includes("-"))
+    {
     /*
     On va quand même vérifier qu'il a bien commencé par le jour, si c'est un petit malin qui a mis
     l'année en premier on inverse les éléments AAAA et JJ
     */
-        dtKBISt = dtKBIS.split("-");
-        if (dtKBISt[0]>31){
+        dtKBISt = dtKbisV.split("-");
+        if (dtKBISt[0]>31)
+        {
             dtKBISt.reverse();
         }
     }
     /*
     //Si l'utilisateur entre la date en séparant les élément par " / " , il faut les remplacer par des " - " 
     */
-    if (dtKBIS.includes("/")){
+    if (dtKbisV.includes("/"))
+    {
     //On entre les valeurs dans le tableau en gardant les " / "
     //On vérifie aussi que ce n'est pas le même petit malin qui essaie de mettre l'année en premier
-        dtKBISt = dtKBIS.split("/");
-        if (dtKBISt[0]>31){
+        dtKBISt = dtKbisV.split("/");
+        if (dtKBISt[0]>31)
+        {
             dtKBISt.reverse();
         }
     //On créé une boucle qui va permettre de parcourir le tableau
-    for (let i = 0 ; i < dtKBISt.length ; i++){
+        for (let i = 0 ; i < dtKBISt.length ; i++)
+        {
         var dtKbisOut = [];
         dtKbisOut = dtKbist[i].replace("/", "-");
         //var pos = dtnais.indexOf('/');
@@ -464,9 +526,8 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
     }
 
 
-    //On va vérifier que la date d'édition du KBIS n'est pas supérieure à 3 mois (à développer)
-    dKB = 7776000000; // valeur en ms de 3 mois (3*30*24*60*60*1000)
     
+
     
     // ######### Génération des sorties #########
 
@@ -482,6 +543,9 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
         document.getElementById("outCazO").style.color='white';
         document.getElementById("outCazO").style.background='crimson';
 
+        document.getElementById("outDUE").style.color='white';
+        document.getElementById("outDUE").style.background='crimson';
+
         //document.getElementById("pOutCaz").style.background='crimson';
         //document.getElementById("pOutCazO").style.background='crimson';
         //document.getElementById("pOutPi").style.background='crimson';
@@ -489,23 +553,27 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
 
     else if (nameValue != "" && surnameFirstLetter != "" && dtnais != "")
     {
-            document.getElementById("outCaz").style.color='white';
-            document.getElementById("outCaz").style.background='seagreen';
+        document.getElementById("outCaz").style.color='white';
+        document.getElementById("outCaz").style.background='seagreen';
     
-            document.getElementById("outCazO").style.color='white';
-            document.getElementById("outCazO").style.background='seagreen';
+        document.getElementById("outCazO").style.color='white';
+        document.getElementById("outCazO").style.background='seagreen';
+
+        document.getElementById("outDUE").style.color='white';
+        document.getElementById("outDUE").style.background='seagreen';
     
             //document.getElementById("pOutCaz").style.background='seagreen';
             //document.getElementById("pOutCazO").style.background='seagreen';
-    
     }
     
     
-    //Sortie CAZ
+    //Sortie CAZ & DUE
     document.getElementById("outCaz").innerHTML = "CAZ" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
     //on stocke la sortie également dans une variable pour créer un copier/coller maison
     const cazVar = "CAZ" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf"
-    
+    document.getElementById("outDUE").innerHTML = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+    const dueVar = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+
     //Sortie CAZ-O
     document.getElementById("outCazO").innerHTML = "CAZ-O" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
     //on stocke la sortie également dans une variable pour créer un copier/coller maison
@@ -513,7 +581,8 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
     
 
     //Sortie PI
-    if (numPi == ""  || numPi.length != 12 || dtDelChk == false){
+    if (numPi == ""  || numPi.length != 12)
+    {
         let txt = "vous ne pouvez pas obtenir de sortie sans numéro correct de PI";
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='crimson';
@@ -522,14 +591,13 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
         document.getElementById("outPi").innerHTML = txt;
     }
     
-    else if (numPi != "" && numPi.length == 12 && dtDelChk == true){
-        
+    else if (numPi != "" && numPi.length == 12)
+    {
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='seagreen';
         //document.getElementById("pOutPi").style.background='seagreen';
 
         document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
-    
     }
     
     //On créé un tableau et l'on y insère les données de outCaz pour enuite chercher si un champ n'est pas rempli (date vide renvoie undefined)
@@ -561,8 +629,8 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
         */
         
     //et on active les liens
-        document.getElementById("inputCazFile").disabled = false;
-        document.getElementById("inputCazOFile").disabled = false;
+        //document.getElementById("inputCazFile").disabled = false;
+        //document.getElementById("inputCazOFile").disabled = false;
         //et on active le lien
         //document.getElementById("inputPifile").disabled = false;
     
@@ -615,20 +683,22 @@ console.log("nom d'entreprise:" + nomEntrV, numSirV);
     }
     */
 
-/*
-    //Génération de la sortie DUE
-    document.getElementById("outDUE").innerHTML = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+
     
+  
     //Génération de la sortie KBIS
-    document.getElementById("outKBIS").innerHTML = "KBIS" + "_" + nomEntrV + "_" +numSirV+ "_" + dtKBISt[0] + dtKBISt[1] + dtKBISt [2] + ".pdf";
-  */  
-
-
-
+    if (nomEntrV == "") /*|| sirenChk == false || siretChk == false || numSirV == "" || dtKbisV == "")*/
+    {
+    document.getElementById("outKBIS").style.color='white';
+    document.getElementById("outKBIS").style.background='crimson';
+    }
+    document.getElementById("outKBIS").innerHTML = "KBIS" + "_" + nomEntrV + "_" + numSirV + "_" + dtKBISt[0] + dtKBISt[1] + dtKBISt [2] + ".pdf";
+    
+    
 
 
 
     
 
-
+//fin du script
 }

@@ -5,7 +5,7 @@ document.getElementById("surname").addEventListener("focusout", valueEffectS);
 document.getElementById("dtNaiss").addEventListener("blur", valueEffectdTN);
 
 
-document.getElementById("originPi").addEventListener("mouseup", valueEffectOpi);
+//document.getElementById("originPi").addEventListener("mouseup", valueEffectOpi);
 document.getElementById("cIF").addEventListener("mouseup", valueEffectOpi);
 //document.getElementById("passPrtF").addEventListener("mouseup", valueEffectOpi);
 
@@ -122,25 +122,27 @@ function valueEffectNumPi()
     {
         document.getElementById("numPi").style.background="#ffbf80";
         let txt = "vous ne pouvez pas obtenir de sortie sans numéro correct de PI";
-        document.getElementById("outPi").style.color='white';
-        document.getElementById("outPi").style.background='crimson';
+        document.getElementById("outPi").style.color='crimson';
+        
         
         document.getElementById("outPi").innerHTML = txt;
     }
     else if (numPi.length < 12 || numPi.length > 12)
     {   // La carte d'identité est constituée de 12 caractères
-        
-        
-    
         alert ("la carte d'identité comporte 12 caractères");
         document.getElementById("numPi").style.background="#ffbf80";
         document.getElementById("numPi").style.color="crimson";
-        
+        document.getElementById("originPi").style.background="#ffbf80";
+        document.getElementById("originPi").style.color="crimson";
     }
-else
+    else
     {
         document.getElementById("numPi").style.background="seagreen";
         document.getElementById("numPi").style.color="white";
+        document.getElementById("originPi").style.color="white";
+        document.getElementById("originPi").style.background="seagreen";
+
+
     }
 }
 
