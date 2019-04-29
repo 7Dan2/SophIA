@@ -24,3 +24,8 @@ Version 1.10 10-03-2019
 Version 1.11 12-03-2019
 	Prise en compte des «/«  dans les champs de dates non gérés par le calendrier.
 
+A partir de la version 1.17, passage à l'incrémentation sémantique.
+	La version 1.17 devient 1.17.1
+
+	-Fixe un bug dans la coloration du champ de date validité pièce d'identité.
+

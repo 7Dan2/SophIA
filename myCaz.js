@@ -133,7 +133,7 @@ function myCaz(){
    l'année en premier on inverse les éléments AAAA et JJ
    */
        dtNaissArray = dtnais.split("-");
-       if (dtNaissArray[0]>31)
+       if (dtNaissArray[0] > 31)
        {
            dtNaissArray.reverse();
        }
@@ -238,7 +238,7 @@ function myCaz(){
     l'année en premier on inverse les éléments AAAA et JJ
     */
         dtdelivr = dtpi.split("-");
-        if (dtpi[0]>31)
+        if (dtpi[0] > 31)
         {
         dtpi.reverse();
         }
@@ -251,7 +251,7 @@ function myCaz(){
     //On entre les valeurs dans le tableau en gardant les " / "
     //On vérifie aussi que ce n'est pas le même petit malin qui essaie de mettre l'année en premier
         dtdelivr = dtDelivrPi.split("/");
-        if (dtDelivrPi[0]>31)
+        if (dtDelivrPi[0] > 31)
         {
         dtdelivr.reverse();
         }

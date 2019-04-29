@@ -82,22 +82,19 @@ document.getElementById("outCazO").addEventListener("copy", valueEffectCopyCazO)
 /*
 ######### Pieces d'identités #########
     Si c'est la carte d'identité française qui est choisie
-    alors on va verifier la validité de celle-ci
+    alors on va verifier que le numéro est compatible et la validité de la date de délivrance
+*/
 
-    
-
-
-    */
-
-// Traitement de la date de la PI
-function valueEffectDtPi(){
-}
 
 //Traitement de l'origine de la Pi
 function valueEffectOpi()
 {
+    
+    let numPi = document.getElementById("numPi").value;
+    let testValue = document.getElementById("dtDelivrPi").value;
+    let numPiValid;
     let piChkStatus;
-    if(cIF.selected == true  || passPrtF.selected == true || cIEu.selected == true || titrSej.selected == true)
+    if(cIF.selected == true  && numPiValid == true )
     {
         document.getElementById("originPi").style.background="seagreen";
         document.getElementById("originPi").style.color="white";
@@ -117,14 +114,13 @@ function valueEffectOpi()
 function valueEffectNumPi()
 {
     let numPi = document.getElementById("numPi").value;
+    let numPiValid;
 
     if (numPi == "")
     {
         document.getElementById("numPi").style.background="#ffbf80";
         let txt = "vous ne pouvez pas obtenir de sortie sans numéro correct de PI";
         document.getElementById("outPi").style.color='crimson';
-        
-        
         document.getElementById("outPi").innerHTML = txt;
     }
     else if (numPi.length < 12 || numPi.length > 12)
@@ -134,6 +130,7 @@ function valueEffectNumPi()
         document.getElementById("numPi").style.color="crimson";
         document.getElementById("originPi").style.background="#ffbf80";
         document.getElementById("originPi").style.color="crimson";
+        numValidPi = false;
     }
     else
     {
@@ -141,9 +138,22 @@ function valueEffectNumPi()
         document.getElementById("numPi").style.color="white";
         document.getElementById("originPi").style.color="white";
         document.getElementById("originPi").style.background="seagreen";
-
+        numValidPi = true;
 
     }
+}
+// Traitement de la date de la PI
+function valueEffectDtPi(){
+    let testValue = document.getElementById("dtDelivrPi").value;
+
+        if (testValue == "")
+        {
+            document.getElementById("dtDelivrPi").style.background="#ffbf80";
+        }
+        else if(testValue != "")
+        {
+            
+        }
 }
 
 //Traitement de la date de la Pi
