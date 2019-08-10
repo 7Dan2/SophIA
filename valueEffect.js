@@ -14,6 +14,9 @@ document.getElementById("dtDelivrPi").addEventListener("change", valueEffectDtPi
 
 document.getElementById("outCaz").addEventListener("copy", valueEffectCopyCaz);
 document.getElementById("outCazO").addEventListener("copy", valueEffectCopyCazO);
+document.getElementById("outPi").addEventListener("copy", valueEffectCopyPi);
+document.getElementById("outDUE").addEventListener("copy", valueEffectCopyDue);
+
 
 
 //Traitement du nom
@@ -177,10 +180,21 @@ function valueEffectDtPi(){
 */
 function valueEffectCopyCaz()
 {
-    document.getElementById("outCpyCaz").innerHTML = "ce texte a été copié";
-    document.getElementById("outCpyCazO").innerHTML = "ce texte a été copié";
+    document.getElementById("outCpyCaz").innerHTML = "Copié dans le presse-papier";
+    document.getElementById("outCpyCaz").style.color = "lightgreen";
 }
+
 function valueEffectCopyCazO()
 {
-    document.getElementById("outCpyCazO").innerHTML = "ce texte a été copié";
+    document.getElementById("outCpyCazO").innerHTML = "Copié dans le presse-papier";
+}
+
+function valueEffectCopyPi()
+{
+    document.getElementById("outCpyPi").innerHTML = "Copié dans le presse-papier";
+}
+
+function valueEffectCopyDue()
+{
+    document.getElementById("outCpyDue").innerHTML = "Copié dans le presse-papier";
 }

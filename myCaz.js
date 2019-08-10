@@ -285,8 +285,8 @@ function myCaz(){
 //Si la date est inférieure à la date du jour indiquer "perimé" 
 
     // Pour la validité de la CI
-    //valeur en ms de 10 ans (10*12*30*24*60*60*1000)
-    let tenYears = 311040000000;
+    //valeur en ms de 10 ans (10*12*31*24*60*60*1000)
+    let tenYears = 321040800000;
     let calcDiffYear; 
     //On prend la date de l'input : si elle est avant dCi
     //on lui appliquera le calcul de validité 10  ans

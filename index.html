@@ -24,10 +24,10 @@
                 <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
           
                 </div>
-                <div class="col-10 bg-light rounded text-center text-secondary">
-                    <h1>Générateur CAZ/PI SophI.A <small>v1.17.1</small>
-                        <img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophI.A"/>
-                        <p><i class="fas fa-assistive-listening-systems m-1"></i></p>
+                <div class="col-10 bg-light m-3 rounded text-right text-secondary">
+                    <h1>SophI.A <small>v1.17.1</small>
+                        <!--<img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophI.A"/>-->
+                        <!--<p><i class="fas fa-assistive-listening-systems m-1"></i></p>-->
                     </h1>
                     
                     
@@ -99,8 +99,8 @@
                                 <option selected></option>
                                 <option value="1" id="cIF">Carte identité française</option>
                                 <option value="2" id="passPrtF">Passeport français</option>
-                                <option value="3" id="cIEu">Carte identité Européenne</option>
-                                <option value="4" id="titrSej">Titre de séjour</option>
+                                <option value="3" id="cIEu" disabled>Carte identité Européenne</option>
+                                <option value="4" id="titrSej" disabled>Titre de séjour</option>
                             </select>
                         </div>
 
@@ -270,7 +270,7 @@
                     <div class="form-group">
                         <label for="outPi" class="text-light">Nom de fichier pièce d'identité</label>
                         <p id="outPi" class="text-white text-center border border-light rounded">En attente de données</p>
-                        
+                        <p id="outCpyPi"></p>
                         <!--<p class="text-center border border-light rounded" id="pOutPi">
                             <a href="#" id="outPi" class=" text-center"><i class="fas fa-file-import"></i></a>
                         </p>-->
@@ -282,7 +282,7 @@
                     <div class="form-group"><!--style="display:none"-->
                         <label for="outDUE" class="text-light">Nom de fichier DUE</label>
                         <p id="outDUE" class="text-white text-center border border-light rounded">En attente de données</p>
-                        
+                        <p id="outCpyDue"></p>
                         <!-- la séparation est placée avant la fin de la div pour ne pas apparaitre lorsque la div est masquée-->
                         <hr/>
                     </div>
