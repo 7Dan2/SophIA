@@ -126,7 +126,7 @@ function valueEffectNumPi()
         document.getElementById("outPi").style.color='crimson';
         document.getElementById("outPi").innerHTML = txt;
     }
-    else if (numPi.length < 12 || numPi.length > 12)
+    if (numPi.length < 12 || numPi.length > 12)
     {   // La carte d'identité est constituée de 12 caractères
         alert ("la carte d'identité comporte 12 caractères");
         document.getElementById("numPi").style.background="#ffbf80";

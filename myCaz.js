@@ -273,43 +273,68 @@ function myCaz(){
     //Détermination des ms depuis le 01-01-1970 au moment de l'entrée de la date de la PI
     let dtOrigin = new Date();
     let origin = Date.now();
-    //Détermination des ms au 01-01-2014 (date de passage de la validité de la CI à 15 ans)
-    var dCi = Date.parse("January 01, 2014");
+    //Détermination des ms au 02-01-2014 (date de passage de la validité de la CI à 15 ans)
+    var dMaxValid = Date.parse("January 02, 2004");
     //Détermination des ms à la valeur entrée comme date de délivrance de la PI OU du passport
     let dtValidPi = Date.parse(dtpi);
     //Comparaison des deux valeurs et assignation true/false a dtValidPiStatut 
     
-    //Si la date de delivr de la CI est posterieure a dCi sa validité est de 15ans
+    //Si la date de delivr de la CI est posterieure a dMaxValid sa validité est de 15ans
     
     //Sinon si elle est inférieure il faut ajouter 10ans et la comparer a la date du jour
 //Si la date est inférieure à la date du jour indiquer "perimé" 
 
-    // Pour la validité de la CI
-    //valeur en ms de 10 ans (10*12*31*24*60*60*1000)
-    let tenYears = 321040800000;
-    let calcDiffYear; 
-    //On prend la date de l'input : si elle est avant dCi
-    //on lui appliquera le calcul de validité 10  ans
-    if (dtValidPi < dCi)
-    { 
-        calcDiffYear = dtValidPi + tenYears;
-        //Et on la compare à la date courante
-        if (calcDiffYear < origin)
-        {
-            document.getElementById("dtDelivrPi").style.background="crimson";
-            document.getElementById("dtDelivrPi").style.color="white";
-            alert("la validité de votre carte est dépassée")
-        }
-    }
-
-    else if (dtValidPi > dCi)
-    {
-    document.getElementById("dtDelivrPi").style.background="seagreen";
-    document.getElementById("dtDelivrPi").style.color="white";
     
-    }
+// Pour la validité de la CI
+    //15 ans
+    const fifteenYears = 473040000000;
+    //14 ans
+    const forteenYears = 441504000000;
+    // 1 an
+    const oneYear = 31536000000;
 
-    //Vérification de la validité du passeport
+    let calcDiffYear = dtValidPi + fifteenYears;
+    let calcOneYearLeft = dtValidPi + forteenYears;
+
+   //On prend la date de l'input dtpi(dtValidPi):
+
+    //Si elle est avant 02-01-2004 :
+    //on lui appliquera le calcul de validité 10 ans
+    if (dtValidPi < dMaxValid)
+    {
+        document.getElementById("dtDelivrPi").style.background="crimson";
+        document.getElementById("dtDelivrPi").style.color="white";
+        alert("La validité de votre carte est dépassée: \n Carte antérieure au 02 janvier 2004: validité 10 ans"); 
+    }
+    
+    // Si la date est postérieure à 02-01-2004 :
+    // On va appliquer un calcul de validité 15 ans
+    // Si cette validité est inférieure à la date du jour on donnera une information
+    if ((dtValidPi > dMaxValid) && (calcDiffYear < origin))
+    { 
+        alert("La validité de votre carte est dépassée: \n Dépassement du délai de validité de 15 ans");
+        document.getElementById("dtDelivr").style.background="crimson";
+        document.getElementById("dtDelivr").style.color="white";
+        dtValidPiStatut = true;
+    }
+    // Si cette validité est proche du terme dans l'anée
+    else if ((dtValidPi > dMaxValid) && (calcOneYearLeft > (origin - oneYear)) && (calcOneYearLeft < origin))
+    {
+        alert("Votre carte d'identité va expirer dans moins d'un an, pensez à la renouveler");
+        document.getElementById("dtDelivrPi").style.background="seagreen";
+        document.getElementById("dtDelivrPi").style.color="#ffbf80";
+        dtValidPiStatut = false;
+    }
+    // Si la validité est bonne (bonne bonne bonne ...)
+    else if ((dtValidPi > dMaxValid) && (calcDiffYear > origin))
+    {
+        document.getElementById("dtDelivrPi").style.background="seagreen";
+        document.getElementById("dtDelivrPi").style.color="white";
+        dtValidPiStatut = false;
+    }
+    console.log("date du jour :" + " " + origin + " / " + "date délivrance :" + " " + dtValidPi + " / " + "date délivr + 15ans :" + " " + calcDiffYear + " / " + "date - 1 an :" + " " + calcOneYearLeft);
+   
+//Vérification de la validité du passeport  
 //La date de référence est prise dans la partie du dessus 'origin'
 
 //Détermination des ms au 01-01-2014 (validité des passeport à 10 ans pour ceux)
@@ -339,7 +364,7 @@ Sinon si la différence est inférieure à la valeur en ms de 18 ans :
 */
 
 //On vérifie la mécanique dans la console
-console.log(origin, dCi, "date de validité:" + dtValidPi);
+console.log(origin, dMaxValid, "date de validité:" + dtValidPi);
 }
 
     //######### ENTREPRISE #########
@@ -447,10 +472,10 @@ console.log("nom d'entreprise:" + nomEntrV);
     }
     //Si le nom d'entreprise et la date du KBIS sont renseignés, on vérifie alors que la 
     //date d'édition du KBIS n'est pas supérieure à 3 mois
-    else if (nomEntrV != "" && dtKbisV != "")
+    if (nomEntrV != "" && dtKbisV != "")
     {
         let origin = Date.now();
-        let threeMonths = 7776000000; // valeur en ms de 3 mois (3*30*24*60*60*1000)
+        let threeMonths = 8035200000; // valeur en ms de 3 mois (3*31*24*60*60*1000)
         let calcDiffMonth;
         let dtValidKb = Date.parse(dtKbisV);
     
@@ -461,21 +486,21 @@ console.log("nom d'entreprise:" + nomEntrV);
         document.getElementById("outKBIS").style.color = "white";
         document.getElementById("outKBIS").style.background = "seagreen";
 
-        
         calcDiffMonth = true;
         }
-        else if (dtValidKb + threeMonths < origin)
-        {
-            var txt = "Votre fiche KBIS est trop ancienne";
-            document.getElementById("dtKbis").style.background="crimson";
-            document.getElementById("dtKbis").style.color="white";
-            alert=("Votre fiche KBIS est trop ancienne");  
-            document.getElementById("outKBIS").style.color = "white";
-            document.getElementById("outKBIS").style.background = "crimson";
-            document.getElementById("outKBIS").innerHTML = txt;
-            calcDiffMonth = false;
 
-        }
+    if (dtValidKb + threeMonths < origin)
+    {
+        let txt = "Fiche KBIS est trop ancienne";
+        document.getElementById("dtKbis").style.background="crimson";
+        document.getElementById("dtKbis").style.color="white";
+        alert=("Votre fiche KBIS est trop ancienne\nLa validité requise est moins de trois mois");  
+        document.getElementById("outKBIS").style.color = "white";
+        document.getElementById("outKBIS").style.background = "crimson";
+        document.getElementById("outKBIS").innerHTML = txt;
+        calcDiffMonth = false;
+
+    }
     console.log("date kbis reçue:" + dtValidKb, "date courante:" + origin, "la date KBIS est-elle bonne ?:" + calcDiffMonth);
         
     }
