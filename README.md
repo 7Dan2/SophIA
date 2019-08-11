@@ -5,5 +5,5 @@ Because of the unattented evolution of this tool, and stranges uncontroled behav
 
 Hey, i'm just a junior developper. 
 
-The lastest version is 1.17.1.
+The lastest version is 1.17.2.
 
