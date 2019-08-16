@@ -295,7 +295,7 @@ function myCaz(){
 
     let calcDiffYear = dtValidPi + fifteenYears;
     let calcOneYearLeft = dtValidPi + forteenYears;
-
+    let dtValidPiStatut;
    //On prend la date de l'input dtpi(dtValidPi):
 
     //Si elle est avant 02-01-2004 :
@@ -315,6 +315,7 @@ function myCaz(){
         alert("La validité de votre carte est dépassée: \n Dépassement du délai de validité de 15 ans");
         document.getElementById("dtDelivr").style.background="crimson";
         document.getElementById("dtDelivr").style.color="white";
+        
         dtValidPiStatut = true;
     }
     // Si cette validité est proche du terme dans l'anée
@@ -342,7 +343,7 @@ var dPp = Date.parse("March 01, 2001");
 //Détermination des ms à la valeur entrée comme date de délivrance de la CI
         //la valeur est déjà stockée dans 'dtValidPi'
 // Pour la validité du PP
-/*
+
 if ((piChk == false && passprtChk == true) && dtValidPi < dPp) {
     alert("Ce passeport n'est plus valide");
     document.getElementById("dtDelivr").style.background="crimson";
@@ -606,25 +607,35 @@ console.log("nom d'entreprise:" + nomEntrV);
     
 
     //Sortie PI
-    if (numPi == ""  || numPi.length != 12)
+    if (document.getElementById("cIF").selected == true)
     {
-        let txt = "vous ne pouvez pas obtenir de sortie sans numéro correct de PI";
-        document.getElementById("outPi").style.color='white';
-        document.getElementById("outPi").style.background='crimson';
-        //document.getElementById("pOutPi").style.background='crimson';
+        if (numPi == "" || numPi.length != 12)
+        {
+            //let txt = "vous ne pouvez pas obtenir de sortie sans numéro correct de PI";
+            document.getElementById("outPi").style.color='white';
+            document.getElementById("outPi").style.background='crimson';
+            //document.getElementById("pOutPi").style.background='crimson';
 
-        document.getElementById("outPi").innerHTML = txt;
-    }
+            //document.getElementById("outPi").innerHTML = txt;
+        }
     
-    else if (numPi != "" && numPi.length == 12)
-    {
-        document.getElementById("outPi").style.color='white';
-        document.getElementById("outPi").style.background='seagreen';
-        //document.getElementById("pOutPi").style.background='seagreen';
+        if (dtValidPiStatut == false && numPi != "" && numPi.length == 12)
+        {
+            document.getElementById("outPi").style.color='white';
+            document.getElementById("outPi").style.background='seagreen';
+            //document.getElementById("pOutPi").style.background='seagreen';
 
-        document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
-    }
-    
+            document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
+        }
+
+        if (dtValidPiStatut == true)
+        {
+            let text = 'Vous ne pourrez pas accéder si votre carte d\'identité est périméee';
+            document.getElementById("outPi").style.color='crimson';
+            document.getElementById("outPi").style.background='white';
+            document.getElementById("outPi").innerHTML = text;
+        }
+    }  
     //On créé un tableau et l'on y insère les données de outCaz pour enuite chercher si un champ n'est pas rempli (date vide renvoie undefined)
     //outCazArray = outCaz.split("  ");
     //outCazContent = outCaz.includes("undefined");
@@ -697,7 +708,7 @@ console.log("nom d'entreprise:" + nomEntrV);
     
     //Génération de la sortie PI
     // Bricolage en attente de mieux pour coller les éléments du tableau dtdelivr
-    /*document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
+    document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
     if (numPi == "" || dtValidPiStatut == true || (piChk == false && passprtChk == false) || dtpiChk == false){
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='crimson';
@@ -706,7 +717,7 @@ console.log("nom d'entreprise:" + nomEntrV);
         document.getElementById("outPi").style.color='white';
         document.getElementById("outPi").style.background='seagreen';
     }
-    */
+    
 
 
     

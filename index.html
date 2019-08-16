@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/main.css";
     <!-- Bootstrap CSS -->
     <!-- Online -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Font-awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Offline -->
@@ -22,10 +22,10 @@
 
             <div class="row">
                 <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
-          
+                    
                 </div>
                 <div class="col-10 bg-light m-3 rounded text-right text-secondary">
-                    <h1>SophI.A <small>v1.17.2</small>
+                    <h1>SophI.A <small>v1.17.3</small>
                         <!--<img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophI.A"/>-->
                         <!--<p><i class="fas fa-assistive-listening-systems m-1"></i></p>-->
                     </h1>
@@ -96,7 +96,6 @@
                                 </label>
                             </div>
                             <select class="custom-select" id="originPi">
-                                
                                 <option value="1" id="cIF">Carte identité française</option>
                                 <option value="2" id="passPrtF">Passeport français</option>
                                 <option value="3" id="cIEu" disabled>Carte identité Européenne</option>
@@ -138,7 +137,7 @@
                                     Date délivrance
                                 </span>
                             </div>
-                                <input type="date" id="dtDelivrPi" max="2019-01-01" class="form-control" aria-label="date de délivrance de la pièce d'identité" aria-describedby="delivering date of identity card" required>
+                                <input type="date" id="dtDelivrPi"  min="2004-01-01" max="2019-01-01" class="form-control" aria-label="date de délivrance de la pièce d'identité" aria-describedby="delivering date of identity card" required>
                             
                         </div>
 
@@ -219,6 +218,7 @@
                  
                 <div class="col-lg-1 col-md-12 col-sm-12 mt-3 mb-3 d-flex justify-content-center align-self-center no-gutters">
                     <button class="btn btn-success p-2"  type="submit" aria-label="lancer la génération" onclick="myCaz()">Générer</button>
+                    
                 </div>
             
                 <div class="col-lg-5 col-md-12 col-sm-12 p-3 mt-3 bg-secondary text-light rounded">  
@@ -230,6 +230,7 @@
                         <label for="outCaz" class="text-light">Nom de fichier CAZ</label>
                         <p id="outCaz" class="text-white text-center border border-light rounded">En attente de données</p>
                         <p id="outCpyCaz"></p>
+                        <!--<button onclick="myFunction()">Copy text</button>-->
                         <!-- le lien doit permettre d'ouvrir le navigateur pour choisir un fichier à renommer (à développer)-->
                         <!--<p class=" text-center border border-light rounded" id="pOutCaz"></p>
                             <a href="#" id="outCaz" class=" text-center"><i class="fas fa-file-import"></i></a>
@@ -239,7 +240,7 @@
                                 <input type="file" id="inputCazFile" accept=".pdf" onchange="handleFiles(this.files)" />
                                 
                                 <div class="input-group-append">
-                                    <!--<button class="btn btn-outline-secondary btn-sm" type="button" id="launchNamingCaz" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="element inactif" data-toggle="tooltip" data-placement="top" title="désactivé pour cette version" >Nommer</button>-->
+                                    <!--<button class="btn btn-outline-secondary btn-sm" type="button" id="launchNamingCaz" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="element inactif" data-toggle="tooltip" data-placement="top" title="désactivé pour cette version">Copier</button>-->
                                 </div>
                             </span>
                         </div>
@@ -290,6 +291,7 @@
                     <div class="form-group"><!--style="display:none"-->
                         <label for="outKBIS" class="text-light">Nom de fichier KBIS</label>
                         <p id="outKBIS" class="text-white text-center border border-light rounded">En attente de données</p>
+                        <p id="outCpyKbis"></p>
                         <!--<div class="input-group-prepend">
                             <span class="input-group-text">
                                 <input type="file" id="inputKbisFile" accept=".pdf"/>
@@ -368,10 +370,9 @@
     <!-- Bootstrap -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Offline -->
     <!--<script src="./bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>-->
 </body>
