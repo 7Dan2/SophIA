@@ -16,6 +16,9 @@ Bugs connus :
 -   Version 1.17.1 : mauvais calcul de la validité de la carte d'identité.
     -> Résolu par la 1.17.2
 
+- Pas de différence sur la reconnaissance du numéro entre carte d'identité et passeport.
+    -> Résolu par 1.17.3
 
-Dernière version : 1.17.2. du 11 août 2019.
+
+Dernière version : 1.17.3 du 17 août 2019.
 
