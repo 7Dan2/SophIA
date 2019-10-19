@@ -8,7 +8,11 @@ function myCaz(){
     //Récupération du nom, mise en majuscule
     let nameValue = document.getElementById("name").value.toUpperCase();
     
-    
+    //Déclaration de toutes les variables
+    let dtValidPiStatut;
+    let piChk;
+    let dtpiChk;
+    let passprtChk;
     
     //vérification de la présence du nom 
 
@@ -167,14 +171,12 @@ function myCaz(){
    
         
         // ######### Pièces d'identité #########
+
 //Traitement de l'origine de la PI
 //document.getElementById("cIF").selected;
 //document.getElementById("passPrtF").selected;
 //document.getElementById("cIEu").selected;
 //document.getElementById("titrSej").selected;
-
-
-
 
     // Récupération du numéro de la pièce d'identité
     let numPi = document.getElementById("numPi").value;
@@ -295,7 +297,7 @@ function myCaz(){
 
     let calcDiffYear = dtValidPi + fifteenYears;
     let calcOneYearLeft = dtValidPi + forteenYears;
-    let dtValidPiStatut;
+    //let dtValidPiStatut;
    //On prend la date de l'input dtpi(dtValidPi):
 
     //Si elle est avant 02-01-2004 :
@@ -315,7 +317,6 @@ function myCaz(){
         alert("La validité de votre carte est dépassée: \n Dépassement du délai de validité de 15 ans");
         document.getElementById("dtDelivr").style.background="crimson";
         document.getElementById("dtDelivr").style.color="white";
-        
         dtValidPiStatut = true;
     }
     // Si cette validité est proche du terme dans l'anée
@@ -355,6 +356,7 @@ else if ((piChk == false && passprtChk == true) && dtValidPi > dPp){
     document.getElementById("dtDelivr").style.color="white";
     dtValidPiStatut = false;
 }
+
 //Particularité pour les mineurs (à développer)
 /*
 Prendre la date de naissance et la comparer à la date du jour
@@ -607,6 +609,7 @@ console.log("nom d'entreprise:" + nomEntrV);
     
 
     //Sortie PI
+    
     if (document.getElementById("cIF").selected == true)
     {
         if (numPi == "" || numPi.length != 12)
@@ -689,18 +692,6 @@ console.log("nom d'entreprise:" + nomEntrV);
 }*/
     
 
-        
-
-        
-    
-    
-    
-    
-    
-   
-    
-    
-
     //console.log("tableau outCaz :" + "" + outCazArray + "/" + "ce tableau contient il undefined ?:" + "" + outCazContent);
  
     //Sortie CAZ-O
@@ -718,10 +709,6 @@ console.log("nom d'entreprise:" + nomEntrV);
         document.getElementById("outPi").style.background='seagreen';
     }
     
-
-
-    
-  
     //Génération de la sortie KBIS
     if (nomEntrV == "") /*|| sirenChk == false || siretChk == false || numSirV == "" || dtKbisV == "")*/
     {
