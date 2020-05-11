@@ -1,92 +1,85 @@
+function myCaz()
+{
+    // ######### Récupération du nom, mise en majuscule, découpage des lettres dans un tableau afin
+    // de vérifier la présence de chiffre(s) #########
 
+    //On declare une variable pour stocker un booleen dont l'utilté est de bloquer les noms de fichiers générés
+    let nameValueValidity;
 
-
-
-
-
-function myCaz(){
-    //Récupération du nom, mise en majuscule
     let nameValue = document.getElementById("name").value.toUpperCase();
-    
-    //Déclaration de toutes les variables
-    let dtValidPiStatut;
-    let piChk;
-    let dtpiChk;
-    let passprtChk;
-    
-    //vérification de la présence du nom 
+    //On génére un tableau des lettres du nom
+    let nameValueArray = nameValue.split("");
+    // Dans lequel on vérifie si un chiffre s'y cache
+    let someNumbersInNameLetters = nameValueArray.some(searchSomeNumbersInNameLetters);
+    //A l'aide d'une fonction cherchant une valeur supérieure à 0, ce qu'une lettre ne peut pas faire
+    function searchSomeNumbersInNameLetters(value)
+    {
+    return value > 0;
+    }
+    //La methode .some() renvoie true ou false, dans le cas de true on alerte l'utilisateur et l'on bloque la sortie 
+    //si un chiffre est présent dans le nom
+    if (someNumbersInNameLetters == true) 
+    {
+    alert ('Attention :\nLes nombres ne sont pas admis dans le nom');
+    document.getElementById("name").style.background="#ffbf80";
+    document.getElementById("name").style.clor="white";
+    nameValueValidity = false;
+    }
 
-    
-        /*
-        if (nameValue == ""){
-            //Si aucune valeur n'est entrée, affichage d'un message d'alerte
-            alert("Vous devez renseigner votre nom");
-            document.getElementById("name").style.background="#ffbf80";
-            nameValueBol = false;
-        }
-        else if(nameValue != ""){
-            document.getElementById("name").style.background="seagreen";
-            document.getElementById("name").style.color="white";
-            nameValueBol = true;
-        }
-        else {
-            document.getElementById("name").style.background="white";
-        }
-        
-    */
-    
-        //S'orienter vers mécanisme de validation plus propre 
-        
-    
     //Vérification de la mécanique dans la console
-    console.log(nameValue);
+    //console.log(nameValue);
     
     
-    //Récupération du prénom, mise en majuscule
+    // ######### Récupération du prénom, mise en majuscule, découpage des lettres dans un tableau afin
+    // de vérifier la présence de chiffre(s), recherche du tiret (-) si prénom composé #########
+
+    //On declare une variable pour stocker un booleen dont l'utilté est de bloquer les noms de fichiers générés
+    //si un chiffre est présent dans le prénom
+    let surnameValueValidity;
+
     let surnameValue = document.getElementById("surname").value.toUpperCase();
     
-    //Si aucune valeur n'est entrée, affichage d'un message d'alerte
-        //S'orienter vers mécanisme de validation plus propre 
-        /*
-        if (surnameValue == ""){
-            alert("Vous devez entrer votre prénom");
-            document.getElementById("surname").style.background="#ffbf80";
-            surnameValueBol = false;
-        }
-        else if (surnameValue != ""){
-            document.getElementById("surname").style.background="seagreen";
-            document.getElementById("surname").style.color="white";
-            surnameValueBol = true;
-        }
-        else {
-            document.getElementById("surname").style.background="white";
-        }
-        */
-
-    //Gestion des prénoms composés
+    // ######### Gestion des prénoms composés #########
+    
     //On génére un tableau des lettres du prénom
-    let surnameArray = [];
-    surnameArray = surnameValue.split("");
-    //On cherchge la présence du tiret dans ce tableau (renvoie true ou false)
-    let fr = surnameArray.includes("-");
+    let surnameLettersArray = surnameValue.split("");
+    // Dans lequel on vérifie si un chiffre s'y cache
+    let someNumbersInSurnameLetters = surnameLettersArray.some(searchSomeNumbersInSurnameLetters);
+    //A l'aide d'une fonction cherchant une valeur supérieure à 0, ce qu'une lettre ne peut pas faire
+    function searchSomeNumbersInSurnameLetters(value)
+    {
+    return value > 0;
+    }
+    //La methode .some() renvoie true ou false, dans le cas de true on alerte l'utilisateur et l'on bloque la sortie 
+    if (someNumbersInSurnameLetters == true)
+    {
+    alert ('Attention :\nLes nombres ne sont pas admis dans le prénom');
+    document.getElementById("surname").style.background = "#ffbf80";
+    document.getElementById("surname").style.color = "white";
+    surnameValueValidity = false
+    }
+
+    //On cherche la présence du tiret dans ce tableau (renvoie true ou false)
+    let isDashInSurname = surnameLettersArray.includes("-");
     //Si true, on renvoie la position du tiret dans le tableau
-    let trt;
+    let dashInSurnamePosition;
     let surnameFirstLetter;
-    let abc;
-    if (fr == true){
-        trt = surnameArray.indexOf("-") ;
+    let surnameSecondLetter;
+    if (isDashInSurname == true){
+        dashInSurnamePosition = surnameLettersArray.indexOf("-") ;
     
     //On recupère la première lettre du premier prenom
         surnameFirstLetter = surnameValue.charAt();
     //On récupère la première lettre du deuxième prenom en prenant comme index renvoyé par indexOf() 
-        abc = surnameValue.charAt(trt + 1);
+    surnameSecondLetter = surnameValue.charAt(dashInSurnamePosition + 1);
     }
     else{
         surnameFirstLetter = surnameValue.charAt();
-        abc = "";
+        surnameSecondLetter = "";
     }
     //Vérification de la mécanique dans la console
-    console.log(surnameArray, fr, trt, surnameFirstLetter, abc);
+    console.log(surnameLettersArray, isDashInSurname, dashInSurnamePosition , surnameFirstLetter, surnameSecondLetter);
+
 
     // ######### Gestion des formats de date #########
 
@@ -96,10 +89,8 @@ function myCaz(){
     Il faut traiter l'éventualité de l'inversion des valeurs AAAA et JJ 
     */
    
-       
-   
-  
-//Date de naissance
+    //Date de naissance
+    
    //Déclaration d'un tableau destiné à recevoir la date de naissance
    let dtNaissArray = [];
    //On récupère la valeur du champ date quel que soit son formatage
@@ -171,6 +162,12 @@ function myCaz(){
    
         
         // ######### Pièces d'identité #########
+
+//Déclaration de toutes les variables
+let dtValidPiStatut;
+let piChk;
+let dtpiChk;
+let passprtChk;
 
 //Traitement de l'origine de la PI
 //document.getElementById("cIF").selected;
@@ -563,7 +560,9 @@ console.log("nom d'entreprise:" + nomEntrV);
     //let outCazArray= [];
     //let outCazContent;
 
-    if (nameValue == "" || surnameFirstLetter == "" || dtnais == "")
+    let outputErrorText = "Veuillez corriger les erreurs signalées"
+
+    if (nameValue == "" || surnameFirstLetter == "" || dtnais == "" || nameValueValidity == false || surnameValueValidity == false)
     {
         document.getElementById("outCaz").style.color='white';
         document.getElementById("outCaz").style.background='crimson';
@@ -574,12 +573,16 @@ console.log("nom d'entreprise:" + nomEntrV);
         document.getElementById("outDUE").style.color='white';
         document.getElementById("outDUE").style.background='crimson';
 
+        document.getElementById("outCaz").innerHTML = outputErrorText;
+        document.getElementById("outCazO").innerHTML = outputErrorText;
+        document.getElementById("outDUE").innerHTML = outputErrorText;
+        document.getElementById("outPi").innerHTML = outputErrorText;
         //document.getElementById("pOutCaz").style.background='crimson';
         //document.getElementById("pOutCazO").style.background='crimson';
         //document.getElementById("pOutPi").style.background='crimson';
     }
 
-    else if (nameValue != "" && surnameFirstLetter != "" && dtnais != "")
+    else if (nameValue != "" && surnameFirstLetter != "" && dtnais != "" && nameValueValidity != false && surnameValueValidity != false)
     {
         document.getElementById("outCaz").style.color='white';
         document.getElementById("outCaz").style.background='seagreen';
@@ -589,23 +592,25 @@ console.log("nom d'entreprise:" + nomEntrV);
 
         document.getElementById("outDUE").style.color='white';
         document.getElementById("outDUE").style.background='seagreen';
-    
-            //document.getElementById("pOutCaz").style.background='seagreen';
-            //document.getElementById("pOutCazO").style.background='seagreen';
-    }
-    
-    
-    //Sortie CAZ & DUE
-    document.getElementById("outCaz").innerHTML = "CAZ" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
-    //on stocke la sortie également dans une variable pour créer un copier/coller maison
-    const cazVar = "CAZ" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf"
-    document.getElementById("outDUE").innerHTML = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
-    const dueVar = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
 
-    //Sortie CAZ-O
-    document.getElementById("outCazO").innerHTML = "CAZ-O" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
-    //on stocke la sortie également dans une variable pour créer un copier/coller maison
-    const cazoVar = "CAZ-O" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+            //Sortie CAZ & DUE
+        document.getElementById("outCaz").innerHTML = "CAZ" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+        //on stocke la sortie également dans une variable pour créer un copier/coller maison
+        const cazVar = "CAZ" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf"
+        document.getElementById("outDUE").innerHTML = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+        const dueVar = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+
+        //Sortie CAZ-O
+        document.getElementById("outCazO").innerHTML = "CAZ-O" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+        //on stocke la sortie également dans une variable pour créer un copier/coller maison
+        const cazoVar = "CAZ-O" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+        
+                //document.getElementById("pOutCaz").style.background='seagreen';
+                //document.getElementById("pOutCazO").style.background='seagreen';
+        }
+    
+    
+    
     
 
     //Sortie PI
@@ -628,7 +633,7 @@ console.log("nom d'entreprise:" + nomEntrV);
             document.getElementById("outPi").style.background='seagreen';
             //document.getElementById("pOutPi").style.background='seagreen';
 
-            document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
+            document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
         }
 
         if (dtValidPiStatut == true)
@@ -639,6 +644,20 @@ console.log("nom d'entreprise:" + nomEntrV);
             document.getElementById("outPi").innerHTML = text;
         }
     }  
+
+    // Attention doublon possible
+    //Génération de la sortie PI
+    // Bricolage en attente de mieux pour coller les éléments du tableau dtdelivr
+    // document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
+    // if (numPi == "" || dtValidPiStatut == true || (piChk == false && passprtChk == false) || dtpiChk == false){
+    //     document.getElementById("outPi").style.color='white';
+    //     document.getElementById("outPi").style.background='crimson';
+    // }
+    // else {
+    //     document.getElementById("outPi").style.color='white';
+    //     document.getElementById("outPi").style.background='seagreen';
+    // }
+    
     //On créé un tableau et l'on y insère les données de outCaz pour enuite chercher si un champ n'est pas rempli (date vide renvoie undefined)
     //outCazArray = outCaz.split("  ");
     //outCazContent = outCaz.includes("undefined");
@@ -697,17 +716,6 @@ console.log("nom d'entreprise:" + nomEntrV);
     //Sortie CAZ-O
     //let outCazO = document.getElementById("outCazO").innerHTML = "CAZ-O" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
     
-    //Génération de la sortie PI
-    // Bricolage en attente de mieux pour coller les éléments du tableau dtdelivr
-    document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
-    if (numPi == "" || dtValidPiStatut == true || (piChk == false && passprtChk == false) || dtpiChk == false){
-        document.getElementById("outPi").style.color='white';
-        document.getElementById("outPi").style.background='crimson';
-    }
-    else {
-        document.getElementById("outPi").style.color='white';
-        document.getElementById("outPi").style.background='seagreen';
-    }
     
     //Génération de la sortie KBIS
     if (nomEntrV == "") /*|| sirenChk == false || siretChk == false || numSirV == "" || dtKbisV == "")*/
@@ -717,11 +725,5 @@ console.log("nom d'entreprise:" + nomEntrV);
     }
     document.getElementById("outKBIS").innerHTML = "KBIS" + "_" + nomEntrV + "_" + numSirV + "_" + dtKBISt[0] + dtKBISt[1] + dtKBISt [2] + ".pdf";
     
-    
-
-
-
-    
-
 //fin du script
 }

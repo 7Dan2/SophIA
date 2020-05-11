@@ -29,3 +29,9 @@ A partir de la version 1.17, passage à l'incrémentation sémantique.
 
 	-Fixe un bug dans la coloration du champ de date validité pièce d'identité.
 
+Version 1.17.4
+	Fixe un bug de variable inconnue
+
+Version 1.18 11-05-2020
+	Première approche de la détection de lettres dans le nom et le prénom
+

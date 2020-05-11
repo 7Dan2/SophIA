@@ -24,9 +24,9 @@ document.getElementById("outKBIS").addEventListener("copy", valueEffectCopyKbis)
     function valueEffectN()
     {
         
-        let nameV = document.getElementById("name").value;
+        let nameValue = document.getElementById("name").value;
         
-        if (nameV == "")
+        if (nameValue == "")
         {
             
             document.getElementById("name").style.background="#ffbf80";
@@ -36,7 +36,7 @@ document.getElementById("outKBIS").addEventListener("copy", valueEffectCopyKbis)
             //alert('Votre nom de famille est requis');
         
         }
-        else if (nameV != "")
+        else if (nameValue != "")
         {
             document.getElementById("name").style.background="seagreen";
             document.getElementById("name").style.color="white";
@@ -48,11 +48,11 @@ document.getElementById("outKBIS").addEventListener("copy", valueEffectCopyKbis)
     function valueEffectS()
     {
       
-        let testValue = document.getElementById("surname").value;
+        let surnameValue = document.getElementById("surname").value;
 
         let txt = "Votre prénom est requis"; 
 
-        if (testValue == "")
+        if (surnameValue == "")
         {
             document.getElementById("surname").style.background="#ffbf80";
             document.getElementById("surname").style.clor="white";
@@ -60,24 +60,22 @@ document.getElementById("outKBIS").addEventListener("copy", valueEffectCopyKbis)
             //alert('Votre prénom est requis')
         
         }
-        else if(testValue != "")
+        else if(surnameValue != "")
         {
             document.getElementById("surname").style.background="seagreen";
             document.getElementById("surname").style.color="white";
-            
-        
         }
     }
 
     function valueEffectdTN()
     {
-        let testValue = document.getElementById("dtNaiss").value;
+        let birthdayValue = document.getElementById("dtNaiss").value;
 
-        if (testValue == "")
+        if (birthdayValue == "")
         {
             document.getElementById("dtNaiss").style.background="#ffbf80";
         }
-        else if(testValue != "")
+        else if(birthdayValue != "")
         {
             document.getElementById("dtNaiss").style.background="seagreen";
             document.getElementById("dtNaiss").style.color="white";
