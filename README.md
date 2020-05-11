@@ -20,5 +20,5 @@ Bugs connus :
     -> Résolu par 1.17.3
 
 
-Dernière version : 1.17.3 du 17 août 2019.
+Dernière version : 1.18 du 11 mai 2020.
 
