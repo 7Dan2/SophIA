@@ -50,7 +50,7 @@ document.getElementById("outKBIS").addEventListener("copy", valueEffectCopyKbis)
       
         let surnameValue = document.getElementById("surname").value;
 
-        let txt = "Votre prénom est requis"; 
+        const txt = "Votre prénom est requis"; 
 
         if (surnameValue == "")
         {
@@ -128,7 +128,7 @@ Pour la carte d'identité
         if (numPi == "")
         {
         document.getElementById("numPi").style.background="#ffbf80";
-        let txt = "vous ne pouvez pas obtenir de sortie sans fournir de numéro de carte d'identité";
+        const txt = "vous ne pouvez pas obtenir de sortie sans fournir de numéro de carte d'identité";
         document.getElementById("outPi").style.color='crimson';
         document.getElementById("outPi").innerHTML = txt;
         }
@@ -160,7 +160,7 @@ Pour le passeport
         if (numPi == "")
         {
         document.getElementById("numPi").style.background="#ffbf80";
-        let txt = "vous ne pouvez pas obtenir de sortie sans fournir de numéro de passeport";
+        const txt = "vous ne pouvez pas obtenir de sortie sans fournir de numéro de passeport";
         document.getElementById("outPi").style.color='crimson';
         document.getElementById("outPi").innerHTML = txt; 
         }
@@ -175,7 +175,8 @@ Pour le passeport
     }
 }
 // Traitement de la date de la PI
-function valueEffectDtPi(){
+function valueEffectDtPi()
+{
     let testValue = document.getElementById("dtDelivrPi").value;
 
         if (testValue == "")
