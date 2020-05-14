@@ -33,5 +33,10 @@ Version 1.17.4
 	Fixe un bug de variable inconnue
 
 Version 1.18 11-05-2020
-	Première approche de la détection de lettres dans le nom et le prénom
+	Détection de lettres dans le nom et le prénom
+
+Version 1.19 14-05-2020
+	Masquage par défaut de la partie dédiée aux renseignements d'entreprise, ainsi que le champ de 
+	sortie Kbis associé.
+
 
