@@ -1,0 +1,20 @@
+{
+  "name": "sophia",
+  "version": "1.19.0",
+  "description": "SophI.A est un petit générateur de nom de fichiers au format spécifique.",
+  "main": "myCaz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/7Dan2/SophIA.git"
+  },
+  "keywords": [],
+  "author": "{GreenDev}",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/7Dan2/SophIA/issues"
+  },
+  "homepage": "https://github.com/7Dan2/SophIA"
+}
