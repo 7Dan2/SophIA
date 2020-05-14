@@ -14,7 +14,7 @@ function myCaz()
     //A l'aide d'une fonction cherchant une valeur supérieure à 0, ce qu'une lettre ne peut pas faire
     function searchSomeNumbersInNameLetters(value)
     {
-    return value > 0;
+    return value >= 0;
     }
     //La methode .some() renvoie true ou false, dans le cas de true on alerte l'utilisateur et l'on bloque la sortie 
     //si un chiffre est présent dans le nom
@@ -48,7 +48,7 @@ function myCaz()
     //A l'aide d'une fonction cherchant une valeur supérieure à 0, ce qu'une lettre ne peut pas faire
     function searchSomeNumbersInSurnameLetters(value)
     {
-    return value > 0;
+    return value >= 0;
     }
     //La methode .some() renvoie true ou false, dans le cas de true on alerte l'utilisateur et l'on bloque la sortie 
     if (someNumbersInSurnameLetters == true)
