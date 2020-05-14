@@ -264,7 +264,7 @@ let passprtChk;
     }   
     
     //Vérification de la mécanique dans la console
-    console.log(numPi, dtDelivrPi, dtpi, dtdelivr, dtdelivrOut);
+    //console.log(numPi, dtDelivrPi, dtpi, dtdelivr, dtdelivrOut);
 
     // ### Vérification de la validité de la carte d'identité ###
 
@@ -331,7 +331,7 @@ let passprtChk;
         document.getElementById("dtDelivrPi").style.color="white";
         dtValidPiStatut = false;
     }
-    console.log("date du jour :" + " " + origin + " / " + "date délivrance :" + " " + dtValidPi + " / " + "date délivr + 15ans :" + " " + calcDiffYear + " / " + "date - 1 an :" + " " + calcOneYearLeft);
+    //console.log("date du jour :" + " " + origin + " / " + "date délivrance :" + " " + dtValidPi + " / " + "date délivr + 15ans :" + " " + calcDiffYear + " / " + "date - 1 an :" + " " + calcOneYearLeft);
    
 //Vérification de la validité du passeport  
 //La date de référence est prise dans la partie du dessus 'origin'
@@ -364,24 +364,14 @@ Sinon si la différence est inférieure à la valeur en ms de 18 ans :
 */
 
 //On vérifie la mécanique dans la console
-console.log(origin, dMaxValid, "date de validité:" + dtValidPi);
+//console.log(origin, dMaxValid, "date de validité:" + dtValidPi);
 }
 
     //######### ENTREPRISE #########
     //Récupération du nom de l'entreprise du numéro de SIREN
     let nomEntrV = document.getElementById("nomEntr").value.toUpperCase();
 
-    /*
-    On laisse par défaut visible le champ du nom de l'entreprise 
-    Si il n'est pas renseigné, les autres champs n'apparraissent pas (à développer)
-    */
-    /*$let numSirV  = document.getElementById("numSir").value;
-    if (nomEntrV != "")
-    {
-        //document.getElementById("divHid1").style.display=initial
-        //document.getElementById("divHid2").hidden=true;
-    }*/
-console.log("nom d'entreprise:" + nomEntrV);
+    //console.log("nom d'entreprise:" + nomEntrV);
 
 
     // Gestion du choix SIREN(9chiffres) et SIRET(14 chiffres)
@@ -456,7 +446,7 @@ console.log("nom d'entreprise:" + nomEntrV);
         }
            
         //Vérification de la mécanique dans la console
-        console.log(numSirV);
+        //console.log(numSirV);
       
     
         //Date KBIS
@@ -475,7 +465,7 @@ console.log("nom d'entreprise:" + nomEntrV);
     if (nomEntrV != "" && dtKbisV != "")
     {
         let origin = Date.now();
-        let threeMonths = 8035200000; // valeur en ms de 3 mois (3*31*24*60*60*1000)
+        const threeMonths = 8035200000; // valeur en ms de 3 mois (3*31*24*60*60*1000)
         let calcDiffMonth;
         let dtValidKb = Date.parse(dtKbisV);
     
@@ -491,10 +481,10 @@ console.log("nom d'entreprise:" + nomEntrV);
 
     if (dtValidKb + threeMonths < origin)
     {
-        let txt = "Fiche KBIS est trop ancienne";
+        const txt = "Fiche KBIS est trop ancienne";
         document.getElementById("dtKbis").style.background="crimson";
         document.getElementById("dtKbis").style.color="white";
-        alert=("Votre fiche KBIS est trop ancienne\nLa validité requise est moins de trois mois");  
+        alert=("Votre fiche KBIS est trop ancienne\nLa validité requise est de moins de trois mois");  
         document.getElementById("outKBIS").style.color = "white";
         document.getElementById("outKBIS").style.background = "crimson";
         document.getElementById("outKBIS").innerHTML = txt;
