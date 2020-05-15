@@ -35,8 +35,11 @@ Version 1.17.4
 Version 1.18 11-05-2020
 	Détection de lettres dans le nom et le prénom
 
-Version 1.19 14-05-2020
+Version 1.19.0 14-05-2020
 	Masquage par défaut de la partie dédiée aux renseignements d'entreprise, ainsi que le champ de 
 	sortie Kbis associé.
+
+Version 1.20.0 15-05-2020
+	Modal d'aide
 
 
