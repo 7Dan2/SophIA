@@ -8,3 +8,13 @@
     display: none;
 }
 
+#mainTitle
+{
+    color: rgb(224, 152, 17);
+    font-family: 'Indie Flower', cursive;
+}
+
+#copyright
+{
+    color: rgb(24, 129, 24);
+}

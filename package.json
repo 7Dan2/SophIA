@@ -3,18 +3,42 @@
   "version": "1.19.0",
   "description": "SophI.A est un petit générateur de nom de fichiers au format spécifique.",
   "main": "myCaz.js",
-  "scripts": {
+  "scripts": 
+  {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
+
+  "repository": 
+  {
     "type": "git",
     "url": "git+https://github.com/7Dan2/SophIA.git"
   },
+
   "keywords": [],
   "author": "{GreenDev}",
   "license": "ISC",
-  "bugs": {
+
+  "bugs": 
+  {
     "url": "https://github.com/7Dan2/SophIA/issues"
   },
-  "homepage": "https://github.com/7Dan2/SophIA"
+
+  "homepage": "https://github.com/7Dan2/SophIA",
+
+  
+  "jQuery":
+  {
+    "name": "jquery",
+    "version": "3.5.1"
+  },
+
+  "Bootstrap":
+  {
+    "name": "bootstrap",
+    "version": "4.2.1"
+  }
+
 }
+  
+  
+

@@ -13,45 +13,39 @@
     <link rel="icon" type="image/png" sizes="96x96" href="./Images/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="main.css">
+
+    <!-- Special font -->
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    
     <!-- Bootstrap CSS -->
     <!-- Online -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <!-- Font-awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <!-- Offline -->
+    
+    <!-- Bootstrap offline -->
     <!--<link rel="stylesheet" href="./bootstrap-4.2.1-dist/css/bootstrap.min.css">-->
 </head>
     <body>
-        <div class="conytainer-fluid bg-light">
+        <div class="container-fluid bg-light">
 
-            <div class="row">
+            <div class="row justify-content-around">
 
-                <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
+                <div class="col-10 mt-4 bg-light rounded text-right">
                     
-                </div>
-
-                <div class="col-10 bg-light m-3 rounded text-right text-secondary">
-                    
-                    <h1>SophI.A <small>v1.19</small>
+                    <h1 id="mainTitle">SophI.A <small>v1.19.0</small>
                         <!--<img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophI.A"/>-->
                         <!--<p><i class="fas fa-assistive-listening-systems m-1"></i></p>-->
                     </h1>
                     
                 </div>
 
-                <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
-        
-                </div>
-
             </div>
 
-            <div class="row">
+            <div class="row justify-content-around">
 
-                <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
-
-                </div>
-
-                <div class="col-lg-4 col-md-12 col-sm-12 p-3 mt-3 text-light bg-secondary rounded">
+                <div class="col-lg-5 col-md-10 col-sm-10 col-xs-10 p-3  text-light bg-secondary rounded">
                     <form>
                         <!--
                             <div class="input-group mb-3">
@@ -255,15 +249,16 @@
                     </form>
                 </div> 
                  
-                <div class="col-lg-2 col-md-12 col-sm-12 mt-3 mb-3 m-0 d-flex justify-content-center align-self-center no-gutters">
+                <div class="col-lg-1 col-md-10 col-sm-10 col-xs-10 mt-3 mb-3 d-flex justify-content-center align-self-center">
                     <button class="btn btn-success p-2"  type="submit" aria-label="lancer la génération" onclick="myCaz()">Générer</button>
                     
                 </div>
-            
-                <div class="col-lg-4 col-md-12 col-sm-12 p-3 mt-3 bg-secondary text-light rounded">  
-                        <h4><i class="fas fa-file-export"></i>&nbsp;Noms de fichiers générés</h4>
+                
+                <div class="col-lg-5 col-md-10 col-sm-10 col-xs-10 p-3  bg-secondary text-light rounded">  
+                    <h4><i class="fas fa-file-export"></i>&nbsp;Noms de fichiers générés</h4>
 
                     <div class="form-group">
+
                         <label for="outCaz" class="text-light">Nom de fichier CAZ</label>
                         <p id="outCaz" class="text-white text-center border border-light rounded">En attente de données</p>
                         <p id="outCpyCaz"></p>
@@ -273,6 +268,7 @@
                             <a href="#" id="outCaz" class=" text-center"><i class="fas fa-file-import"></i></a>
                         </p>-->
                         <div class="input-group-prepend" style="display:none">
+
                             <span class="input-group-text">
                                 <input type="file" id="inputCazFile" accept=".pdf" onchange="handleFiles(this.files)" />
                                 
@@ -280,6 +276,7 @@
                                     <!--<button class="btn btn-outline-secondary btn-sm" type="button" id="launchNamingCaz" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="element inactif" data-toggle="tooltip" data-placement="top" title="désactivé pour cette version">Copier</button>-->
                                 </div>
                             </span>
+
                         </div>
                         
                     </div>
@@ -287,20 +284,24 @@
                     <hr/>
                     
                     <div class="form-group">
+
                         <label for="outCazO" class="text-light">Nom de fichier CAZ-O</label>
                         <p id="outCazO" class="text-white text-center border border-light rounded">En attente de données</p>
                         <p id="outCpyCazO"></p>
                         <!--<p class=" text-center border border-light rounded" id="pOutCazO">
                             <a href="#" id="outCazO" class=" text-center"><i class="fas fa-file-import"></i></a>
                         </p>-->
-                        <div class="input-group-prepend" style="display:none" >
+                        <div class="input-group-prepend" style="display:none">
+
                             <span class="input-group-text">
                                 <input type="file" id="inputCazOFile" accept=".pdf" onchange="handleFiles(this.files)"/>
                                     <div class="input-group-append">
                             <!--<button class="btn btn-outline-secondary btn-sm" type="button" id="launchNamingCazO" data-toggle="tooltip" data-placement="top" title="désactivé pour cette version" disabled>Nommer</button>-->
                                     </div>
                             </span>
+
                         </div>
+
                     </div>
 
                     <hr/>
@@ -354,12 +355,9 @@
                 
             </div>    
         
-        <div class="row bg-light">
+        <div class="row justify-content-around no-gutters">
 
-            <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
-            </div>
-
-            <div class="col-lg-10 col-md-10 m-5 bg-light">
+            <div class="col mt-3">
 
                 <h6>
                     <a href="https://www.cnil.fr/fr/reglement-europeen-sur-la-protection-des-donnees-ce-qui-change-pour-les-professionnels">
@@ -371,28 +369,21 @@
                
             </div>
 
-            <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
-            </div>
-            
         </div>
 
         <div class="row bg-light">
 
-            <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
-            </div>
-
-            <div class="col-lg-10 col-md-10 m-1 bg-light rounded">
+            <div class="col bg-light rounded">
                 
                         <p>
                             <a href="https://www.linkedin.com/in/yanisfoucher/" target="_blank" ><i class="fab fa-linkedin"></i></a>
                         
-                        
                             <a href="https://github.com/7Dan2/SophIA" target="_blank"><i class="fab fa-github"></i></a>
-                        </p>
-            
-            </div>
 
-            <div class="col-lg-1 col-md-1 col-sm-1 bg-light">
+                            <a id="copyright"><i class="far fa-copyright">{GreenDev}&nbsp;2020</i></a>
+
+                        </p>
+                        
             </div>
 
         </div>
