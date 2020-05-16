@@ -221,34 +221,8 @@
                         
                         </div>
 
-                        <!-- Button trigger modal -->
-                        <!--<div class="d-flex justify-content-center m-3">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-                                Testeurs
-                            </button>
-      
-                        <!-- Modal -->
-                        <!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Contributeurs</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fermer cette fenêtre">
-                                            <span aria-hidden="true">&times;</span>
-                                            </button>
-                                    </div>
-                                    <div class="modal-body text-success">
-                                    Merci à Cindy, Hélène, Elodie, Xavier, Hervé, Karine, Sébastien pour leurs contributions.
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                        
                     </form>
+
                 </div> 
                  
                 <div class="col-lg-1 col-md-10 col-sm-10 col-xs-10 mt-3 mb-3 d-flex justify-content-center align-self-center">
@@ -355,17 +329,23 @@
 
                     <!-- Modal d'aide et d'information -->
                     <div class="d-flex justify-content-center">
-                        <button id="helpModalButton" class="btn btn-outline-info" onclick="helpModal()">
+                                               
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#helpModal">
                             <i class="fas fa-info" ></i>
                         </button>
-                        
-                        <div id="helpModal" class="modal">
-
-                            <!-- Contenu du modal -->
-                            <div class="modal-content">
-                              <span class="close">&times;</span>
-                              <h3>Aide et informations</h3>
-
+      
+                        <!-- Modal -->
+                        <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="exampleModalLabel">Aide et informations</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fermer cette fenêtre">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
                               <h6><b>Qu'est ce que SophI.A ?</b></h6>
                                 <p>SophI.A est un générateur de nommage de fichier pour les CE</p>
 
@@ -391,22 +371,21 @@
                                 <p>Bug 20200515 : le formulaire se réinitialise dès l'appui sur 'Ajouter informations entreprise'<br/>
                                     Un message au chargement de la page, indique qu'en prévision d'utiliser ces champs, il est préférable de l'activer avant toute saisie
                                 </p>
-                                    
-                                    
-                                    
-                                    
-                                </p>
-
-
+                                     </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
                             </div>
-                          
                         </div>
-
+                          
                     </div>
 
                 </div>
+
+            </div>
                 
-            </div>    
+        </div>    
         
         <div class="row justify-content-around no-gutters">
 
