@@ -23,6 +23,3 @@
     document.getElementById("name").style.clor="white";
     nameValueValidity = false;
     }
-
-    export {nameValueValidity, nameValue};
-

@@ -21,7 +21,7 @@ document.getElementById("outKBIS").addEventListener("copy", valueEffectCopyKbis)
 
 
 //Traitement du nom
-    function valueEffectN()
+function valueEffectN()
     {
         
         let nameValue = document.getElementById("name").value;
@@ -45,50 +45,48 @@ document.getElementById("outKBIS").addEventListener("copy", valueEffectCopyKbis)
 
     
 //Traitement du prénom
-    function valueEffectS()
+function valueEffectS()
+{
+    
+    let surnameValue = document.getElementById("surname").value;
+
+    const txt = "Votre prénom est requis"; 
+
+    if (surnameValue == "")
     {
-      
-        let surnameValue = document.getElementById("surname").value;
-
-        const txt = "Votre prénom est requis"; 
-
-        if (surnameValue == "")
-        {
-            document.getElementById("surname").style.background="#ffbf80";
-            document.getElementById("surname").style.clor="white";
-            document.getElementById("name").innerHTML = txt;
-            //alert('Votre prénom est requis')
-        
-        }
-        else if(surnameValue != "")
-        {
-            document.getElementById("surname").style.background="seagreen";
-            document.getElementById("surname").style.color="white";
-        }
+        document.getElementById("surname").style.background="#ffbf80";
+        document.getElementById("surname").style.clor="white";
+        document.getElementById("name").innerHTML = txt;
+        //alert('Votre prénom est requis')
+    
     }
-
-    function valueEffectdTN()
+    else if(surnameValue != "")
     {
-        let birthdayValue = document.getElementById("dtNaiss").value;
-
-        if (birthdayValue == "")
-        {
-            document.getElementById("dtNaiss").style.background="#ffbf80";
-        }
-        else if(birthdayValue != "")
-        {
-            document.getElementById("dtNaiss").style.background="seagreen";
-            document.getElementById("dtNaiss").style.color="white";
-        }
+        document.getElementById("surname").style.background="seagreen";
+        document.getElementById("surname").style.color="white";
     }
+}
+
+function valueEffectdTN()
+{
+    let birthdayValue = document.getElementById("dtNaiss").value;
+
+    if (birthdayValue == "")
+    {
+        document.getElementById("dtNaiss").style.background="#ffbf80";
+    }
+    else if(birthdayValue != "")
+    {
+        document.getElementById("dtNaiss").style.background="seagreen";
+        document.getElementById("dtNaiss").style.color="white";
+    }
+}
 /*
 ######### Pieces d'identités #########
     Si c'est la carte d'identité française qui est choisie
     alors on va verifier que le numéro est compatible et la validité de la date de délivrance
 */
 
-
-//Traitement de l'origine de la Pi
 function valueEffectOpi()
 {
     
