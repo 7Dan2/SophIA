@@ -717,3 +717,5 @@ Sinon si la différence est inférieure à la valeur en ms de 18 ans :
     
 //fin du script
 }
+
+export { myCaz };
