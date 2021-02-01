@@ -1,6 +1,6 @@
 {
   "name": "sophia",
-  "version": "1.19.0",
+  "version": "1.21.1",
   "description": "SophI.A est un petit générateur de nom de fichiers au format spécifique.",
   "main": "myCaz.js",
   "scripts": {
