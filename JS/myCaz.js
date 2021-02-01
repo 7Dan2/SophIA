@@ -1,33 +1,43 @@
 function myCaz()
 {
-    // ######### Récupération du nom, mise en majuscule, découpage des lettres dans un tableau afin
-    // de vérifier la présence de chiffre(s) #########
+    // // ######### Récupération du nom, mise en majuscule, découpage des lettres dans un tableau afin
+    // // de vérifier la présence de chiffre(s) #########
 
-    //On declare une variable pour stocker un booleen dont l'utilté est de bloquer les noms de fichiers générés
-    let nameValueValidity;
+    // //On declare une variable pour stocker un booleen dont l'utilté est de bloquer les noms de fichiers générés
+    // let nameValueValidity;
 
-    let nameValue = document.getElementById("name").value.toUpperCase();
-    //On génére un tableau des lettres du nom
-    let nameValueArray = nameValue.split("");
-    // Dans lequel on vérifie si un chiffre s'y cache
-    let someNumbersInNameLetters = nameValueArray.some(searchSomeNumbersInNameLetters);
-    //A l'aide d'une fonction cherchant une valeur supérieure à 0, ce qu'une lettre ne peut pas faire
-    function searchSomeNumbersInNameLetters(value)
-    {
-    return value >= 0;
-    }
-    //La methode .some() renvoie true ou false, dans le cas de true on alerte l'utilisateur et l'on bloque la sortie 
-    //si un chiffre est présent dans le nom
-    if (someNumbersInNameLetters == true) 
-    {
-    alert ('Attention :\nLes nombres ne sont pas admis dans le nom');
-    document.getElementById("name").style.background="#ffbf80";
-    document.getElementById("name").style.clor="white";
-    nameValueValidity = false;
-    }
+    // //Récupération du nom et mise en majuscule
+    let nameValue = localStorage.getItem('name').toUpperCase();
 
-    //Vérification de la mécanique dans la console
-    //console.log(nameValue);
+    // //On génére un tableau des lettres du nom
+    // let nameValueArray = nameValue.split("");
+
+    // // Dans lequel on vérifie si un chiffre s'y cache
+    // let someNumbersInNameLetters = nameValueArray.some(searchSomeNumbersInNameLetters);
+
+    // //A l'aide d'une fonction cherchant une valeur supérieure à 0, ce qu'une lettre ne peut pas faire
+    // function searchSomeNumbersInNameLetters(value)
+    // {
+    // return value >= 0;
+    // }
+    // //La methode .some() renvoie true ou false, dans le cas de true on alerte l'utilisateur et l'on bloque la sortie 
+    // //si un chiffre est présent dans le nom
+    // if (someNumbersInNameLetters == true) 
+    // {
+    // alert ('Attention :\nLes nombres ne sont pas admis dans le nom');
+    // document.getElementById("name").style.background="#ffbf80";
+    // document.getElementById("name").style.color="red";
+
+    // nameValueValidity = false;
+    // localStorage.setItem('nameValueValidity', nameValueValidity)
+    // }
+    // else
+    // {
+    //     document.getElementById("name").style.background="seagreen";
+    //     document.getElementById("name").style.color="white";
+    // }
+    // //Vérification de la mécanique dans la console
+    // //console.log(nameValue);
     
     
     // ######### Récupération du prénom, mise en majuscule, découpage des lettres dans un tableau afin
@@ -37,7 +47,7 @@ function myCaz()
     //si un chiffre est présent dans le prénom
     let surnameValueValidity;
 
-    let surnameValue = document.getElementById("surname").value.toUpperCase();
+    let surnameValue = localStorage.getItem('surname').toUpperCase();
     
     // ######### Gestion des prénoms composés #########
     
@@ -58,14 +68,14 @@ function myCaz()
     document.getElementById("surname").style.color = "white";
     surnameValueValidity = false
     }
-
     //On cherche la présence du tiret dans ce tableau (renvoie true ou false)
     let isDashInSurname = surnameLettersArray.includes("-");
     //Si true, on renvoie la position du tiret dans le tableau
     let dashInSurnamePosition;
     let surnameFirstLetter;
     let surnameSecondLetter;
-    if (isDashInSurname == true){
+    if (isDashInSurname == true)
+    {
         dashInSurnamePosition = surnameLettersArray.indexOf("-") ;
     
     //On recupère la première lettre du premier prenom
@@ -73,12 +83,13 @@ function myCaz()
     //On récupère la première lettre du deuxième prenom en prenant comme index renvoyé par indexOf() 
     surnameSecondLetter = surnameValue.charAt(dashInSurnamePosition + 1);
     }
-    else{
+    else
+    {
         surnameFirstLetter = surnameValue.charAt();
         surnameSecondLetter = "";
     }
     //Vérification de la mécanique dans la console
-    console.log(surnameLettersArray, isDashInSurname, dashInSurnamePosition , surnameFirstLetter, surnameSecondLetter);
+    //console.log(surnameLettersArray, isDashInSurname, dashInSurnamePosition , surnameFirstLetter, surnameSecondLetter);
 
 
     // ######### Gestion des formats de date #########
@@ -93,8 +104,10 @@ function myCaz()
     
    //Déclaration d'un tableau destiné à recevoir la date de naissance
    let dtNaissArray = [];
+
    //On récupère la valeur du champ date quel que soit son formatage
-       let dtnais = document.getElementById("dtNaiss").value;
+    let dtnais = localStorage.getItem('birthdate');
+
    //Si la date de naissance n'est pas renseignée, le rappeler à l'utilsateur
    
    /*
@@ -157,7 +170,7 @@ function myCaz()
    }
    
    //Vérification de la mécanique dans la console
-   console.log("tableau dtnaiss: " + dtNaissArray + " " + dtnaissOut);
+   //console.log(dtnais + "tableau dtnaiss: " + dtNaissArray + " " + dtnaissOut);
 
    
         
@@ -176,7 +189,7 @@ let passprtChk;
 //document.getElementById("titrSej").selected;
 
     // Récupération du numéro de la pièce d'identité
-    let numPi = document.getElementById("numPi").value;
+    let numPi = localStorage.getItem('piNumber');
     
     //Si le champ n'est pas rempli, on le rappele avec courtoisie à l'utilisateur
     
@@ -201,8 +214,9 @@ let passprtChk;
     //Date de délivrance PI
     //Déclaration d'un tableau destiné à recevoir la date de la PI
     let dtdelivr = [];
+
     //Récupération de la date saisie dans l'input (format AAAAMMJJ séparé par des tirets)
-    let dtpi = document.getElementById("dtDelivrPi").value;
+    let dtpi = localStorage.getItem('piDeliveryDate');
 
     //Si la date de délivrance n'est pas renseignée, le rappeler à l'utilsateur
     if (dtpi == "")
@@ -556,17 +570,20 @@ Sinon si la différence est inférieure à la valeur en ms de 18 ans :
     {
         document.getElementById("outCaz").style.color='white';
         document.getElementById("outCaz").style.background='crimson';
+        document.getElementById("outCaz").innerHTML = outputErrorText;
 
         document.getElementById("outCazO").style.color='white';
         document.getElementById("outCazO").style.background='crimson';
+        document.getElementById("outCazO").innerHTML = outputErrorText;
 
+        document.getElementById("outPi").style.color='white';
+        document.getElementById("outPi").style.background='crimson';
+        document.getElementById("outPi").innerHTML = outputErrorText;
+        
         document.getElementById("outDUE").style.color='white';
         document.getElementById("outDUE").style.background='crimson';
-
-        document.getElementById("outCaz").innerHTML = outputErrorText;
-        document.getElementById("outCazO").innerHTML = outputErrorText;
         document.getElementById("outDUE").innerHTML = outputErrorText;
-        document.getElementById("outPi").innerHTML = outputErrorText;
+        
         //document.getElementById("pOutCaz").style.background='crimson';
         //document.getElementById("pOutCazO").style.background='crimson';
         //document.getElementById("pOutPi").style.background='crimson';

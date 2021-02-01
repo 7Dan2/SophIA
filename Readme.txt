@@ -42,4 +42,7 @@ Version 1.19.0 14-05-2020
 Version 1.20.0 15-05-2020
 	Modal d'aide
 
+Version 1.21.0 03-10-2020
+	Utilisation du local storage => rationalisation des requetes sur les valeurs entrées => moins de variables
+
 

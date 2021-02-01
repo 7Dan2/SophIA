@@ -1,6 +1,8 @@
 function emptyAllFields()
 {
-    const initialTxt = "En attente de données"
+    localStorage.clear();
+
+    const initialTxt = "En attente de données";
 
     document.getElementById("name").style.background="white";
     document.getElementById("name").style.color="black";

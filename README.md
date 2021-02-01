@@ -19,6 +19,8 @@ Bugs connus :
 - Pas de différence sur la reconnaissance du numéro entre carte d'identité et passeport.
     -> Résolu par 1.17.3
 
+- Version 1.20.0 : Effacement de toutes les valeurs du formulaires lors de l'action sur "ajouter informations entreprises"
 
-Dernière version : 1.18 du 11 mai 2020.
+
+Dernière version : 1.21 du 03 octobre 2020.
 

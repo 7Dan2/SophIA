@@ -1,8 +1,23 @@
+//Recherche des sélecteurs et attribution des valeurs
+const nameInput = document.querySelector('#name');
+const surnameInput = document.querySelector('#surname');
+const birhtdateInput = document.querySelector('#dtNaiss');
+const piOriginInput = document.querySelector('#originPi');
+const piNumberInput = document.querySelector('#numPi');
+const piDeliveryDateInput = document.querySelector('#dtDelivrPi');
 
+//Stockage dans localStorage des valeurs saisies dans le formulaire
+document.getElementById("name").addEventListener("focusout", storeMe);
+document.getElementById("surname").addEventListener("focusout", storeMe);
+document.getElementById("dtNaiss").addEventListener("focusout", storeMe);
+document.getElementById("numPi").addEventListener("focusout", storeMe);
+document.getElementById("originPi").addEventListener("focusout", storeMe);
+document.getElementById("dtDelivrPi").addEventListener("focusout", storeMe);
 
-document.getElementById("name").addEventListener("blur", valueEffectN);
+//Déclaration des actions sur événements
+//document.getElementById("name").addEventListener("focusout", valueEffectN);
 document.getElementById("surname").addEventListener("focusout", valueEffectS);
-document.getElementById("dtNaiss").addEventListener("blur", valueEffectdTN);
+document.getElementById("dtNaiss").addEventListener("focusout", valueEffectdTN);
 
 
 //document.getElementById("originPi").addEventListener("mouseup", valueEffectOpi);
@@ -18,46 +33,53 @@ document.getElementById("outPi").addEventListener("copy", valueEffectCopyPi);
 document.getElementById("outDUE").addEventListener("copy", valueEffectCopyDue);
 document.getElementById("outKBIS").addEventListener("copy", valueEffectCopyKbis);
 
+//Stockage du nom
+function storeMe()
+{
+    localStorage.setItem('name', nameInput.value);
+    localStorage.setItem('surname', surnameInput.value);
+    localStorage.setItem('birthdate', birhtdateInput.value);
+    localStorage.setItem('piOrigin', piOriginInput.value)
+    localStorage.setItem('piNumber', piNumberInput.value);
+    localStorage.setItem('piDeliveryDate', piDeliveryDateInput.value)
+}
+
 
 
 //Traitement du nom
-function valueEffectN()
-    {
+// function valueEffectN()
+//     {
+//         let nameValue = localStorage.getItem('name');
         
-        let nameValue = document.getElementById("name").value;
+//         const txt = "Votre nom est requis"; 
         
-        if (nameValue == "")
-        {
-            
-            document.getElementById("name").style.background="#ffbf80";
-            document.getElementById("name").style.color="white";
-           
-            
-            //alert('Votre nom de famille est requis');
-        
-        }
-        else if (nameValue != "")
-        {
-            document.getElementById("name").style.background="seagreen";
-            document.getElementById("name").style.color="white";
-        }
-    }
+//         if (nameValue == "")
+//         {
+//             document.getElementById("name").style.background="#ffbf80";
+//             document.getElementById("name").style.color="red";
+//             // document.getElementById("name").value = txt;
+//         }
+//         else (nameValue != "")
+//         {
+//             document.getElementById("name").style.background="#ff00ff";
+//             document.getElementById("name").style.color="white";
+//         }
+//     }
 
     
 //Traitement du prénom
 function valueEffectS()
 {
     
-    let surnameValue = document.getElementById("surname").value;
+    let surnameValue = localStorage.getItem('surname');
 
     const txt = "Votre prénom est requis"; 
 
     if (surnameValue == "")
     {
         document.getElementById("surname").style.background="#ffbf80";
-        document.getElementById("surname").style.clor="white";
-        document.getElementById("name").innerHTML = txt;
-        //alert('Votre prénom est requis')
+        document.getElementById("surname").style.color="red";
+        // document.getElementById("surname").value = txt;
     
     }
     else if(surnameValue != "")
@@ -69,13 +91,13 @@ function valueEffectS()
 
 function valueEffectdTN()
 {
-    let birthdayValue = document.getElementById("dtNaiss").value;
+    let birthdayValue = localStorage.getItem('birthdate');
 
     if (birthdayValue == "")
     {
         document.getElementById("dtNaiss").style.background="#ffbf80";
     }
-    else if(birthdayValue != "")
+    else
     {
         document.getElementById("dtNaiss").style.background="seagreen";
         document.getElementById("dtNaiss").style.color="white";
@@ -113,7 +135,7 @@ function valueEffectOpi()
 //Traitement du numéro de Pi
 function valueEffectNumPi()
 {
-    let numPi = document.getElementById("numPi").value;
+    let numPi = localStorage.getItem('piNumber');
     let numPiValid;
     let ciChoice = document.getElementById("cIF").selected;
     let pprtChoice = document.getElementById("passPrtF").selected;
@@ -131,7 +153,7 @@ Pour la carte d'identité
         document.getElementById("outPi").innerHTML = txt;
         }
 
-        if (numPi.length < 12 || numPi.length > 12)
+        if ((numPi.length > 1 && numPi.length < 12) || numPi.length > 12)
         {   // La carte d'identité est constituée de 12 caractères
             alert ("la carte d'identité comporte 12 caractères");
             document.getElementById("numPi").style.background="#ffbf80";
@@ -175,7 +197,7 @@ Pour le passeport
 // Traitement de la date de la PI
 function valueEffectDtPi()
 {
-    let testValue = document.getElementById("dtDelivrPi").value;
+    let testValue = localStorage.getItem('dtDelivrPi');
 
         if (testValue == "")
         {
@@ -183,7 +205,8 @@ function valueEffectDtPi()
         }
         else if(testValue != "")
         {
-            
+            document.getElementById("dtDelivrPi").style.background="seagreen";
+            document.getElementById("dtDelivrPi").style.color="white";   
         }
 }
 
