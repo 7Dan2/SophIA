@@ -210,7 +210,6 @@ let passprtChk;
     
     {
         
-        
     //Date de délivrance PI
     //Déclaration d'un tableau destiné à recevoir la date de la PI
     let dtdelivr = [];
@@ -493,19 +492,19 @@ Sinon si la différence est inférieure à la valeur en ms de 18 ans :
         calcDiffMonth = true;
         }
 
-    if (dtValidKb + threeMonths < origin)
-    {
-        const txt = "Fiche KBIS est trop ancienne";
-        document.getElementById("dtKbis").style.background="crimson";
-        document.getElementById("dtKbis").style.color="white";
-        alert=("Votre fiche KBIS est trop ancienne\nLa validité requise est de moins de trois mois");  
-        document.getElementById("outKBIS").style.color = "white";
-        document.getElementById("outKBIS").style.background = "crimson";
-        document.getElementById("outKBIS").innerHTML = txt;
-        calcDiffMonth = false;
+        if (dtValidKb + threeMonths < origin)
+        {
+            const txt = "Fiche KBIS est trop ancienne";
+            document.getElementById("dtKbis").style.background="crimson";
+            document.getElementById("dtKbis").style.color="white";
+            alert=("Votre fiche KBIS est trop ancienne\nLa validité requise est de moins de trois mois");  
+            document.getElementById("outKBIS").style.color = "white";
+            document.getElementById("outKBIS").style.background = "crimson";
+            document.getElementById("outKBIS").innerHTML = txt;
+            calcDiffMonth = false;
 
-    }
-    console.log("date kbis reçue:" + dtValidKb, "date courante:" + origin, "la date KBIS est-elle bonne ?:" + calcDiffMonth);
+        }
+    //console.log("date kbis reçue:" + dtValidKb, "date courante:" + origin, "la date KBIS est-elle bonne ?:" + calcDiffMonth);
         
     }
    
@@ -554,10 +553,6 @@ Sinon si la différence est inférieure à la valeur en ms de 18 ans :
         }
     }
 
-
-    
-
-    
     // ######### Génération des sorties #########
 
     // Bricolage en attente de mieux pour assembler les éléments du tableau dtnaiss
@@ -616,10 +611,6 @@ Sinon si la différence est inférieure à la valeur en ms de 18 ans :
                 //document.getElementById("pOutCazO").style.background='seagreen';
         }
     
-    
-    
-    
-
     //Sortie PI
     
     if (document.getElementById("cIF").selected == true)

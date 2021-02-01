@@ -18,7 +18,8 @@ function openFile(){
     alert('Attention, vous êtes seul responsable du fichier choisi pour créer un fichier CAZ');
 }
 
-function createFile(){
+function createFile()
+{
     let cazVal = document.getElementById('inputCazFile').value;
     let cazContent = cazVal.type;
     alert('fichier créé');

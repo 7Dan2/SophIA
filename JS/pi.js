@@ -18,7 +18,7 @@ function pi()
 
     let numPiValid;
     let dtPiValid;
-    console.log(ciFStatut,passPrtF,cIEu,titrSej,numPi,dtDelivrPi)
+    // console.log(ciFStatut,passPrtF,cIEu,titrSej,numPi,dtDelivrPi)
 
     //on traite la longueur du numéro de la Carte d'identité si elle est sélectionné
 //Si c'est la carte d'identit équi est sélectionnée
@@ -93,7 +93,7 @@ function pi()
                     
                 }
                 document.getElementById("dtDelivrPi").style.background="crimson";
-                    document.getElementById("dtDelivrPi").style.color="white";
+                document.getElementById("dtDelivrPi").style.color="white";
                 dtPiValid = false;
             }
         
@@ -108,9 +108,9 @@ function pi()
 
     if (numPiValid == true && dtPiValid == true)
     {
-    document.getElementById("outPi").style.background="seagreen";
-    document.getElementById("outPi").style.color="white";
-    document.getElementById("outPi").innerHTML = "Données carte identité valides";
+        document.getElementById("outPi").style.background="seagreen";
+        document.getElementById("outPi").style.color="white";
+        document.getElementById("outPi").innerHTML = "Données carte identité valides";
     }   
     else
     {
@@ -120,7 +120,7 @@ function pi()
         document.getElementById("outPi").innerHTML = txt;
     }
 
-console.log(numPiValid, dtPiValid)
+//console.log(numPiValid, dtPiValid)
 
         //fin de la fonction
 }

@@ -33,7 +33,7 @@ document.getElementById("outPi").addEventListener("copy", valueEffectCopyPi);
 document.getElementById("outDUE").addEventListener("copy", valueEffectCopyDue);
 document.getElementById("outKBIS").addEventListener("copy", valueEffectCopyKbis);
 
-//Stockage du nom
+//Stockage des valeurs recueillies
 function storeMe()
 {
     localStorage.setItem('name', nameInput.value);
