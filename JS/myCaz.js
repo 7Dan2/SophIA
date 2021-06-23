@@ -1,3 +1,8 @@
+/*
+Cette fonction doit à terme gérer uniquement les sorties
+*/
+document.getElementById('generateButton').addEventListener("click", myCaz);
+
 function myCaz()
 {
     // // ######### Récupération du nom, mise en majuscule, découpage des lettres dans un tableau afin
@@ -325,11 +330,11 @@ let passprtChk;
     if ((dtValidPi > dMaxValid) && (calcDiffYear < origin))
     { 
         alert("La validité de votre carte est dépassée: \n Dépassement du délai de validité de 15 ans");
-        document.getElementById("dtDelivr").style.background="crimson";
-        document.getElementById("dtDelivr").style.color="white";
+        document.getElementById("dtDelivrPi").style.background = "crimson";
+        document.getElementById("dtDelivrPi").style.color = "white";
         dtValidPiStatut = true;
     }
-    // Si cette validité est proche du terme dans l'anée
+    // Si cette validité est proche du terme dans l'année
     else if ((dtValidPi > dMaxValid) && (calcOneYearLeft > (origin - oneYear)) && (calcOneYearLeft < origin))
     {
         alert("Votre carte d'identité va expirer dans moins d'un an, pensez à la renouveler");
@@ -355,13 +360,15 @@ var dPp = Date.parse("March 01, 2001");
         //la valeur est déjà stockée dans 'dtValidPi'
 // Pour la validité du PP
 
-if ((piChk == false && passprtChk == true) && dtValidPi < dPp) {
+if ((piChk == false && passprtChk == true) && dtValidPi < dPp)
+{
     alert("Ce passeport n'est plus valide");
     document.getElementById("dtDelivr").style.background="crimson";
     document.getElementById("dtDelivr").style.color="white";
     dtValidPiStatut = true;
 }
-else if ((piChk == false && passprtChk == true) && dtValidPi > dPp){
+else if ((piChk == false && passprtChk == true) && dtValidPi > dPp)
+{
     document.getElementById("dtDelivr").style.background="seagreen";
     document.getElementById("dtDelivr").style.color="white";
     dtValidPiStatut = false;
@@ -595,53 +602,57 @@ Sinon si la différence est inférieure à la valeur en ms de 18 ans :
         document.getElementById("outDUE").style.color='white';
         document.getElementById("outDUE").style.background='seagreen';
 
-            //Sortie CAZ & DUE
-        document.getElementById("outCaz").innerHTML = "CAZ" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+            //Sortie DCP & DUE (changement du nom au 1er juillet 2021)
+        document.getElementById("outCaz").innerHTML = "DCP" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
         //on stocke la sortie également dans une variable pour créer un copier/coller maison
-        const cazVar = "CAZ" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf"
+        const cazVar = "DCP" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf"
         document.getElementById("outDUE").innerHTML = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
         const dueVar = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
 
-        //Sortie CAZ-O
-        document.getElementById("outCazO").innerHTML = "CAZ-O" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+        //Sortie DCP-O
+        document.getElementById("outCazO").innerHTML = "DCP-O" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
         //on stocke la sortie également dans une variable pour créer un copier/coller maison
-        const cazoVar = "CAZ-O" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+        const cazoVar = "DCP-O" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
         
                 //document.getElementById("pOutCaz").style.background='seagreen';
                 //document.getElementById("pOutCazO").style.background='seagreen';
         }
     
     //Sortie PI
+    document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
+    document.getElementById("outPi").style.background='seagreen';
+    document.getElementById("outPi").style.color='white';
+
+        
+    // if (document.getElementById("cIF").selected == true)
+    // {
+    //     if (numPi == "" || numPi.length != 12)
+    //     {
+    //         //let txt = "vous ne pouvez pas obtenir de sortie sans numéro correct de PI";
+    //         document.getElementById("outPi").style.color='white';
+    //         document.getElementById("outPi").style.background='crimson';
+    //         //document.getElementById("pOutPi").style.background='crimson';
+
+    //         //document.getElementById("outPi").innerHTML = txt;
+    //     }
     
-    if (document.getElementById("cIF").selected == true)
-    {
-        if (numPi == "" || numPi.length != 12)
-        {
-            //let txt = "vous ne pouvez pas obtenir de sortie sans numéro correct de PI";
-            document.getElementById("outPi").style.color='white';
-            document.getElementById("outPi").style.background='crimson';
-            //document.getElementById("pOutPi").style.background='crimson';
+    //     if (dtValidPiStatut == false && numPi != "" && numPi.length == 12)
+    //     {
+    //         document.getElementById("outPi").style.color='white';
+    //         document.getElementById("outPi").style.background='seagreen';
+    //         //document.getElementById("pOutPi").style.background='seagreen';
 
-            //document.getElementById("outPi").innerHTML = txt;
-        }
-    
-        if (dtValidPiStatut == false && numPi != "" && numPi.length == 12)
-        {
-            document.getElementById("outPi").style.color='white';
-            document.getElementById("outPi").style.background='seagreen';
-            //document.getElementById("pOutPi").style.background='seagreen';
+    //         document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
+    //     }
 
-            document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
-        }
-
-        if (dtValidPiStatut == true)
-        {
-            let text = 'Vous ne pourrez pas accéder si votre carte d\'identité est périméee';
-            document.getElementById("outPi").style.color='crimson';
-            document.getElementById("outPi").style.background='white';
-            document.getElementById("outPi").innerHTML = text;
-        }
-    }  
+    //     if (dtValidPiStatut == true)
+    //     {
+    //         let text = 'Vous ne pourrez pas accéder si votre carte d\'identité est périméee';
+    //         document.getElementById("outPi").style.color='crimson';
+    //         document.getElementById("outPi").style.background='white';
+    //         document.getElementById("outPi").innerHTML = text;
+    //     }
+    // }
 
     // Attention doublon possible
     //Génération de la sortie PI

@@ -8,7 +8,7 @@ let nameValueValidity;
 
 function valueEffectN()
 {
-    let nameValue = localStorage.getItem('name').toUpperCase();
+    let nameValue = localStorage.getItem('name');
     //On génére un tableau des lettres du nom
     let nameValueArray = nameValue.split("");
     // Dans lequel on vérifie si un chiffre s'y cache

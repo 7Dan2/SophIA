@@ -3,12 +3,18 @@
     color: #000060;
 }
 
-#outCpyCaz
+/* .outCpy
 {
     text-align: center;
-}
+    color: "#00FF7F";
+} */
 
-#extendedCorporationInformation
+/* #extendedCorporationInformation
+{
+    display: none;
+} */
+
+#form-group-kbis
 {
     display: none;
 }

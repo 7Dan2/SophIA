@@ -30,14 +30,14 @@
 
     
 </head>
-    <body onload="alertFunction()">
+    <body onload = "alertFunction()">
         <div class="container-fluid bg-light">
 
             <div class="row justify-content-around">
 
                 <div class="col-10 mt-4 bg-light rounded text-right">
                     
-                    <h1 id="mainTitle">SophI.A <small>v1.21.1</small>
+                    <h1 id="mainTitle">SophI.A <small>v1.21.2</small>
                         <!--<img src="./Images/Sophia8lg.png" id="logo_sophia" alt="logo_sophI.A"/>-->
                         <!--<p><i class="fas fa-assistive-listening-systems m-1"></i></p>-->
                     </h1>
@@ -117,10 +117,11 @@
                             </div>
 
                             <select class="custom-select" id="originPi">
-                                <option value="1" id="cIF">Carte identité française</option>
-                                <option value="2" id="passPrtF">Passeport français</option>
-                                <option value="3" id="cIEu" disabled>Carte identité Européenne</option>
-                                <option value="4" id="titrSej" disabled>Titre de séjour</option>
+                                <option value="" > -- Choisissez un type de justificatif --</option>
+                                <option value="cIF" id="cIF">Carte identité française</option>
+                                <option value="passPrtF" id="passPrtF">Passeport français</option>
+                                <!-- <option value="3" id="cIEu" disabled>Carte identité Européenne</option>
+                                <option value="4" id="titrSej" disabled>Titre de séjour</option> -->
                             </select>
 
                         </div>
@@ -163,17 +164,17 @@
                                 </span>
                             </div>
 
-                                <input type="date" id="dtDelivrPi" class="form-control" min="1990-01-01" max="2020-01-01" aria-label="date de délivrance de la pièce d'identité" aria-describedby="delivering date of identity card" required>
+                                <input type="date" id="dtDelivrPi" class="form-control" min="2004-01-01" max="2020-06-01" aria-label="date de délivrance de la pièce d'identité" aria-describedby="delivering date of identity card" required>
                             
                         </div>
 
                         <hr/>
 
-                        <div class="d-flex justify-content-center">
+                        <!-- <div class="d-flex justify-content-center">
     
                             <button id="showCorporationInformation" class="btn btn-warning font-weight-bold p-2">Ajouter informations entreprise</button>
 
-                        </div>
+                        </div> -->
 
                         <hr/>
 
@@ -231,7 +232,7 @@
                 </div> 
                  
                 <div class="col-lg-1 col-md-10 col-sm-10 col-xs-10 mt-3 mb-3 d-flex justify-content-center align-self-center">
-                    <button id="generateButton" class="btn btn-success p-2"  type="submit" aria-label="lancer la génération" onclick="myCaz()">Générer</button>
+                    <button id="generateButton" class="btn btn-success p-2"  type="submit" aria-label="lancer la génération">Générer</button>
                     
                 </div>
                 
@@ -240,7 +241,7 @@
 
                     <div class="form-group">
 
-                        <label for="outCaz" class="text-light">Nom de fichier CAZ</label>
+                        <label for="outCaz" class="text-light">Nom de fichier DCP</label>
                         <p id="outCaz" class="text-white text-center border border-light rounded">En attente de données</p>
                         <p id="outCpyCaz"></p>
                         <!--<button onclick="myFunction()">Copy text</button>-->
@@ -266,7 +267,7 @@
                     
                     <div class="form-group">
 
-                        <label for="outCazO" class="text-light">Nom de fichier CAZ-O</label>
+                        <label for="outCazO" class="text-light">Nom de fichier DCP-O</label>
                         <p id="outCazO" class="text-white text-center border border-light rounded">En attente de données</p>
                         <p id="outCpyCazO"></p>
                         <!--<p class=" text-center border border-light rounded" id="pOutCazO">
@@ -289,7 +290,7 @@
 
                     <div class="form-group">
 
-                        <label for="outPi" class="text-light">Nom de fichier pièce d'identité</label>
+                        <label for="outPi" class="text-light">Nom de fichier PI</label>
                         <p id="outPi" class="text-white text-center border border-light rounded">En attente de données</p>
                         <p id="outCpyPi"></p>
                         <!--<p class="text-center border border-light rounded" id="pOutPi">
@@ -312,7 +313,7 @@
 
                     <div class="form-group">
                     
-                        <div id="form-group-kbis" style="display:none">
+                        <div id="form-group-kbis">
 
                         <label for="outKBIS" class="text-light">Nom de fichier KBIS</label>
                         <p id="outKBIS" class="text-white text-center border border-light rounded">En attente de données</p>
@@ -351,8 +352,12 @@
                                     </div>
                                     <div class="modal-body">
                                         
-                              <h6><b>Qu'est ce que SophI.A ?</b></h6>
+                            <h6><b>Qu'est ce que SophI.A ?</b></h6>
                                 <p>SophI.A est un générateur de nommage de fichier pour les CE</p>
+
+                            <h6><b>Qu'est ce que SophI.A ... ne fait pas ? </b></h6>
+                            <p>Pour le moment SophI.A ne fait pas le travail de renommage à votre place, ni de sélection de fichiers.
+                            Vous devez jouer du copier/coller et être vigilant sur les fichiers que vous sélectionnez pour renommage.</p>
 
                               <h6><b>Comment cela fonctionne ?</b></h6>
                                 <p>Dans la partie gauche, l'utilisateur entre les informations dans les champs prévus, il est guidé par un code couleur vert, orange et rouge, ainsi que des fenêtres d'alerte. 
@@ -373,8 +378,15 @@
                                 </p>
 
                                 <h6>Bugs connus&nbsp;:</h6>
-                                <p>Bug 20200515 : le formulaire se réinitialise dès l'appui sur 'Ajouter informations entreprise'<br/>
-                                    Un message au chargement de la page, indique qu'en prévision d'utiliser ces champs, il est préférable de l'activer avant toute saisie
+                                <p>
+                                    Bug 20200515 : le formulaire se réinitialise dès l'appui sur 'Ajouter informations entreprise'<br/>
+                                    Un message au chargement de la page, indique qu'en prévision d'utiliser ces champs, il est préférable de l'activer avant toute saisie.
+                                    -> Résolu temporairement dans 1.21.2 par la suppression de la fonctionnalité
+                                </p>
+                                <p>
+                                    Bug 20210622 : la sélection de passeport avec le numéro associé ... ne produira aucune sortie
+                                    -> utilisez la sélection carte d'identité avec le numéro de passeport
+
                                 </p>
                                      </div>
                                     <div class="modal-footer">
@@ -399,7 +411,7 @@
                 <h6>
                     <a href="https://www.cnil.fr/fr/reglement-europeen-sur-la-protection-des-donnees-ce-qui-change-pour-les-professionnels">
                     Conformément à la RGPD aucune donnée personnelle n'est récupérée à des fins mercantiles pendant l'utilisation de cet utilitaire.
-                    Aucun cookie n'est installé à votre insu. Les informations que vous insérez dans le formulaire sont stockées dans le navigateur et effacées 
+                    Aucun biscuit toxique n'est installé à votre insu. Les informations que vous insérez dans le formulaire sont stockées dans le navigateur et effacées 
                     à la fermeture.
                     </a>
                     <!-- la fonction est dans dateForCaz.js-->
@@ -461,7 +473,7 @@
     <script src="./Utilities/jquery-3.5.1.min.js"></script>
 
     <!-- jQuery script to show hidden corporation input and generated Kbis output -->
-    <script>
+    <!-- <script>
         $(document).ready(function()
         {
             $("#showCorporationInformation").click(function()
@@ -470,7 +482,7 @@
                 $("#form-group-kbis").fadeToggle("3000");
             });
         });
-    </script>
+    </script> -->
 
     <noscript>Il semble que javascript soit désactivé ou ne soit pas supporté par votre navigateur</noscript>
 
