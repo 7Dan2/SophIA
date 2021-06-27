@@ -29,3 +29,23 @@
 {
     color: rgb(24, 129, 24);
 }
+
+li
+{
+    display: inline;
+    margin-right: 10px;
+}
+a
+
+{
+    border: 1px solid grey;
+    border-radius: 9px;
+    padding: 9px;
+    
+}
+
+a:hover
+{
+    background-color: #FFCC99;
+    color: white;
+}

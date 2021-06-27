@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>SophI.A</title>
+    <title>SophI.A CE's file naming helper </title>
     
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="description" content="CE file name generator">
-    <meta name="keywords" content="generator, SophI.A">
+    <meta name="description" content="Generate names for pre-recorded files">
+    <meta name="keywords" content="file naming, generator, SophI.A">
     <meta name="author" content="{GreenDev}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -50,24 +50,7 @@
 
                 <div class="col-lg-5 col-md-10 col-sm-10 col-xs-10 p-3  text-light bg-secondary rounded">
                     <form>
-                        <!--
-                            <div class="input-group mb-3">
-                            <div class="custom-control custom-radio" >
-                                <input type="radio" id="demInit" class="custom-control-input" name="customRadio" aria-label="Carte d'identité" aria-checked="false"/>
-                                    <label class="custom-control-label" for="cartid" >Demande initiale</label>
-                            </div>
-                                                    
-                                &nbsp;
-                                                    
-                            <div class="custom-control custom-radio">
-                                <input type="radio" id="demRenou" class="custom-control-input" name="customRadio" aria-labelledby="passeport"/>
-                                    <label class="custom-control-label" for="passprt" aria-checked="false">Renouvellement</label>
-                            </div>
-                        </div>
-                        -->   
-
-                        
-
+                         
                         <h2><i class="far fa-id-card"></i>&nbsp;Etat civil</h2>
                         
                         <div class="input-group mb-3">
@@ -351,16 +334,21 @@
                                             </button>
                                     </div>
                                     <div class="modal-body">
-                                        
+
+                            <h6><b>Pourquoi SophI.A ?</b></h6>
+                                <p>Sophia est née un jour de février 2019, pour aider au nommage des fichiers de contrôle élémentaire, qui cause bien des tracas et de perte de temps</p>
+                            
                             <h6><b>Qu'est ce que SophI.A ?</b></h6>
                                 <p>SophI.A est un générateur de nommage de fichier pour les CE</p>
 
-                            <h6><b>Qu'est ce que SophI.A ... ne fait pas ? </b></h6>
-                            <p>Pour le moment SophI.A ne fait pas le travail de renommage à votre place, ni de sélection de fichiers.
-                            Vous devez jouer du copier/coller et être vigilant sur les fichiers que vous sélectionnez pour renommage.</p>
+                            <h6><b>Qu'est ce que SophI.A ... ne fait pas ?</b></h6>
+                                <p>Pour le moment SophI.A ne fait pas le travail de création / renommage / sélection de fichiers à vôtre place.
+                                <p>Les 5 fichiers doivent être existants au préalable au format .pdf</p>
+                                <p>Vous devez jouer du copier/coller et être vigilant sur les fichiers que vous sélectionnez pour renommage.</p>
 
                               <h6><b>Comment cela fonctionne ?</b></h6>
-                                <p>Dans la partie gauche, l'utilisateur entre les informations dans les champs prévus, il est guidé par un code couleur vert, orange et rouge, ainsi que des fenêtres d'alerte. 
+                                <p>Dans la partie gauche, l'utilisateur entre les informations dans les champs prévus, il est guidé dans sa progression 
+                                par un code couleur vert, orange et rouge, ainsi que des fenêtres d'alerte. 
                                 </p>
                                 <p>Chaque champ de saisie comporte une ou plusieurs vérification&nbsp;:<ul>
                                     <li>Si la valeur atendue est correcte, le fond du champ devient vert</li>
@@ -381,7 +369,8 @@
                                 <p>
                                     Bug 20200515 : le formulaire se réinitialise dès l'appui sur 'Ajouter informations entreprise'<br/>
                                     Un message au chargement de la page, indique qu'en prévision d'utiliser ces champs, il est préférable de l'activer avant toute saisie.
-                                    -> Résolu temporairement dans 1.21.2 par la suppression de la fonctionnalité
+                                    -> Résolu temporairement dans 1.21.2 par la suppression de la fonctionnalité, le champs "Informations entreprise" est accessible dès l'arrivée sur l'application.
+                                    La sortie KBIS ne s'affichera que si des données sont saisies dans le champ du nom de l'entreprise.
                                 </p>
                                 <p>
                                     Bug 20210622 : la sélection de passeport avec le numéro associé ... ne produira aucune sortie
@@ -398,44 +387,130 @@
                           
                     </div>
 
+                     <!-- Modal RGPD-->
+                        <div class="modal fade" id="rgpd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="exampleModalLabel">A propos de cette application et de la RGPD</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fermer cette fenêtre">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            Cette application web est tout ce qu'il y a de plus simple car codée en HTML5, CSS3 et JS.
+                                            Elle n'utilise pas ces vilains gâteaux empoisonnés pour vous soutirer des données personnelles, en vous faisant croire que c'est pour votre bien ou votre liberté.
+                                            
+                                        </p>
+                                        <p>
+                                            Les données que vous indiquez dans le formulaire, sont stockées uniquement dans votre navigateur et sont effacées soit :
+                                            <ul>
+                                                <li>Dès que vous rechargez la page</li>
+                                                <li>Utilisez le bouton "effacer"</li>
+                                                <li>Fermer l'onglet ou votre navigateur</li>
+                                            <ul>
+                                        </p>
+                            
+                                        <p>
+                                            Vos données m'importent moins que de vous faciliter la vie en continuant de développer cette application web, en partie grâce à vos retours d'expériences.
+                                        </p>
+
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          
+                    </div>
+
+
+                    <!-- Modal Contact -->
+                    <div id="contact" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Pour me contacter</h5>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                            <i class="fas fa-times" aria-hidden="true"></i>
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <form action="https://formspree.io/f/myylpkal" method="POST" class="form">
+                            <div class="field">
+                                <input type="text" name="societe" class="contact_modal_input" placeholder="Société">
+                            </div>
+                            <div class="field">
+                                <input type="text" name="nom" class="contact_modal_input" placeholder="Nom" required>
+                            </div>
+                            <div class="field">
+                                <input type="text" name="prenom" class="contact_modal_input" placeholder="Prénom" required>
+                            </div>
+                            
+                            <div class="field">
+                                <input type="email" name="mail" class="contact_modal_input" placeholder="Email" required>
+                            </div>
+                            <div class="field">
+                                <textarea class=" contact_modal_input" rows="4" cols="50" name="message" placeholder="Votre message"></textarea>
+                            </div>
+
+                                <button type="submit" class="form-btn">Envoyer</button>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <ul class="social">
+                                <li>
+                                    <a href="https://www.linkedin.com/in/yanisfoucher/" target="_blank">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="https://github.com/7Dan2/" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
                 </div>
 
             </div>
                 
         </div>    
         
-        <div class="row justify-content-around no-gutters">
+        
 
-            <div class="col mt-3">
+        <div class="row justify-content-around m-0">
 
-                <h6>
-                    <a href="https://www.cnil.fr/fr/reglement-europeen-sur-la-protection-des-donnees-ce-qui-change-pour-les-professionnels">
-                    Conformément à la RGPD aucune donnée personnelle n'est récupérée à des fins mercantiles pendant l'utilisation de cet utilitaire.
-                    Aucun biscuit toxique n'est installé à votre insu. Les informations que vous insérez dans le formulaire sont stockées dans le navigateur et effacées 
-                    à la fermeture.
-                    </a>
-                    <!-- la fonction est dans dateForCaz.js-->
-                    <p id="connectStatus"></p>
-                </h6>
-               
-            </div>
-
-        </div>
-
-        <div class="row bg-light">
-
-            <div class="col bg-light rounded">
+            <div class="col-lg-5 col-md-10 col-sm-10 col-xs-10 p-3 text-light rounded">
                 
-                <p>
-                    <a href="https://www.linkedin.com/in/yanisfoucher/" target="_blank" ><i class="fab fa-linkedin"></i></a>
+                <ul class="nav justify-content-center">
+                    
+                    <li><a href="#" data-toggle="modal" data-target="#rgpd">A propos de cette application et la RGPD</a></li>
+
+                    <li><a href="#" data-toggle="modal" data-target="#contact">Contact</a></li>
                 
-                    <a href="https://github.com/7Dan2/SophIA" target="_blank"><i class="fab fa-github"></i></a>
-
-                    <a id="copyright"><i class="far fa-copyright">{GreenDev}&nbsp;2021</i></a>
-
-                </p>
+                </ul>
+                
                         
             </div>
+
+            <div class="col-lg-1 col-md-10 col-sm-10 col-xs-10 p-3 d-flex justify-content-center align-self-center rounded">
+            <p id="copyright"><i class="far fa-copyright">{GreenDev}&nbsp;2021</i></p>
+            </div>
+
+            <div class="col-lg-5 p-3"></div>
 
         </div>
 
