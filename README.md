@@ -20,7 +20,8 @@ Bugs connus :
     -> Résolu par 1.17.3
 
 - Version 1.20.0 : Effacement de toutes les valeurs du formulaires lors de l'action sur "ajouter informations entreprises"
+    -> Résolu par 1.21.2
 
 
-Dernière version : 1.21 du 03 octobre 2020.
+Dernière version : 1.21.3 du 27 juin 2021.
 
