@@ -44,5 +44,12 @@ Version 1.20.0 15-05-2020
 
 Version 1.21.0 03-10-2020
 	Utilisation du local storage => rationalisation des requetes sur les valeurs entrées => moins de variables
+	
+Version 1.21.2 du 23-06-2021
+	Suppression de la partie cachée des informations entreprises, ne reste que le chmaps de sortie KBIS qui demeure caché tant que 
+	l'utilisateur ne rentre pas d'informations dans "nom d'entreprise".
+	
+Version 1.21.3 du 27-06-2021
+	Travail sur le pied de page, création de fenêtres modales.
 
 
