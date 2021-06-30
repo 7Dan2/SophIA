@@ -291,3 +291,28 @@ function showOutPut()
         document.getElementById("form-group-kbis").style.display = 'block';
     }
 }
+
+// Sélection et copie dans le presse-papier du contenu p
+
+//solution Damien
+
+const getOutputs = document.querySelectorAll('.all_Pouts');
+getOutputsLength = getOutputs.length;
+
+for ( i = 0; i < getOutputsLength; i ++ )
+	{
+     	getOutputs[i].addEventListener('dblclick', (ev) => {
+         // On récupère la sélection actuelle
+   	const selection = window.getSelection();
+         // On créé un objet range qui définit où commence et où s'arrête la sélection
+    	const range = document.createRange();
+         // On passe la div du paragraphe à notre objet range pour y définir le début et la fin du texte
+    	range.selectNodeContents((ev.currentTarget));
+         // On enlève la sélection actuelle (qui est incomplète car pas sur l'entièreté de la div)
+    	selection.removeAllRanges();
+         // On force la sélection sur l'entièreté de la div en passant notre objet range
+    	selection.addRange(range);
+         // On exécute un copier
+    	document.execCommand('copy', true);
+	})
+	}
