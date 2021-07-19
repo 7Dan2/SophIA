@@ -52,4 +52,11 @@ Version 1.21.2 du 23-06-2021
 Version 1.21.3 du 27-06-2021
 	Travail sur le pied de page, création de fenêtres modales.
 
+Version 1.22.0
+	Fonctionnalité de sélection/copie en presse-papier sur un champ de sortie 
+	Modification du nommage CAZ en DCP
+
+Version 1.22.1 du 17-06-2021
+	Modification du nommage DCP en CPR 
+
 

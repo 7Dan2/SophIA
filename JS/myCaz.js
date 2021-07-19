@@ -602,17 +602,17 @@ Sinon si la différence est inférieure à la valeur en ms de 18 ans :
         document.getElementById("outDUE").style.color='white';
         document.getElementById("outDUE").style.background='seagreen';
 
-            //Sortie DCP & DUE (changement du nom au 1er juillet 2021)
-        document.getElementById("outCaz").innerHTML = "DCP" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+            //Sortie CPR & DUE (changement du nom au 1er juillet 2021)
+        document.getElementById("outCaz").innerHTML = "CPR" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
         //on stocke la sortie également dans une variable pour créer un copier/coller maison
         const cazVar = "DCP" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf"
         document.getElementById("outDUE").innerHTML = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
         const dueVar = "DUE" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
 
-        //Sortie DCP-O
-        document.getElementById("outCazO").innerHTML = "DCP-O" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+        //Sortie CPR-O
+        document.getElementById("outCazO").innerHTML = "CPR-O" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
         //on stocke la sortie également dans une variable pour créer un copier/coller maison
-        const cazoVar = "DCP-O" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
+        const cazoVar = "CPR-O" + "_" + nameValue + "_" + surnameFirstLetter + surnameSecondLetter + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + ".pdf";
         
                 //document.getElementById("pOutCaz").style.background='seagreen';
                 //document.getElementById("pOutCazO").style.background='seagreen';

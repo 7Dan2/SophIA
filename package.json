@@ -1,7 +1,7 @@
 {
   "name": "sophia",
-  "version": "1.21.1",
-  "description": "SophI.A est un petit générateur de nom de fichiers au format spécifique.",
+  "version": "1.22.1",
+  "description": "SophI.A est un générateur de nom de fichiers au format spécifique.",
   "main": "myCaz.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
