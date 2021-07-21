@@ -1,6 +1,6 @@
 #generateButton
 {
-    color: #000060;
+    color: #0000ad;
 }
 
 /* .outCpy
@@ -21,7 +21,8 @@
 
 #mainTitle
 {
-    color: rgb(224, 152, 17);
+    color: hsl(30, 100%, 50%);
+    /* color: rgb(224, 152, 17); */
     font-family: 'Indie Flower', cursive;
 }
 
@@ -35,8 +36,8 @@ li
     display: inline;
     margin-right: 10px;
 }
-a
 
+a
 {
     border: 1px solid grey;
     border-radius: 9px;
@@ -46,6 +47,6 @@ a
 
 a:hover
 {
-    background-color: #FFCC99;
+    background-color: hsl(30, 82%, 58%);
     color: white;
 }
