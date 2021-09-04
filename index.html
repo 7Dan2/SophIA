@@ -61,7 +61,7 @@
                                 </span>
                             </div>
 
-                            <input type="text" id="name" class="form-control" aria-label="nom" aria-describedby="nom" placeholder="noms composés à séparer par -" required autofocus>
+                            <input type="text" id="name" class="form-control" placeholder="noms composés à séparer par -" required autofocus>
                         
                         </div>
 
@@ -73,7 +73,7 @@
                                 </span>
                             </div>
 
-                            <input type="text" id="surname" class="form-control" aria-label="prénom" aria-describedby="prénom" placeholder="prénoms composés à séparer par -" required>
+                            <input type="text" id="surname" class="form-control" placeholder="prénoms composés à séparer par -" required>
                         
                         </div>
 
@@ -85,7 +85,7 @@
                                 </span>
                             </div>
 
-                            <input type="date" id="dtNaiss" min="1950-01-01" max="2010-01-01" class="form-control" aria-label="date de naissance" aria-describedby="date de naissance" required>
+                            <input type="date" id="dtNaiss" min="1950-01-01" max="2010-01-01" class="form-control" required>
                             
                         </div>
 
@@ -117,18 +117,18 @@
                                 </span>
                             </div>
 
-                                <input type="text" id="numPi" class="form-control" aria-label="Numéro de la pièce d'identité" aria-describedby="">
+                                <input type="text" id="numPi" class="form-control">
                         
                         </div>
 
                         <div class="input-group mb-3">
-                            <div class="input-group-prepend" aria-label="Date de délivrance de la pièce d'identité">
+                            <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     Date délivrance
                                 </span>
                             </div>
 
-                                <input type="date" id="dtDelivrPi" class="form-control" min="2004-01-01" max="2020-06-01" aria-label="date de délivrance de la pièce d'identité" aria-describedby="delivering date of identity card" required>
+                                <input type="date" id="dtDelivrPi" class="form-control" min="2004-01-01" max="2020-06-01" required>
                             
                         </div>
 
@@ -153,7 +153,7 @@
                                   <span class="input-group-text">
                                     Nom de l'entreprise</span>
                                 </div>
-                                    <input type="text" id="nomEntr" class="form-control" aria-label="Nom de l'entreprise" aria-describedby="">
+                                    <input type="text" id="nomEntr" class="form-control">
                             </div>
     
                             <div class="input-group mb-3" id="divHid1">
@@ -161,26 +161,26 @@
                                 <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="siren" class="custom-control-input" name="customRadioSir" aria-label="choix siréne" aria-selected="false"/>
+                                        <input type="radio" id="siren" class="custom-control-input" name="customRadioSir"/>
                                         <label class="custom-control-label" for="siren">SIREN</label>
                                     </div>
                                     &nbsp;
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="siret" class="custom-control-input" name="customRadioSir" aria-label="choix siréte"/>
+                                        <input type="radio" id="siret" class="custom-control-input" name="customRadioSir"/>
                                         <label class="custom-control-label" for="siret">SIRET</label>
                                     </div>
                                 </span>
                                 </div>
                               
-                                <input type="number" id="numSir" class="form-control" min="9" max="14" aria-label="numéro d'identification au répertoire" aria-describedby="registration society number" placeholder="numéro à 9 ou 14 chiffres">
+                                <input type="number" id="numSir" class="form-control" min="9" max="14" placeholder="numéro à 9 ou 14 chiffres">
                             
                           </div>
-    <!-- caché par défaut si nom de l'entreprise n'est pas rempli (à développer)-->
-                          <div class="input-group mb-3" id="divHid2"><!--style="display:none"-->
+    
+                          <div class="input-group mb-3" id="divHid2">
                               <div class="input-group-prepend">
                                   <span class="input-group-text">Date édition KBIS</span>
                               </div>
-                                  <input type="date" id="dtKbis" class="form-control" aria-label="date édition extrait KBIS" aria-describedby="date of registration">
+                                  <input type="date" id="dtKbis" class="form-control">
                                 
                           </div>
 
@@ -188,7 +188,7 @@
 
                         <div class="d-flex justify-content-center emptyForm">
 
-                            <button class="btn btn-danger btn-sm mb-1 font-weight-bold" type="reset" onclick="emptyAllFields()" aria-label="Effacer les données saisies" aria-describedby="Erasing input data">Effacer les données saisies</button>
+                            <button class="btn btn-danger btn-sm mb-1 font-weight-bold" type="reset" onclick="emptyAllFields()">Effacer les données saisies</button>
                         
                         </div>
 
@@ -197,7 +197,7 @@
                 </div> 
                  
                 <div class="col-lg-1 col-md-10 col-sm-10 col-xs-10 mt-3 mb-3 d-flex justify-content-center align-self-center">
-                    <button id="generateButton" class="btn btn-success p-2"  type="submit" aria-label="lancer la génération">Générer</button>
+                    <button id="generateButton" class="btn btn-success p-2" type="submit">Générer</button>
                     
                 </div>
                 
