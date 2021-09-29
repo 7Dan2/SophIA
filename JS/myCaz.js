@@ -58,7 +58,19 @@ function myCaz()
     
     //On génére un tableau des lettres du prénom
     let surnameLettersArray = surnameValue.split("");
-    // Dans lequel on vérifie si un chiffre s'y cache
+    
+    //Vérification de la présence de deux tirets
+    const firstindex = surnameLettersArray.indexOf("-"); //Renvoie -1 si pas de tiret
+    const lastindex = surnameLettersArray.lastIndexOf("-"); //Renvoie -1 si pas de tiret
+    
+    if (firstindex != lastindex)
+    {
+        document.getElementById("surname").style.background = "#ffbf80";
+        document.getElementById("surname").style.color = "white";
+        alert("Attention :\nDeux tirets détectés \nVous ne devez indiquer qu'un seul prénom si prénom simple \nOu le seul prénom composé");
+    }
+    
+    // Vérification de la présence d'un chiffre
     let someNumbersInSurnameLetters = surnameLettersArray.some(searchSomeNumbersInSurnameLetters);
     //A l'aide d'une fonction cherchant une valeur supérieure à 0, ce qu'une lettre ne peut pas faire
     function searchSomeNumbersInSurnameLetters(value)
