@@ -57,6 +57,9 @@ Version 1.22.0
 	Modification du nommage CAZ en DCP
 
 Version 1.22.1 du 17-06-2021
-	Modification du nommage DCP en CPR 
+	Modification du nommage DCP en CPR
+
+Version 1.22.2 du 29-09-2021
+	Ajout de la vérification de la présence de tirets en double dans le champ de prénom
 
 
