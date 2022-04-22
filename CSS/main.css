@@ -23,30 +23,34 @@
 {
     color: hsl(30, 100%, 50%);
     /* color: rgb(224, 152, 17); */
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Indie Flower', cursive
 }
 
 #copyright
 {
-    color: rgb(24, 129, 24);
+    color: rgb(24, 129, 24)
 }
 
 li
 {
     display: inline;
-    margin-right: 10px;
+    margin-right: 10px
 }
 
 a
 {
     border: 1px solid grey;
     border-radius: 9px;
-    padding: 9px;
-    
+    padding: 9px
 }
 
 a:hover
 {
     background-color: hsl(30, 82%, 58%);
-    color: white;
+    color: white
+}
+
+p.all_Pouts
+{
+    font-size: 1.2rem;
 }
