@@ -62,4 +62,5 @@ Version 1.22.1 du 17-06-2021
 Version 1.22.2 du 29-09-2021
 	Ajout de la vérification de la présence de tirets en double dans le champ de prénom
 
-
+Version 1.22.3 du 22-04-2022
+	Augmentation de la taille de police dans les champs de sortie
