@@ -8,8 +8,8 @@ const piDeliveryDateInput = document.querySelector('#dtDelivrPi');
 const kbisSocietyNameInput = document.querySelector('#nomEntr');
 
 //Stockage dans localStorage des valeurs saisies dans le formulaire
-nameInput.addEventListener("change", storeMe);
-surnameInput.addEventListener("change", storeMe);
+nameInput.addEventListener("input", storeMe);
+surnameInput.addEventListener("input", storeMe);
 birhtdateInput.addEventListener("focusout", storeMe);
 piNumberInput.addEventListener("change", storeMe);
 piDeliveryDateInput.addEventListener("focusout", storeMe);
@@ -18,8 +18,6 @@ kbisSocietyNameInput.addEventListener("change", storeMe);
 kbisSocietyNameInput.addEventListener("change", showOutPut);
 
 //Déclaration des actions sur événements
-//document.getElementById("name").addEventListener("focusout", valueEffectN);
-document.getElementById("surname").addEventListener("focusout", valueEffectS);
 document.getElementById("dtNaiss").addEventListener("focusout", valueEffectdTN);
 
 //On s'occupe de la sélection de la pièce d'identité
@@ -59,50 +57,6 @@ function storeMe()
     localStorage.setItem('kbisSocietyName', kbisSocietyNameInput.value);
 }
 
-
-
-//Traitement du nom
-// function valueEffectN()
-//     {
-//         let nameValue = localStorage.getItem('name');
-        
-//         const txt = "Votre nom est requis"; 
-        
-//         if (nameValue == "")
-//         {
-//             document.getElementById("name").style.background="#ffbf80";
-//             document.getElementById("name").style.color="red";
-//             // document.getElementById("name").value = txt;
-//         }
-//         else (nameValue != "")
-//         {
-//             document.getElementById("name").style.background="#ff00ff";
-//             document.getElementById("name").style.color="white";
-//         }
-//     }
-
-    
-//Traitement du prénom
-function valueEffectS()
-{
-    
-    let surnameValue = localStorage.getItem('surname');
-
-    const txt = "Votre prénom est requis"; 
-
-    if (surnameValue == "")
-    {
-        document.getElementById("surname").style.background="#ffbf80";
-        document.getElementById("surname").style.color="red";
-        // document.getElementById("surname").value = txt;
-    
-    }
-    else if(surnameValue != "")
-    {
-        document.getElementById("surname").style.background="seagreen";
-        document.getElementById("surname").style.color="white";
-    }
-}
 
 function valueEffectdTN()
 {
