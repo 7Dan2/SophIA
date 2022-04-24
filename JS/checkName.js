@@ -1,12 +1,17 @@
 // ######### Récupération du nom, mise en majuscule, découpage des lettres dans un tableau afin
     // de vérifier la présence de chiffre(s) #########
 
-document.getElementById("name").addEventListener("change", valueEffectN);
+document.getElementById("name").addEventListener("change", valueEffectName);
     //On declare une variable pour stocker un booleen dont 
 //l'utilté est de bloquer les noms de fichiers générés
 let nameValueValidity;
 
-function valueEffectN()
+// ######### Récupération du prénom #########
+document.getElementById("surname").addEventListener("change", valueEffectSurname);
+
+// ######### Fonctions #########
+
+function valueEffectName()
 {
     let nameValue = localStorage.getItem('name');
     //On génére un tableau des lettres du nom
@@ -41,5 +46,29 @@ function valueEffectN()
         document.getElementById("name").style.background="seagreen";
         document.getElementById("name").style.color="white";
     }
+}
 
+//Traitement basique du prénom
+function valueEffectSurname()
+{
+    let surnameValue = localStorage.getItem('surname');
+
+    const txt = "Votre prénom est requis"; 
+
+    if (surnameValue == "")
+    {
+        document.getElementById("surname").style.background="#ffbf80";
+        document.getElementById("surname").style.color="red";    
+    }
+    if (surnameValue.length < 2)
+    {
+        document.getElementById("surname").style.background="#ffbf80";
+        document.getElementById("surname").style.color="red";
+    }
+
+    if (surnameValue.length >= 2)
+    {
+        document.getElementById("surname").style.background="seagreen";
+        document.getElementById("surname").style.color="white";
+    }
 }
