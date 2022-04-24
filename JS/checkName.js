@@ -1,7 +1,7 @@
 // ######### Récupération du nom, mise en majuscule, découpage des lettres dans un tableau afin
     // de vérifier la présence de chiffre(s) #########
 
-document.getElementById("name").addEventListener("focusout", valueEffectN);
+document.getElementById("name").addEventListener("change", valueEffectN);
     //On declare une variable pour stocker un booleen dont 
 //l'utilté est de bloquer les noms de fichiers générés
 let nameValueValidity;
@@ -28,14 +28,15 @@ function valueEffectN()
         nameValueValidity = false;
         localStorage.setItem('nameValueValidity', nameValueValidity)
     }
-
-    if (nameValue == "")
+    
+    if (nameValue.length < 2)
     {
         document.getElementById("name").style.background="#ffbf80";
         document.getElementById("name").style.color="red";
         // document.getElementById("name").value = txt;
     }
-    else
+
+    if (someNumbersInNameLetters == false && nameValue.length >= 2) 
     {
         document.getElementById("name").style.background="seagreen";
         document.getElementById("name").style.color="white";
