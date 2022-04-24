@@ -49,3 +49,8 @@ p.all_Pouts
 {
     font-size: 1.2rem;
 }
+
+#mainTitle:hover::after
+  {
+      content: "Bonne semaine Julie";
+  }
