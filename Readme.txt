@@ -66,3 +66,8 @@ Version 1.22.3 du 22-04-2022
 	Augmentation de la taille de police dans les champs de sortie
 	Modification du texte du boutton "Générer" en blanc
 	Augmentation de la taille du bouton
+	
+Version 1.22.4 du 24-04-2022
+	Modification de la logique de traitement des nom et prénom:
+		Couleur du fond orange, police rouge en cas d'entrée inférieure à 2 caractères
+	Regroupement de la logique de base de traitement du prénom dans le même fichier que pour le traitement du nom
