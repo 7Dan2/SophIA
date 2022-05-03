@@ -1,37 +1,4 @@
-/* .outCpy
-{
-    text-align: center;
-    color: "#00FF7F";
-} */
-
-/* #extendedCorporationInformation
-{
-    display: none;
-} */
-
-#form-group-kbis
-{
-    display: none;
-}
-
-#mainTitle
-{
-    color: hsl(30, 100%, 50%);
-    /* color: rgb(224, 152, 17); */
-    font-family: 'Indie Flower', cursive
-}
-
-#copyright
-{
-    color: rgb(24, 129, 24)
-}
-
-li
-{
-    display: inline;
-    margin-right: 10px
-}
-
+/* -- A -- */
 a
 {
     border: 1px solid grey;
@@ -45,7 +12,88 @@ a:hover
     color: white
 }
 
+/* -- B -- */
+
+/* -- C -- */
+#copyright
+{
+    color: rgb(24, 129, 24)
+}
+
+/* -- D -- */
+
+/* -- E -- */
+/* #extendedCorporationInformation
+{
+    display: none;
+} */
+
+/* -- F -- */
+#form-group-kbis
+{
+    display: none;
+}
+
+/* -- G -- */
+
+/* -- H -- */
+
+/* -- I -- */
+.input-group-text
+{
+    min-width: 160px;
+}
+
+/* -- J -- */
+
+/* -- K-- */
+
+/* -- L -- */
+li
+{
+    display: inline;
+    margin-right: 10px
+}
+
+/* -- M -- */
+#mainTitle
+{
+    color: hsl(30, 100%, 50%);
+    /* color: rgb(224, 152, 17); */
+    font-family: 'Indie Flower', cursive
+}
+
+/* -- N -- */
+
+/* -- O -- */
+/* .outCpy
+{
+    text-align: center;
+    color: "#00FF7F";
+} */
+
+/* -- P -- */
 p.all_Pouts
 {
     font-size: 1.2rem;
 }
+
+/* -- Q -- */
+
+/* -- R -- */
+
+/* -- S -- */
+
+/* -- T -- */
+
+/* -- U -- */
+
+/* -- V -- */
+
+/* -- W -- */
+
+/* -- X -- */
+
+/* -- Y -- */
+
+/* -- Z -- */
