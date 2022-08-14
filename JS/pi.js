@@ -123,10 +123,6 @@ function pi()
 
 //console.log(numPiValid, dtPiValid)
     
-if (ciFNewStatus == true)
-    {
-        alert("Carte d'identité numérique: \n-SophI.A ne prend pas encore en charge ce nouveau format\nUtilisez l'option de carte d'identité française"
-    }
         //fin de la fonction
 }
 //document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
