@@ -27,7 +27,8 @@ function valueEffectName()
     //l'utilisateur et l'on bloque la sortie si un chiffre est présent dans le nom
     if (someNumbersInNameLetters == true) 
     {
-        alert ('Attention :\nLes chiffres ne sont pas admis dans le nom');
+        alert ("Attention:\nVeuillez ne saisir qu'un seul nom de famille.\nSi c'est un nom composé, utilisez le séparateur - ");
+               
         document.getElementById("name").style.background="#ffbf80";
         document.getElementById("name").style.color="red";
         nameValueValidity = false;
