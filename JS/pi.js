@@ -7,7 +7,8 @@ alors on va verifier que le numéro est compatible et la validité de la date de
 function pi()
 {
     //On recueille le choix de la PI
-    let ciFStatut =  document.getElementById("cIF").selected;
+    let ciFStatus =  document.getElementById("cIF").selected;
+    let ciFNewStatus = document.getElementById("ciFNew").selected;
     let passPrtF = document.getElementById("passPrtF").selected;
     let cIEu = document.getElementById("cIEu").selected;
     let titrSej = document.getElementById("titrSej").selected;
@@ -22,7 +23,7 @@ function pi()
 
     //on traite la longueur du numéro de la Carte d'identité si elle est sélectionné
 //Si c'est la carte d'identit équi est sélectionnée
-    if (ciFStatut == true)
+    if (ciFStatus == true)
 // La carte d'identité est constituée de 12 caractères, on va vérifier 
     { 
         if (numPi.length < 12 || numPi.length > 12) 
@@ -121,7 +122,11 @@ function pi()
     }
 
 //console.log(numPiValid, dtPiValid)
-
+    
+if (ciFNewStatus == true)
+    {
+        alert("Carte d'identité numérique: \n-SophI.A ne prend pas encore en charge ce nouveau format\nUtilisez l'option de carte d'identité française"
+    }
         //fin de la fonction
 }
 //document.getElementById("outPi").innerHTML = "PI" + "_" + nameValue + "_" + surnameFirstLetter + abc + "_" + dtNaissArray[0] + dtNaissArray[1] + dtNaissArray[2] + "_" + numPi + ".pdf";
