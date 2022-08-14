@@ -14,11 +14,14 @@ document.getElementById("surname").addEventListener("change", valueEffectSurname
 function valueEffectName()
 {
     let nameValue = localStorage.getItem('name');
-    //On génére un tableau des lettres du nom
+    
+    // On génére un tableau des lettres du nom
     let nameValueArray = nameValue.split("");
+    
     // Dans lequel on vérifie si un chiffre s'y cache
     let someNumbersInNameLetters = nameValueArray.some(searchSomeNumbersInNameLetters);
-    //A l'aide d'une fonction cherchant une valeur supérieure à 0, ce qu'une lettre ne peut pas faire
+    
+    // A l'aide d'une fonction cherchant une valeur supérieure à 0, ce qu'une lettre ne peut pas faire
     function searchSomeNumbersInNameLetters(value)
     {
         return value >= 0;
@@ -27,7 +30,7 @@ function valueEffectName()
     //l'utilisateur et l'on bloque la sortie si un chiffre est présent dans le nom
     if (someNumbersInNameLetters == true) 
     {
-        alert ("Attention:\nVeuillez ne saisir qu'un seul nom de famille.\nSi c'est un nom composé, utilisez le séparateur - ");
+        alert ("Attention:\n-Saisie du nom de famille.\n-Si c'est un nom composé, utilisez le séparateur - \n-Pas d'espaces");
                
         document.getElementById("name").style.background="#ffbf80";
         document.getElementById("name").style.color="red";
@@ -49,25 +52,38 @@ function valueEffectName()
     }
 }
 
-//Traitement basique du prénom
+//Traitement du prénom
 function valueEffectSurname()
 {
     let surnameValue = localStorage.getItem('surname');
+    
+    // Entrée des caractères dans un tableau
+    let surnameValueArray = surnameValue.split("");
+    
+    // On vérifie si un chiffre ou un espace s'y cache
+    let someNumbersInNameLetters = surnameValueArray.some(searchSomeNumbersInNameLetters);
+    
+    // A l'aide d'une fonction cherchant une valeur supérieure à 0, ce qu'une lettre ne peut pas faire
+    function searchSomeNumbersInNameLetters(value)
+    {
+        return value >= 0;
+    }
 
-    const txt = "Votre prénom est requis"; 
+    //const txt = "Votre prénom est requis"; 
 
-    if (surnameValue == "")
+    if (someNumbersInNameLetters == true)
     {
         document.getElementById("surname").style.background="#ffbf80";
-        document.getElementById("surname").style.color="red";    
+        document.getElementById("surname").style.color="red";
+        alert("Rappel: \n-Vous devez indiquer uniquement le premier prénom\n-Si c'est un prénom composé, utilisez le séparateur -\n-Pas d'espaces");
     }
-    if (surnameValue.length < 2)
+    if (surnameValue.length < 3)
     {
         document.getElementById("surname").style.background="#ffbf80";
         document.getElementById("surname").style.color="red";
     }
 
-    if (surnameValue.length >= 2)
+    if (someNumbersInNameLetters == false && surnameValue.length >= 3)
     {
         document.getElementById("surname").style.background="seagreen";
         document.getElementById("surname").style.color="white";
