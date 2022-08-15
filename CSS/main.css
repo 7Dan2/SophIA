@@ -35,6 +35,11 @@ a:hover
     display: none;
 }
 
+.funShadow
+{
+    box-shadow: 36px 1px 40px 3px rgb(92, 92, 92)
+}
+
 /* -- G -- */
 
 /* -- H -- */
